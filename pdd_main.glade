@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkTextBuffer" id="tbPagerMessage">
+    <property name="text" translatable="yes">ALERT F180207107 INVL2 G&amp;SC1 SMAL GRASS AND SCRUB FIRE EMMA LANE INVERLOCH SVC 6962 D7 (830232) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337</property>
+  </object>
   <object class="GtkWindow" id="mainwindow">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Pre determined Dispatch</property>
@@ -89,12 +92,17 @@
           <object class="GtkTextView" id="tvPagerMessage">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="pixels_above_lines">5</property>
+            <property name="pixels_below_lines">5</property>
+            <property name="pixels_inside_wrap">5</property>
             <property name="wrap_mode">word</property>
+            <property name="left_margin">5</property>
+            <property name="right_margin">5</property>
             <property name="buffer">tbPagerMessage</property>
           </object>
           <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
             <property name="position">1</property>
           </packing>
         </child>
@@ -143,7 +151,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkTextView" id="tvClosestAirbases">
+                  <object class="GtkTextView" id="tvClosestAirbase">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -171,8 +179,5 @@
         </child>
       </object>
     </child>
-  </object>
-  <object class="GtkTextBuffer" id="tbPagerMessage">
-    <property name="text" translatable="yes">ALERT F180207107 INVL2 G&amp;SC1 SMAL GRASS AND SCRUB FIRE EMMA LANE INVERLOCH SVC 6962 D7 (830232) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337</property>
   </object>
 </interface>
