@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
-  <object class="GtkTextBuffer" id="tbPagerMessage">
-    <property name="text" translatable="yes">ALERT F180207107 INVL2 G&amp;SC1 SMAL GRASS AND SCRUB FIRE EMMA LANE INVERLOCH SVC 6962 D7 (830232) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337</property>
-  </object>
-  <object class="GtkEntryBuffer" id="tbTimeSincePage">
-    <property name="text" translatable="yes">** TIMER **</property>
-  </object>
   <object class="GtkTextBuffer" id="tbClosestAirbase">
     <property name="text" translatable="yes">** CLOSEST AIR BASE **</property>
   </object>
   <object class="GtkTextBuffer" id="tbFlightPath">
     <property name="text" translatable="yes">** FLIGHT PATH **</property>
+  </object>
+  <object class="GtkTextBuffer" id="tbPagerMessage">
+    <property name="text" translatable="yes">ALERT F180207107 INVL2 G&amp;SC1 SMAL GRASS AND SCRUB FIRE EMMA LANE INVERLOCH SVC 6962 D7 (830232) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337</property>
+  </object>
+  <object class="GtkEntryBuffer" id="tbTimeSincePage">
+    <property name="text" translatable="yes">** TIMER **</property>
   </object>
   <object class="GtkTextBuffer" id="tbWeather">
     <property name="text" translatable="yes">** WEATHER **</property>
@@ -42,6 +42,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="btnPreviousJob" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">0</property>
