@@ -1,0 +1,86 @@
+2018-02-25 10:56:59 root         DEBUG    Alert           :ALERT
+2018-02-25 10:56:59 root         DEBUG    Fnumber         :F180209481
+2018-02-25 10:56:59 root         DEBUG    IncidentType    :G&SC1
+2018-02-25 10:56:59 root         DEBUG    AssignmentArea  :JAMI1
+2018-02-25 10:56:59 root         DEBUG    Map ref         :SVNE 6289 D6
+2018-02-25 10:56:59 root         DEBUG    Lat/Lon         :-37.2770481, 146.1319876
+2018-02-25 10:56:59 root         DEBUG    Remaining msg   :BRUSH FIRE SPREADING 42 OLD EILDON RD JAMIESON /EILDON-JAMIESON RD //THE AVENUE - (230740) DISP523 AIRMFD BOM358 CBDIS CGBAY CJAMI FBD311 HEL348
+2018-02-25 11:18:00 root         DEBUG    Alert           :ALERT
+2018-02-25 11:18:00 root         DEBUG    Fnumber         :F180209492
+2018-02-25 11:18:00 root         DEBUG    IncidentType    :G&SC1
+2018-02-25 11:18:00 root         DEBUG    AssignmentArea  :CRAN6
+2018-02-25 11:18:00 root         DEBUG    Map ref         :M 138 B1
+2018-02-25 11:18:00 root         DEBUG    Lat/Lon         :-38.1410211, 145.2938524
+2018-02-25 11:18:00 root         DEBUG    Remaining msg   :GRASS FIRE 36 CRAIG RD JUNCTION VILLAGE /SHERWOOD RD //BANKSIDE DR (504771) DISP27 AIRMMB CCRAN CDEVO FBD302 HEL338
+2018-02-25 12:55:41 root         DEBUG    Alert           :ALERT
+2018-02-25 12:55:41 root         DEBUG    Fnumber         :F180209513
+2018-02-25 12:55:41 root         DEBUG    IncidentType    :G&SC1
+2018-02-25 12:55:41 root         DEBUG    AssignmentArea  :FLOW1
+2018-02-25 12:55:41 root         DEBUG    Map ref         :SVC 8149 C6
+2018-02-25 12:55:41 root         DEBUG    Lat/Lon         :-37.3769451, 145.2686438
+2018-02-25 12:55:41 root         DEBUG    Remaining msg   :PADDOCK FIRE SPREADING 65 SILVER PARROT RD FLOWERDALE /SILVER CREEK RD (467619) DISP512 AIRMGL CFLOW CKING CKIWE HEL339
+2018-02-25 12:56:32 root         DEBUG    Alert           :ALERT
+2018-02-25 12:56:32 root         DEBUG    Fnumber         :F180209514
+2018-02-25 12:56:32 root         DEBUG    IncidentType    :G&SC1
+2018-02-25 12:56:32 root         DEBUG    AssignmentArea  :TRUG4
+2018-02-25 12:56:32 root         DEBUG    Map ref         :M 228 A3
+2018-02-25 12:56:32 root         DEBUG    Lat/Lon         :-37.7968130, 144.6230109
+2018-02-25 12:56:32 root         DEBUG    Remaining msg   :GRASS FIRE CNR BOUNDARY RD/FAULKNERS RD MOUNT COTTRELL (907140) DISP61 AIRBAC CHOPPS CTRUG HEL345
+2018-02-25 14:03:20 root         DEBUG    Alert           :ALERT
+2018-02-25 14:03:20 root         DEBUG    Fnumber         :F180209536
+2018-02-25 14:03:20 root         DEBUG    IncidentType    :G&SC1
+2018-02-25 14:03:20 root         DEBUG    AssignmentArea  :WENO5
+2018-02-25 14:03:20 root         DEBUG    Map ref         :SVC 8109 K5
+2018-02-25 14:03:20 root         DEBUG    Lat/Lon         :-37.5207604, 143.8441742
+2018-02-25 14:03:20 root         DEBUG    Remaining msg   :GRASS FIRE CNR WESTERN FWY/CRESWICK RD WENDOUREE (513435) DISP515 AIRBLT CBRATS CMRST CWENO FBD307 HEL347
+2018-02-25 14:10:17 root         DEBUG    Alert           :ALERT
+2018-02-25 14:10:17 root         DEBUG    Fnumber         :F180209538
+2018-02-25 14:10:17 root         DEBUG    IncidentType    :G&SC1
+2018-02-25 14:10:17 root         DEBUG    AssignmentArea  :BRAT6
+2018-02-25 14:10:17 root         DEBUG    Map ref         :SVC 8110 
+2018-02-25 14:10:17 root         DEBUG    Lat/Lon         :-37.5233964, 143.8647364
+2018-02-25 14:10:17 root         DEBUG    Remaining msg   :GRASS FIRE SPREADING WESTERN FWY INVERMAY (531432) DISP515 AIRBLT CBRAT CIMAY CWENO FBD307 HEL347
+2018-02-25 14:19:57 root         DEBUG    Alert           :ALERT
+2018-02-25 14:19:57 root         DEBUG    Fnumber         :F180209543
+2018-02-25 14:19:57 root         DEBUG    IncidentType    :G&SC1
+2018-02-25 14:19:57 root         DEBUG    AssignmentArea  :TANW2
+2018-02-25 14:19:57 root         DEBUG    Map ref         :SVNE 5785 J4
+2018-02-25 14:19:57 root         DEBUG    Lat/Lon         :-36.4447021, 146.1981780
+2018-02-25 14:19:57 root         DEBUG    Remaining msg   :SMOKE SIGHTING FROM THE FIRE TOWER GLENROWAN-BOWEYA RD TAMINICK (281664) DISP523 AIRBLA CGRWN CTANW CWINT FBD327 FFMSDO
+2018-02-25 14:44:17 root         DEBUG    Alert           :ALERT
+2018-02-25 14:44:17 root         DEBUG    Fnumber         :F180209552
+2018-02-25 14:44:17 root         DEBUG    IncidentType    :G&SC1
+2018-02-25 14:44:17 root         DEBUG    AssignmentArea  :MRST1
+2018-02-25 14:44:17 root         DEBUG    Map ref         :SVC 6436 A2
+2018-02-25 14:44:17 root         DEBUG    Lat/Lon         :-37.4797190, 143.8312092
+2018-02-25 14:44:17 root         DEBUG    Remaining msg   :COLUMN OF SMOKE KENNEDYS RD MINERS REST (503481) DISP515 AIRBLT CBRATS CIMAY CMRST CWENO HEL347
+2018-02-25 15:40:14 root         DEBUG    Alert           :ALERT
+2018-02-25 15:40:14 root         DEBUG    Fnumber         :F180209577
+2018-02-25 15:40:14 root         DEBUG    IncidentType    :G&SC1
+2018-02-25 15:40:14 root         DEBUG    AssignmentArea  :BONN2
+2018-02-25 15:40:14 root         DEBUG    Map ref         :SVNE 6118 B12
+2018-02-25 15:40:14 root         DEBUG    Lat/Lon         :-37.0541031, 145.7810472
+2018-02-25 15:40:14 root         DEBUG    Remaining msg   :GRASS FIRE SPREADING 267 EVANS RD WOODFIELD /COLES RD (916984) DISP523 AIRMFD BOM358 CBONN CMERT CMPLE FBD311 HEL348
+2018-02-25 16:34:16 root         DEBUG    Alert           :ALERT
+2018-02-25 16:34:16 root         DEBUG    Fnumber         :F180209595
+2018-02-25 16:34:16 root         DEBUG    IncidentType    :G&SC1
+2018-02-25 16:34:16 root         DEBUG    AssignmentArea  :KORU1
+2018-02-25 16:34:16 root         DEBUG    Map ref         :SVSE 8542 H9
+2018-02-25 16:34:16 root         DEBUG    Lat/Lon         :-38.4377522, 145.8337705
+2018-02-25 16:34:16 root         DEBUG    Remaining msg   :UNDEFINED FIRE CNR BOUNDARY RD/PRINCES ST KORUMBURRA (982449) DISP509 AIRLTV BDG374 CKORU CRUBY HEL337
+2018-02-25 18:19:43 root         DEBUG    Alert           :ALERT
+2018-02-25 18:19:43 root         DEBUG    Fnumber         :F180209625
+2018-02-25 18:19:43 root         DEBUG    IncidentType    :G&SC1
+2018-02-25 18:19:43 root         DEBUG    AssignmentArea  :TRUG2
+2018-02-25 18:19:43 root         DEBUG    Map ref         :M 202 C3
+2018-02-25 18:19:43 root         DEBUG    Lat/Lon         :-37.8395837, 144.6757441
+2018-02-25 18:19:43 root         DEBUG    Remaining msg   :SHRUBS ON FIRE CNR PENROSE PROM/WICKFORD RD TARNEIT (954094) DISP61 AIRBAC CHOPPS CTRUG HEL345
+2018-02-25 18:33:59 root         DEBUG    Not a FIRECALL
+2018-02-25 18:55:54 root         DEBUG    Alert           :ALERT
+2018-02-25 18:55:54 root         DEBUG    Fnumber         :F180209629
+2018-02-25 18:55:54 root         DEBUG    IncidentType    :G&SC1
+2018-02-25 18:55:54 root         DEBUG    AssignmentArea  :TAWO1
+2018-02-25 18:55:54 root         DEBUG    Map ref         :SVNE 5963 C2
+2018-02-25 18:55:54 root         DEBUG    Lat/Lon         :-36.7017883, 147.2470525
+2018-02-25 18:55:54 root         DEBUG    Remaining msg   :COLUMN OF SMOKE 900 MOUNTAIN CREEK RD TAWONGA (220381) DISP524 AIRBBR BOM359 BOM363 CDEDE CMBTY CTAWO [AIRBBR]
+2018-02-25 18:58:53 root         DEBUG    Not a FIRECALL

@@ -1,0 +1,186 @@
+2018-02-23 10:05:32 root         INFO     Serial port initialised
+2018-02-23 11:03:59 root         INFO     Serial port initialised
+2018-02-23 11:05:01 root         INFO     Serial port initialised
+2018-02-23 11:06:01 root         INFO     Serial port initialised
+2018-02-23 11:06:40 root         INFO     Serial port initialised
+2018-02-23 11:11:42 root         INFO     Serial port initialised
+2018-02-23 11:11:59 root         INFO     Serial port initialised
+2018-02-23 11:12:33 root         INFO     Serial port initialised
+2018-02-23 11:12:34 root         INFO     Serial port initialised
+2018-02-23 11:12:40 root         INFO     Serial port initialised
+2018-02-23 11:12:47 root         INFO     Serial port initialised
+2018-02-23 11:13:17 root         INFO     Serial port initialised
+2018-02-23 11:13:27 root         INFO     Serial port initialised
+2018-02-23 11:14:13 root         INFO     Serial port initialised
+2018-02-23 11:14:15 root         INFO     Serial port initialised
+2018-02-23 11:15:17 root         INFO     Serial port initialised
+2018-02-23 11:15:18 root         INFO     Serial port initialised
+2018-02-23 11:16:05 root         INFO     Serial port initialised
+2018-02-23 11:16:07 root         INFO     Serial port initialised
+2018-02-23 11:16:33 root         INFO     Serial port initialised
+2018-02-23 11:16:34 root         INFO     Serial port initialised
+2018-02-23 11:16:35 root         DEBUG    Alert           :ALERT
+2018-02-23 11:16:35 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:16:35 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:16:35 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:16:35 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:17:22 root         INFO     Serial port initialised
+2018-02-23 11:17:23 root         INFO     Serial port initialised
+2018-02-23 11:17:24 root         DEBUG    Alert           :ALERT
+2018-02-23 11:17:24 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:17:24 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:17:24 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:17:24 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:17:31 root         INFO     Serial port initialised
+2018-02-23 11:17:31 root         DEBUG    Alert           :ALERT
+2018-02-23 11:17:31 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:17:31 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:17:31 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:17:31 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:18:32 root         INFO     Serial port initialised
+2018-02-23 11:18:34 root         INFO     Serial port initialised
+2018-02-23 11:18:34 root         DEBUG    Alert           :ALERT
+2018-02-23 11:18:34 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:18:34 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:18:34 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:18:34 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:18:34 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-23 11:18:37 root         INFO     Serial port initialised
+2018-02-23 11:18:37 root         DEBUG    Alert           :ALERT
+2018-02-23 11:18:37 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:18:37 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:18:37 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:18:37 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:18:37 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-23 11:18:42 root         INFO     Serial port initialised
+2018-02-23 11:18:42 root         DEBUG    Alert           :ALERT
+2018-02-23 11:18:42 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:18:42 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:18:42 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:18:42 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:18:42 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-23 11:18:43 root         INFO     Serial port initialised
+2018-02-23 11:18:43 root         DEBUG    Alert           :ALERT
+2018-02-23 11:18:43 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:18:43 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:18:43 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:18:43 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:18:43 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-23 11:18:43 root         INFO     Serial port initialised
+2018-02-23 11:18:43 root         DEBUG    Alert           :ALERT
+2018-02-23 11:18:43 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:18:43 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:18:43 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:18:43 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:18:43 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-23 11:18:55 root         INFO     Serial port initialised
+2018-02-23 11:18:58 root         INFO     Serial port initialised
+2018-02-23 11:18:58 root         DEBUG    Alert           :ALERT
+2018-02-23 11:18:58 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:18:58 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:18:58 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:18:58 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:18:58 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-23 11:19:09 root         INFO     Serial port initialised
+2018-02-23 11:19:09 root         DEBUG    Alert           :ALERT
+2018-02-23 11:19:09 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:19:09 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:19:09 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:19:09 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:19:09 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-23 11:19:15 root         INFO     Serial port initialised
+2018-02-23 11:19:17 root         INFO     Serial port initialised
+2018-02-23 11:19:18 root         DEBUG    Alert           :ALERT
+2018-02-23 11:19:18 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:19:18 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:19:18 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:19:18 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:19:18 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-23 11:40:43 root         INFO     Serial port initialised
+2018-02-23 11:40:44 root         INFO     Serial port initialised
+2018-02-23 11:40:45 root         DEBUG    Alert           :ALERT
+2018-02-23 11:40:45 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:40:45 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:40:45 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:40:45 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:40:58 root         INFO     Serial port initialised
+2018-02-23 11:41:00 root         INFO     Serial port initialised
+2018-02-23 11:41:00 root         DEBUG    Alert           :ALERT
+2018-02-23 11:41:00 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:41:00 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:41:00 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:41:00 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:41:00 root         DEBUG    Lat/Lon  :-38.6313124, 145.6566964
+2018-02-23 11:41:00 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) LAT/LON: DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-23 11:41:17 root         INFO     Serial port initialised
+2018-02-23 11:41:18 root         INFO     Serial port initialised
+2018-02-23 11:41:18 root         DEBUG    Alert           :ALERT
+2018-02-23 11:41:18 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:41:18 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:41:18 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:41:18 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:41:18 root         DEBUG    Lat/Lon         :-38.6313124, 145.6566964
+2018-02-23 11:41:18 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) LAT/LON: DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-23 11:41:59 root         INFO     Serial port initialised
+2018-02-23 11:42:00 root         INFO     Serial port initialised
+2018-02-23 11:42:01 root         DEBUG    Alert           :ALERT
+2018-02-23 11:42:01 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:42:01 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:42:01 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:42:01 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:42:01 root         DEBUG    Lat/Lon         :-38.6313124, 145.6566964
+2018-02-23 11:42:01 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-23 11:42:12 root         INFO     Serial port initialised
+2018-02-23 11:42:47 root         INFO     Serial port initialised
+2018-02-23 11:43:40 root         INFO     Serial port initialised
+2018-02-23 11:43:41 root         DEBUG    Alert           :ALERT
+2018-02-23 11:43:41 root         DEBUG    Fnumber         :F123456789
+2018-02-23 11:43:41 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 11:43:41 root         DEBUG    AssignmentArea  :INVL2
+2018-02-23 11:43:41 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-23 11:43:41 root         DEBUG    Lat/Lon         :-38.6313124, 145.6566964
+2018-02-23 11:43:41 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-23 14:26:43 root         INFO     Serial port initialised
+2018-02-23 14:27:17 root         DEBUG    Alert           :ALERT
+2018-02-23 14:27:17 root         DEBUG    Fnumber         :F180208842
+2018-02-23 14:27:17 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 14:27:17 root         DEBUG    AssignmentArea  :PKHM6
+2018-02-23 14:27:17 root         DEBUG    Map ref         :M 317 H1
+2018-02-23 14:27:17 root         DEBUG    Lat/Lon         :-38.0499040, 145.4994235
+2018-02-23 14:27:17 root         DEBUG    Remaining msg   :COLUMN OF SMOKE ISSUING CNR ARMY RD/CREMIN DR PAKENHAM (683875) DISP27 AIROLN CNARN CPKHM HEL331
+2018-02-23 14:30:38 root         DEBUG    Alert           :ALERT
+2018-02-23 14:30:38 root         DEBUG    Fnumber         :F180208844
+2018-02-23 14:30:38 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 14:30:38 root         DEBUG    AssignmentArea  :WBRA2
+2018-02-23 14:30:38 root         DEBUG    Map ref         :SVC 6350 A5
+2018-02-23 14:30:38 root         DEBUG    Lat/Lon         :-37.3733074, 143.5998675
+2018-02-23 14:30:38 root         DEBUG    Remaining msg   :GRASS FIRE SPREADING 16 GORDONS RD WAUBRA /TROYS RD //BEAUFORT-WAUBRA RD (302605) DISP515 AIRBLT CBUBK CLEXT CLKKL CWBRA FBD307 HEL347
+2018-02-23 14:44:47 root         DEBUG    Not a FIRECALL
+2018-02-23 14:55:25 root         DEBUG    Alert           :ALERT
+2018-02-23 14:55:25 root         DEBUG    Fnumber         :F180208851
+2018-02-23 14:55:25 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 14:55:25 root         DEBUG    AssignmentArea  :PEAR4
+2018-02-23 14:55:25 root         DEBUG    Map ref         :M 140 J7
+2018-02-23 14:55:25 root         DEBUG    Lat/Lon         :-38.2059273, 145.2345258
+2018-02-23 14:55:25 root         DEBUG    Remaining msg   :SMOKE AND FLAMES FROM BACKYARD PEARCEDALE RD PEARCEDALE (454698) DISP27 AIRMMB CPEAR CSOVL FBD302 HEL338
+2018-02-23 15:44:29 root         DEBUG    Alert           :ALERT
+2018-02-23 15:44:29 root         DEBUG    Fnumber         :F180208871
+2018-02-23 15:44:29 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 15:44:29 root         DEBUG    AssignmentArea  :EHAM7
+2018-02-23 15:44:29 root         DEBUG    Map ref         :M 11 C11
+2018-02-23 15:44:29 root         DEBUG    Lat/Lon         :-37.6915679, 145.1193187
+2018-02-23 15:44:29 root         DEBUG    Remaining msg   :COLUMN OF SMOKE RISING MINE ST GREENSBOROUGH (341267) DISP61 AIROLN CEHAM CPLEN HEL331 PT16
+2018-02-23 16:53:59 root         DEBUG    Alert           :ALERT
+2018-02-23 16:53:59 root         DEBUG    Fnumber         :F180208900
+2018-02-23 16:53:59 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 16:53:59 root         DEBUG    AssignmentArea  :MTON3
+2018-02-23 16:53:59 root         DEBUG    Map ref         :M 338 B3
+2018-02-23 16:53:59 root         DEBUG    Lat/Lon         :-37.6646960, 144.6273614
+2018-02-23 16:53:59 root         DEBUG    Remaining msg   :GRASS FIRE IN PADDOCK CNR MT COTTRELL RD/FINCHS RD MELTON (907287) DISP61 AIRBAC CMTON HEL345
+2018-02-23 16:56:15 root         DEBUG    Alert           :ALERT
+2018-02-23 16:56:15 root         DEBUG    Fnumber         :F180208901
+2018-02-23 16:56:15 root         DEBUG    IncidentType    :G&SC1
+2018-02-23 16:56:15 root         DEBUG    AssignmentArea  :LSAY2
+2018-02-23 16:56:15 root         DEBUG    Map ref         :SVSW 427 
+2018-02-23 16:56:15 root         DEBUG    Lat/Lon         :-37.6782970, 141.0115692
+2018-02-23 16:56:15 root         DEBUG    Remaining msg   :SMOKE SIGHTING FROM FIRE TOWER KALADBRO - VIC UNKNOWN - STRATHDOWNIE (010298) DISP504 AIRCAS BOM350 BOM351 CLSAY CSDWN [AIRCAS]

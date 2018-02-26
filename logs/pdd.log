@@ -1,0 +1,501 @@
+2018-02-26 08:18:31 root         INFO     Serial port initialised
+2018-02-26 08:19:04 root         INFO     Serial port initialised
+2018-02-26 08:54:33 root         INFO     Serial port initialised
+2018-02-26 08:54:36 root         INFO     Serial port initialised
+2018-02-26 08:55:40 root         INFO     Serial port initialised
+2018-02-26 08:55:42 root         INFO     Serial port initialised
+2018-02-26 08:57:13 root         INFO     Serial port initialised
+2018-02-26 08:57:15 root         INFO     Serial port initialised
+2018-02-26 08:57:15 root         ERROR    Error no such table: airfields:
+2018-02-26 08:57:33 root         INFO     Serial port initialised
+2018-02-26 08:57:33 root         ERROR    Error no such table: airfields:
+2018-02-26 09:02:45 root         INFO     Serial port initialised
+2018-02-26 09:02:47 root         INFO     Serial port initialised
+2018-02-26 09:02:47 root         ERROR    Error no such table: airfields:
+2018-02-26 09:04:59 root         INFO     Serial port initialised
+2018-02-26 09:05:01 root         INFO     Serial port initialised
+2018-02-26 09:05:01 root         DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 09:05:01 root         DEBUG    ('000000002', 'AIRTST', 'PDD - Test Site', -37.971375, 145.093857)
+2018-02-26 09:18:21 root         INFO     Serial port initialised
+2018-02-26 09:18:23 root         INFO     Serial port initialised
+2018-02-26 09:18:55 root         INFO     Serial port initialised
+2018-02-26 09:18:58 root         INFO     Serial port initialised
+2018-02-26 09:22:20 root         INFO     Serial port initialised
+2018-02-26 09:22:21 root         INFO     Serial port initialised
+2018-02-26 09:22:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 09:22:21 database     DEBUG    Connected to database
+2018-02-26 09:23:27 root         INFO     Serial port initialised
+2018-02-26 09:23:28 root         INFO     Serial port initialised
+2018-02-26 09:23:28 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 09:23:28 database     DEBUG    Connected to database
+2018-02-26 09:23:28 root         DEBUG    b_return: True
+2018-02-26 09:23:28 root         DEBUG    row     : [{'name': 'PDD - Test Site', 'shortname': 'AIRTST', 'lng': 145.093857, 'capcode': '000000002', 'lat': -37.971375}]
+2018-02-26 09:23:28 root         DEBUG    count   : 0
+2018-02-26 09:23:54 root         INFO     Serial port initialised
+2018-02-26 09:23:55 root         INFO     Serial port initialised
+2018-02-26 09:23:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 09:23:55 database     DEBUG    Connected to database
+2018-02-26 09:23:55 root         DEBUG    b_return: True
+2018-02-26 09:23:55 root         DEBUG    row     : [{'name': 'PDD - Test Site', 'capcode': '000000002', 'shortname': 'AIRTST', 'lat': -37.971375, 'lng': 145.093857}]
+2018-02-26 09:23:55 root         DEBUG    count   : 1
+2018-02-26 09:23:55 root         DEBUG    Alert           :ALERT
+2018-02-26 09:23:55 root         DEBUG    Fnumber         :F123456789
+2018-02-26 09:23:55 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 09:23:55 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 09:23:55 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 09:23:55 root         DEBUG    Lat/Lon         :-38.6313124, 145.6566964
+2018-02-26 09:23:55 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 09:30:29 root         INFO     Serial port initialised
+2018-02-26 09:30:31 root         INFO     Serial port initialised
+2018-02-26 09:30:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 09:30:32 database     DEBUG    Connected to database
+2018-02-26 09:30:32 root         DEBUG    b_return: True
+2018-02-26 09:30:32 root         DEBUG    row     : [{'lng': 145.093857, 'shortname': 'AIRTST', 'name': 'PDD - Test Site', 'capcode': '000000002', 'lat': -37.971375}]
+2018-02-26 09:30:32 root         DEBUG    count   : 1
+2018-02-26 09:30:32 root         DEBUG    Alert           :ALERT
+2018-02-26 09:30:32 root         DEBUG    Fnumber         :F123456789
+2018-02-26 09:30:32 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 09:30:32 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 09:30:32 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 09:30:32 root         DEBUG    Lat/Lon         :-38.6313124, 145.6566964
+2018-02-26 09:30:32 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 09:30:55 root         INFO     Serial port initialised
+2018-02-26 09:30:57 root         INFO     Serial port initialised
+2018-02-26 09:30:57 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 09:30:57 database     DEBUG    Connected to database
+2018-02-26 09:30:57 root         DEBUG    b_return: True
+2018-02-26 09:30:57 root         DEBUG    row     : [{'name': 'PDD - Test Site', 'shortname': 'AIRTST', 'lat': -37.971375, 'lng': 145.093857, 'capcode': '000000002'}]
+2018-02-26 09:30:57 root         DEBUG    count   : 1
+2018-02-26 09:30:57 root         DEBUG    Alert           :ALERT
+2018-02-26 09:30:57 root         DEBUG    Fnumber         :F123456789
+2018-02-26 09:30:57 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 09:30:57 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 09:30:57 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 09:30:57 root         DEBUG    Lat/Lon         :-38.6313124, 145.6566964
+2018-02-26 09:30:57 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 09:30:57 root         DEBUG    parseOK         :True
+2018-02-26 09:30:57 root         DEBUG    firecall        :True
+2018-02-26 09:52:21 root         INFO     Serial port initialised
+2018-02-26 09:52:23 root         INFO     Serial port initialised
+2018-02-26 09:52:23 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 09:52:23 database     DEBUG    Connected to database
+2018-02-26 09:52:23 root         DEBUG    b_return: True
+2018-02-26 09:52:23 root         DEBUG    row     : [{'lat': -37.971375, 'shortname': 'AIRTST', 'name': 'PDD - Test Site', 'capcode': '000000002', 'lng': 145.093857}]
+2018-02-26 09:52:23 root         DEBUG    count   : 1
+2018-02-26 09:52:23 root         DEBUG    Alert           :ALERT
+2018-02-26 09:52:23 root         DEBUG    Fnumber         :F123456789
+2018-02-26 09:52:23 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 09:52:23 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 09:52:23 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 09:52:23 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 09:52:23 root         DEBUG    Longitude       :145.6566964
+2018-02-26 09:52:23 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 09:52:23 root         DEBUG    parseOK         :True
+2018-02-26 09:52:23 root         DEBUG    firecall        :True
+2018-02-26 09:52:42 root         INFO     Serial port initialised
+2018-02-26 09:52:44 root         INFO     Serial port initialised
+2018-02-26 09:52:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 09:52:44 database     DEBUG    Connected to database
+2018-02-26 09:52:44 root         DEBUG    b_return: True
+2018-02-26 09:52:44 root         DEBUG    row     : [{'lat': -37.971375, 'lng': 145.093857, 'name': 'PDD - Test Site', 'capcode': '000000002', 'shortname': 'AIRTST'}]
+2018-02-26 09:52:44 root         DEBUG    count   : 1
+2018-02-26 09:52:44 root         DEBUG    Alert           :ALERT
+2018-02-26 09:52:44 root         DEBUG    Fnumber         :F123456789
+2018-02-26 09:52:44 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 09:52:44 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 09:52:44 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 09:52:44 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 09:52:44 root         DEBUG    Longitude       :145.6566964
+2018-02-26 09:52:44 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 09:52:44 root         DEBUG    parseOK         :True
+2018-02-26 09:52:44 root         DEBUG    firecall        :True
+2018-02-26 09:54:12 root         INFO     Serial port initialised
+2018-02-26 09:54:13 root         INFO     Serial port initialised
+2018-02-26 09:54:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 09:54:13 database     DEBUG    Connected to database
+2018-02-26 09:54:13 root         DEBUG    b_return: True
+2018-02-26 09:54:13 root         DEBUG    row     : {'lat': -37.971375, 'lng': 145.093857, 'capcode': '000000002', 'shortname': 'AIRTST', 'name': 'PDD - Test Site'}
+2018-02-26 09:54:13 root         DEBUG    count   : 1
+2018-02-26 09:54:13 root         DEBUG    Alert           :ALERT
+2018-02-26 09:54:13 root         DEBUG    Fnumber         :F123456789
+2018-02-26 09:54:13 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 09:54:13 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 09:54:13 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 09:54:13 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 09:54:13 root         DEBUG    Longitude       :145.6566964
+2018-02-26 09:54:13 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 09:54:13 root         DEBUG    parseOK         :True
+2018-02-26 09:54:13 root         DEBUG    firecall        :True
+2018-02-26 09:56:15 root         INFO     Serial port initialised
+2018-02-26 09:56:17 root         INFO     Serial port initialised
+2018-02-26 09:56:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 09:56:17 database     DEBUG    Connected to database
+2018-02-26 09:56:17 root         DEBUG    b_return: True
+2018-02-26 09:56:17 root         DEBUG    row     : {'name': 'PDD - Test Site', 'lat': -37.971375, 'lng': 145.093857, 'capcode': '000000002', 'shortname': 'AIRTST'}
+2018-02-26 09:56:17 root         DEBUG    count   : 1
+2018-02-26 09:56:17 root         DEBUG    Alert           :ALERT
+2018-02-26 09:56:17 root         DEBUG    Fnumber         :F123456789
+2018-02-26 09:56:17 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 09:56:17 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 09:56:17 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 09:56:17 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 09:56:17 root         DEBUG    Longitude       :145.6566964
+2018-02-26 09:56:17 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 09:56:17 root         DEBUG    parseOK         :True
+2018-02-26 09:56:17 root         DEBUG    firecall        :True
+2018-02-26 09:59:54 root         INFO     Serial port initialised
+2018-02-26 09:59:55 root         INFO     Serial port initialised
+2018-02-26 09:59:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 09:59:55 database     DEBUG    Connected to database
+2018-02-26 09:59:55 root         DEBUG    b_return: True
+2018-02-26 09:59:55 root         DEBUG    row     : {'lat': -37.971375, 'shortname': 'AIRTST', 'capcode': '000000002', 'name': 'PDD - Test Site', 'lng': 145.093857}
+2018-02-26 09:59:55 root         DEBUG    count   : 1
+2018-02-26 09:59:55 root         DEBUG    Alert           :ALERT
+2018-02-26 09:59:55 root         DEBUG    Fnumber         :F123456789
+2018-02-26 09:59:55 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 09:59:55 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 09:59:55 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 09:59:55 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 09:59:55 root         DEBUG    Longitude       :145.6566964
+2018-02-26 09:59:55 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 09:59:55 root         DEBUG    parseOK         :True
+2018-02-26 09:59:55 root         DEBUG    firecall        :True
+2018-02-26 10:00:13 root         INFO     Serial port initialised
+2018-02-26 10:00:14 root         INFO     Serial port initialised
+2018-02-26 10:00:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:00:15 database     DEBUG    Connected to database
+2018-02-26 10:00:15 root         DEBUG    b_return: True
+2018-02-26 10:00:15 root         DEBUG    row     : {'lat': -37.971375, 'capcode': '000000002', 'lng': 145.093857, 'shortname': 'AIRTST', 'name': 'PDD - Test Site'}
+2018-02-26 10:00:15 root         DEBUG    count   : 1
+2018-02-26 10:00:15 root         DEBUG    Alert           :ALERT
+2018-02-26 10:00:15 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:00:15 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:00:15 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:00:15 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:00:15 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:00:15 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:00:15 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:00:15 root         DEBUG    parseOK         :True
+2018-02-26 10:00:15 root         DEBUG    firecall        :True
+2018-02-26 10:02:52 root         INFO     Serial port initialised
+2018-02-26 10:02:53 root         INFO     Serial port initialised
+2018-02-26 10:02:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:02:53 database     DEBUG    Connected to database
+2018-02-26 10:02:53 root         DEBUG    b_return: True
+2018-02-26 10:02:53 root         DEBUG    row     : {'shortname': 'AIRTST', 'capcode': '000000002', 'lng': 145.093857, 'name': 'PDD - Test Site', 'lat': -37.971375}
+2018-02-26 10:02:53 root         DEBUG    count   : 1
+2018-02-26 10:02:53 root         DEBUG    Alert           :ALERT
+2018-02-26 10:02:53 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:02:53 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:02:53 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:02:53 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:02:53 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:02:53 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:02:53 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:02:53 root         DEBUG    parseOK         :True
+2018-02-26 10:02:53 root         DEBUG    firecall        :True
+2018-02-26 10:03:52 root         INFO     Serial port initialised
+2018-02-26 10:03:53 root         INFO     Serial port initialised
+2018-02-26 10:03:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:03:53 database     DEBUG    Connected to database
+2018-02-26 10:03:53 root         DEBUG    b_return: True
+2018-02-26 10:03:53 root         DEBUG    row     : {'lat': -37.971375, 'shortname': 'AIRTST', 'name': 'PDD - Test Site', 'lng': 145.093857, 'capcode': '000000002'}
+2018-02-26 10:03:53 root         DEBUG    count   : 1
+2018-02-26 10:03:53 root         DEBUG    Alert           :ALERT
+2018-02-26 10:03:53 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:03:53 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:03:53 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:03:53 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:03:53 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:03:53 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:03:53 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:03:53 root         DEBUG    parseOK         :True
+2018-02-26 10:03:53 root         DEBUG    firecall        :True
+2018-02-26 10:05:40 root         INFO     Serial port initialised
+2018-02-26 10:05:42 root         INFO     Serial port initialised
+2018-02-26 10:05:43 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:05:43 database     DEBUG    Connected to database
+2018-02-26 10:05:43 root         DEBUG    b_return: True
+2018-02-26 10:05:43 root         DEBUG    row     : {'lng': 145.093857, 'shortname': 'AIRTST', 'capcode': '000000002', 'lat': -37.971375, 'name': 'PDD - Test Site'}
+2018-02-26 10:05:43 root         DEBUG    count   : 1
+2018-02-26 10:05:43 root         DEBUG    Alert           :ALERT
+2018-02-26 10:05:43 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:05:43 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:05:43 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:05:43 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:05:43 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:05:43 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:05:43 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:05:43 root         DEBUG    parseOK         :True
+2018-02-26 10:05:43 root         DEBUG    firecall        :True
+2018-02-26 10:08:53 root         INFO     Serial port initialised
+2018-02-26 10:08:54 root         INFO     Serial port initialised
+2018-02-26 10:08:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:08:54 database     DEBUG    Connected to database
+2018-02-26 10:08:54 root         DEBUG    b_return: True
+2018-02-26 10:08:54 root         DEBUG    row     : {'name': 'PDD - Test Site', 'lng': 145.093857, 'capcode': '000000002', 'shortname': 'AIRTST', 'lat': -37.971375}
+2018-02-26 10:08:54 root         DEBUG    count   : 1
+2018-02-26 10:08:54 root         DEBUG    Alert           :ALERT
+2018-02-26 10:08:54 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:08:54 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:08:54 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:08:54 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:08:54 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:08:54 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:08:54 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:08:54 root         DEBUG    parseOK         :True
+2018-02-26 10:08:54 root         DEBUG    firecall        :True
+2018-02-26 10:09:37 root         INFO     Serial port initialised
+2018-02-26 10:09:39 root         INFO     Serial port initialised
+2018-02-26 10:09:39 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:09:39 database     DEBUG    Connected to database
+2018-02-26 10:09:39 root         DEBUG    b_return: True
+2018-02-26 10:09:39 root         DEBUG    row     : {'capcode': '000000002', 'shortname': 'AIRTST', 'lat': -37.971375, 'lng': 145.093857, 'name': 'PDD - Test Site'}
+2018-02-26 10:09:39 root         DEBUG    count   : 1
+2018-02-26 10:09:39 root         DEBUG    Alert           :ALERT
+2018-02-26 10:09:39 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:09:39 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:09:39 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:09:39 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:09:39 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:09:39 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:09:39 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:09:39 root         DEBUG    parseOK         :True
+2018-02-26 10:09:39 root         DEBUG    firecall        :True
+2018-02-26 10:10:14 root         INFO     Serial port initialised
+2018-02-26 10:10:15 root         INFO     Serial port initialised
+2018-02-26 10:10:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:10:15 database     DEBUG    Connected to database
+2018-02-26 10:10:15 root         DEBUG    b_return: True
+2018-02-26 10:10:15 root         DEBUG    row     : {'lat': -37.971375, 'name': 'PDD - Test Site', 'capcode': '000000002', 'lng': 145.093857, 'shortname': 'AIRTST'}
+2018-02-26 10:10:15 root         DEBUG    count   : 1
+2018-02-26 10:10:15 root         DEBUG    Alert           :ALERT
+2018-02-26 10:10:15 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:10:15 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:10:15 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:10:15 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:10:15 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:10:15 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:10:15 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:10:15 root         DEBUG    parseOK         :True
+2018-02-26 10:10:15 root         DEBUG    firecall        :True
+2018-02-26 10:11:22 root         INFO     Serial port initialised
+2018-02-26 10:11:23 root         INFO     Serial port initialised
+2018-02-26 10:11:23 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:11:23 database     DEBUG    Connected to database
+2018-02-26 10:11:23 root         DEBUG    b_return: True
+2018-02-26 10:11:23 root         DEBUG    row     : {'name': 'PDD - Test Site', 'capcode': '000000002', 'lng': 145.093857, 'shortname': 'AIRTST', 'lat': -37.971375}
+2018-02-26 10:11:23 root         DEBUG    count   : 1
+2018-02-26 10:11:23 root         DEBUG    Alert           :ALERT
+2018-02-26 10:11:23 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:11:23 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:11:23 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:11:23 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:11:23 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:11:23 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:11:23 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:11:23 root         DEBUG    parseOK         :True
+2018-02-26 10:11:23 root         DEBUG    firecall        :True
+2018-02-26 10:11:40 root         INFO     Serial port initialised
+2018-02-26 10:11:41 root         INFO     Serial port initialised
+2018-02-26 10:11:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:11:42 database     DEBUG    Connected to database
+2018-02-26 10:11:42 root         DEBUG    b_return: True
+2018-02-26 10:11:42 root         DEBUG    row     : {'name': 'PDD - Test Site', 'lat': -37.971375, 'capcode': '000000002', 'lng': 145.093857, 'shortname': 'AIRTST'}
+2018-02-26 10:11:42 root         DEBUG    count   : 1
+2018-02-26 10:11:42 root         DEBUG    Alert           :ALERT
+2018-02-26 10:11:42 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:11:42 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:11:42 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:11:42 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:11:42 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:11:42 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:11:42 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:11:42 root         DEBUG    parseOK         :True
+2018-02-26 10:11:42 root         DEBUG    firecall        :True
+2018-02-26 10:12:35 root         INFO     Serial port initialised
+2018-02-26 10:12:37 root         INFO     Serial port initialised
+2018-02-26 10:12:37 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:12:37 database     DEBUG    Connected to database
+2018-02-26 10:12:37 root         DEBUG    b_return: True
+2018-02-26 10:12:37 root         DEBUG    row     : {'lng': 145.093857, 'name': 'PDD - Test Site', 'lat': -37.971375, 'capcode': '000000002', 'shortname': 'AIRTST'}
+2018-02-26 10:12:37 root         DEBUG    count   : 1
+2018-02-26 10:12:37 root         DEBUG    Alert           :ALERT
+2018-02-26 10:12:37 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:12:37 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:12:37 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:12:37 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:12:37 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:12:37 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:12:37 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:12:37 root         DEBUG    parseOK         :True
+2018-02-26 10:12:37 root         DEBUG    firecall        :True
+2018-02-26 10:14:58 root         INFO     Serial port initialised
+2018-02-26 10:15:00 root         INFO     Serial port initialised
+2018-02-26 10:15:00 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:15:00 database     DEBUG    Connected to database
+2018-02-26 10:15:00 root         DEBUG    b_return: True
+2018-02-26 10:15:00 root         DEBUG    row     : {'name': 'PDD - Test Site', 'capcode': '000000002', 'lng': 145.093857, 'lat': -37.971375, 'shortname': 'AIRTST'}
+2018-02-26 10:15:00 root         DEBUG    count   : 1
+2018-02-26 10:15:00 root         DEBUG    Alert           :ALERT
+2018-02-26 10:15:00 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:15:00 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:15:00 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:15:00 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:15:00 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:15:00 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:15:00 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:15:00 root         DEBUG    parseOK         :True
+2018-02-26 10:15:00 root         DEBUG    firecall        :True
+2018-02-26 10:16:38 root         INFO     Serial port initialised
+2018-02-26 10:16:40 root         INFO     Serial port initialised
+2018-02-26 10:16:40 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:16:40 database     DEBUG    Connected to database
+2018-02-26 10:16:40 root         DEBUG    b_return: True
+2018-02-26 10:16:40 root         DEBUG    row     : {'lat': -37.971375, 'name': 'PDD - Test Site', 'capcode': '000000002', 'shortname': 'AIRTST', 'lng': 145.093857}
+2018-02-26 10:16:40 root         DEBUG    count   : 1
+2018-02-26 10:16:40 root         DEBUG    Alert           :ALERT
+2018-02-26 10:16:40 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:16:40 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:16:40 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:16:40 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:16:40 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:16:40 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:16:40 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:16:40 root         DEBUG    parseOK         :True
+2018-02-26 10:16:40 root         DEBUG    firecall        :True
+2018-02-26 10:21:08 root         INFO     Serial port initialised
+2018-02-26 10:21:12 root         INFO     Serial port initialised
+2018-02-26 10:21:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:21:12 database     DEBUG    Connected to database
+2018-02-26 10:21:12 root         DEBUG    b_return: True
+2018-02-26 10:21:12 root         DEBUG    row     : {'lng': 145.093857, 'lat': -37.971375, 'name': 'PDD - Test Site', 'shortname': 'AIRTST', 'capcode': '000000002'}
+2018-02-26 10:21:12 root         DEBUG    count   : 1
+2018-02-26 10:21:12 root         DEBUG    Alert           :ALERT
+2018-02-26 10:21:12 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:21:12 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:21:12 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:21:12 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:21:12 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:21:12 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:21:12 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:21:12 root         DEBUG    parseOK         :True
+2018-02-26 10:21:12 root         DEBUG    firecall        :True
+2018-02-26 10:22:12 root         INFO     Serial port initialised
+2018-02-26 10:22:13 root         INFO     Serial port initialised
+2018-02-26 10:22:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:22:14 database     DEBUG    Connected to database
+2018-02-26 10:22:14 root         DEBUG    b_return: True
+2018-02-26 10:22:14 root         DEBUG    row     : {'lat': -37.971375, 'shortname': 'AIRTST', 'lng': 145.093857, 'capcode': '000000002', 'name': 'PDD - Test Site'}
+2018-02-26 10:22:14 root         DEBUG    count   : 1
+2018-02-26 10:22:14 root         DEBUG    Alert           :ALERT
+2018-02-26 10:22:14 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:22:14 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:22:14 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:22:14 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:22:14 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:22:14 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:22:14 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:22:14 root         DEBUG    parseOK         :True
+2018-02-26 10:22:14 root         DEBUG    firecall        :True
+2018-02-26 10:22:36 root         INFO     Serial port initialised
+2018-02-26 10:22:37 root         INFO     Serial port initialised
+2018-02-26 10:22:37 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:22:37 database     DEBUG    Connected to database
+2018-02-26 10:22:38 root         DEBUG    b_return: True
+2018-02-26 10:22:38 root         DEBUG    row     : {'lng': 145.093857, 'shortname': 'AIRTST', 'lat': -37.971375, 'capcode': '000000002', 'name': 'PDD - Test Site'}
+2018-02-26 10:22:38 root         DEBUG    count   : 1
+2018-02-26 10:22:38 root         DEBUG    Alert           :ALERT
+2018-02-26 10:22:38 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:22:38 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:22:38 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:22:38 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:22:38 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:22:38 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:22:38 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:22:38 root         DEBUG    parseOK         :True
+2018-02-26 10:22:38 root         DEBUG    firecall        :True
+2018-02-26 10:22:51 root         INFO     Serial port initialised
+2018-02-26 10:22:53 root         INFO     Serial port initialised
+2018-02-26 10:22:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:22:53 database     DEBUG    Connected to database
+2018-02-26 10:22:53 root         DEBUG    b_return: True
+2018-02-26 10:22:53 root         DEBUG    row     : {'shortname': 'AIRTST', 'lng': 145.093857, 'name': 'PDD - Test Site', 'lat': -37.971375, 'capcode': '000000002'}
+2018-02-26 10:22:53 root         DEBUG    count   : 1
+2018-02-26 10:22:53 root         DEBUG    Alert           :ALERT
+2018-02-26 10:22:53 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:22:53 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:22:53 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:22:53 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:22:53 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:22:53 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:22:53 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:22:53 root         DEBUG    parseOK         :True
+2018-02-26 10:22:53 root         DEBUG    firecall        :True
+2018-02-26 10:22:59 root         INFO     Serial port initialised
+2018-02-26 10:23:01 root         INFO     Serial port initialised
+2018-02-26 10:23:01 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:23:01 database     DEBUG    Connected to database
+2018-02-26 10:23:01 root         DEBUG    b_return: True
+2018-02-26 10:23:01 root         DEBUG    row     : {'lng': 145.093857, 'name': 'PDD - Test Site', 'shortname': 'AIRTST', 'lat': -37.971375, 'capcode': '000000002'}
+2018-02-26 10:23:01 root         DEBUG    count   : 1
+2018-02-26 10:23:01 root         DEBUG    Alert           :ALERT
+2018-02-26 10:23:01 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:23:01 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:23:01 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:23:01 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:23:01 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:23:01 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:23:01 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:23:01 root         DEBUG    parseOK         :True
+2018-02-26 10:23:01 root         DEBUG    firecall        :True
+2018-02-26 10:24:39 root         INFO     Serial port initialised
+2018-02-26 10:24:41 root         INFO     Serial port initialised
+2018-02-26 10:24:41 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:24:41 database     DEBUG    Connected to database
+2018-02-26 10:24:41 root         DEBUG    b_return: True
+2018-02-26 10:24:41 root         DEBUG    row     : {'lat': -37.971375, 'shortname': 'AIRTST', 'name': 'PDD - Test Site', 'capcode': '000000002', 'lng': 145.093857}
+2018-02-26 10:24:41 root         DEBUG    count   : 1
+2018-02-26 10:24:41 root         DEBUG    Alert           :ALERT
+2018-02-26 10:24:41 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:24:41 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:24:41 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:24:41 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:24:41 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:24:41 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:24:41 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:24:41 root         DEBUG    parseOK         :True
+2018-02-26 10:24:41 root         DEBUG    firecall        :True
+2018-02-26 10:25:40 root         INFO     Serial port initialised
+2018-02-26 10:25:42 root         INFO     Serial port initialised
+2018-02-26 10:25:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:25:42 database     DEBUG    Connected to database
+2018-02-26 10:25:42 root         DEBUG    b_return: True
+2018-02-26 10:25:42 root         DEBUG    row     : {'lng': 145.093857, 'shortname': 'AIRTST', 'name': 'PDD - Test Site', 'lat': -37.971375, 'capcode': '000000002'}
+2018-02-26 10:25:42 root         DEBUG    count   : 1
+2018-02-26 10:25:42 root         DEBUG    Alert           :ALERT
+2018-02-26 10:25:42 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:25:42 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:25:42 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:25:42 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:25:42 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:25:42 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:25:42 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:25:42 root         DEBUG    parseOK         :True
+2018-02-26 10:25:42 root         DEBUG    firecall        :True
+2018-02-26 10:37:47 root         INFO     Serial port initialised
+2018-02-26 10:37:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000002';
+2018-02-26 10:37:47 database     DEBUG    Connected to database
+2018-02-26 10:37:47 root         DEBUG    b_return: True
+2018-02-26 10:37:47 root         DEBUG    row     : {'lng': 145.093857, 'shortname': 'AIRTST', 'name': 'PDD - Test Site', 'lat': -37.971375, 'capcode': '000000002'}
+2018-02-26 10:37:47 root         DEBUG    count   : 1
+2018-02-26 10:37:47 root         DEBUG    Alert           :ALERT
+2018-02-26 10:37:47 root         DEBUG    Fnumber         :F123456789
+2018-02-26 10:37:47 root         DEBUG    IncidentType    :G&SC1
+2018-02-26 10:37:47 root         DEBUG    AssignmentArea  :INVL2
+2018-02-26 10:37:47 root         DEBUG    Map ref         :SVC 6962 D7
+2018-02-26 10:37:47 root         DEBUG    Latitude        :-38.6313124
+2018-02-26 10:37:47 root         DEBUG    Longitude       :145.6566964
+2018-02-26 10:37:47 root         DEBUG    Remaining msg   :SMALL GRADD FIRE EMMA LANE INVERLOCH (123456) DISP509 AIRLTV BDG374 CINVL CWOGI HEL337
+2018-02-26 10:37:47 root         DEBUG    parseOK         :True
+2018-02-26 10:37:47 root         DEBUG    firecall        :True
