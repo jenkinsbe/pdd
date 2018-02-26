@@ -8,7 +8,7 @@
     <property name="text" translatable="yes">** FLIGHT PATH **</property>
   </object>
   <object class="GtkTextBuffer" id="tbPagerMessage">
-    <property name="text" translatable="yes">ALERT F180207107 INVL2 G&amp;SC1 SMAL GRASS AND SCRUB FIRE EMMA LANE INVERLOCH SVC 6962 D7 (830232) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337</property>
+    <property name="text" translatable="yes">** PAGER MESSAGE **</property>
   </object>
   <object class="GtkEntryBuffer" id="tbTimeSincePage">
     <property name="text" translatable="yes">** TIMER **</property>

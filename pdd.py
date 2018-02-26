@@ -14,6 +14,9 @@ from time import localtime, strftime
 from collections import deque
 import logging
 from logging.handlers import TimedRotatingFileHandler
+from urllib.request import urlopen
+import urllib
+import math
 
 import database
 import calcs
@@ -79,7 +82,46 @@ class InterFace(Gtk.Window):
             logger.error ('Error when retrieving airfields for dropdown menu')
         
         combo.set_active(0)
-
+        
+    def populateMap(self, image, airfield_lat, airfield_lng, firecall_lat, firecall_lon):
+        
+        url = 'https://maps.googleapis.com/maps/api/staticmap'
+        url += '?size=640x640'
+        url += '&maptype=terrain'
+        url += '&markers=color:blue|label:H|%s,%s' % (airfield_lat, airfield_lng)
+        url += '&markers=color:red|label:F|%s,%s' % (firecall_lat, firecall_lon)
+        url += '&path=color:0xff0000ff|weight:5|%s,%s|%s,%s' % (airfield_lat, airfield_lng, firecall_lat, firecall_lon)
+        url += '&key=AIzaSyCLUBXHPmb5uCNcjAgr4T-PVMII2IoHmD8'
+        
+        with urllib.request.urlopen(url) as response, open('./route_map.png', 'wb') as out_file:
+            data = response.read()
+            out_file.write(data)
+            
+        image.set_from_file ('./route_map.png')
+        
+        return True
+    
+    def updateNearestBomberReloadingAirfields(self, tbClosestAirbase, latitude, longitude):
+        
+        # if not then bug out.
+        b_return = False
+        try:
+            b_return, airfields, count = database.select ("SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`")
+        except:
+            pass
+        
+        if (not b_return):
+            logger.error ("Error when trying to search `airfield_bomber_reloading`")
+            logger.debug ("b_return: %s" % b_return)
+            logger.debug ("row     : %s" % airfield)
+            logger.debug ("count   : %s" % count)
+        else:
+            #logger.debug ("airfield: %s" % airfields)
+            sorted_list = calcs.find_closest_airbases (latitude, longitude, airfields)
+            buffer = "** CLOSEST REFILLING AIRBASES **\n%s: %.0f Nm\n%s: %.0f Nm" % (sorted_list[0]['name'], math.ceil(float(sorted_list[0]['distance'])), sorted_list[1]['name'], math.ceil(float(sorted_list[1]['distance'])))
+            tbClosestAirbase.set_text(buffer)
+        return True
+    
     def btnSendTestPage(self, object, data=None):
         
         __ser = self.InitSerialPort()        
@@ -148,8 +190,6 @@ class InterFace(Gtk.Window):
 
                                 if (len(message) > 11):                  # at least the capcode and priority
                                     
-                                    self.TimeOfPage = datetime.now()
-                                    
                                     print ("original message is %s" % message)
                                     
                                     capcode = message[0:9]
@@ -160,11 +200,14 @@ class InterFace(Gtk.Window):
                                     
                                     # is the capcode a PDD response.
                                     # if not then bug out.
-                                    b_return, airfield, count = database.select ("SELECT * FROM `airfields` WHERE capcode = '%s';" % capcode)
-                                    airfield = airfield[0]
-                                    logger.debug ("b_return: %s" % b_return)
-                                    logger.debug ("row     : %s" % airfield)
-                                    logger.debug ("count   : %s" % count)
+                                    try:
+                                        b_return, airfield, count = database.select ("SELECT * FROM `airfields` WHERE capcode = '%s';" % capcode)
+                                        airfield = airfield[0]
+                                        logger.debug ("b_return: %s" % b_return)
+                                        logger.debug ("row     : %s" % airfield)
+                                        logger.debug ("count   : %s" % count)
+                                    except:
+                                        pass
                                     
                                     if (not b_return):
                                         logger.error ('Error when trying to search for airfield')
@@ -175,7 +218,10 @@ class InterFace(Gtk.Window):
                                         b_pdd_response = False
                                     
                                     if (b_pdd_response):
-                                        
+                                    
+                                        # start the clock
+                                        self.TimeOfPage = datetime.now()
+
                                         # extract the page prority (EMERG, NON EMERG or ADMIN)
                                         priority = message[0:2]
                                         message = message[2:].lstrip()
@@ -332,13 +378,19 @@ class InterFace(Gtk.Window):
                                         if (parseOK):
                                             
                                             # populate the flight info textbox
-                                            distance, bearing = calcs.get_distance_and_bearing (airfield['lat'], airfield['lng'], latitude, longitude, 'N')
+                                            distance, bearing = calcs.get_distance_and_bearing (airfield['lat'], airfield['lng'], latitude, longitude)
                                             buffer = ("** FLIGHT DATA**\nDistance : %s\nBearing : %s\nDispatch: %s" % (str(distance), str(bearing), DispatchChannel))
                                             GObject.idle_add(
                                                 self.tbFlightPath.set_text, buffer,
                                                 priority=GObject.PRIORITY_DEFAULT
                                             )
-                                        
+                                            
+                                            # update image
+                                            self.populateMap(self.imageMap, airfield['lat'], airfield['lng'], latitude, longitude)
+                                            
+                                            # update closest bomber reloading airfields
+                                            self.updateNearestBomberReloadingAirfields(self.tbClosestAirbase, latitude, longitude)
+
                                                 
                                     else:
                                         print ('Not a PDD response')
@@ -364,8 +416,11 @@ class InterFace(Gtk.Window):
         self.tbClosestAirbase = self.builder.get_object("tbClosestAirbase")
         self.comboAirfield = self.builder.get_object("comboAirfield")
         self.tbTimeSincePage = self.builder.get_object("tbTimeSincePage")
-        
+        self.imageMap = self.builder.get_object("imageMap")
+                             
         self.populateAirfieldComboBox(self.comboAirfield)
+        
+        self.TimeOfPage = None
 
         # 1. define the tread, updating your text
         self.update = Thread(target=self.process_serial)
