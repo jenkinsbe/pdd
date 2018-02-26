@@ -56,12 +56,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="entry_text_column">0</property>
-                <items>
-                  <item translatable="yes">Albury</item>
-                  <item translatable="yes">Bacchus Marsh</item>
-                  <item translatable="yes">Ballarat</item>
-                  <item translatable="yes">Benella</item>
-                </items>
                 <signal name="changed" handler="airfield_changed" swapped="no"/>
               </object>
               <packing>

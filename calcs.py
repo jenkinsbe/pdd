@@ -52,3 +52,10 @@ def get_bearing(lat1, lon1, lat2, lon2): 		# uses rhumb line
     
     # return the angle, normalized
     return (math.degrees(math.atan2(dLon, dPhi)) + 360) % 360
+
+def hms_string(seconds_elapsed):
+    h = int(seconds_elapsed / (60 * 60))
+    m = int((seconds_elapsed % (60 * 60)) / 60)
+    s = seconds_elapsed % 60
+    return "%02d:%02d:%02d" % (h, m, s)
+    #return "{}:{:>02}:{:>05f}".format(h,m,s)

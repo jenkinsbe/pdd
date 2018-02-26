@@ -4,6 +4,7 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GObject
 
+from datetime import datetime
 import time
 from threading import Thread
 import re
@@ -45,6 +46,8 @@ def CleanString (str):
     return str
 
 class InterFace(Gtk.Window):
+    
+    TimeOfPage = None
 
     def on_window_destroy(self, object, data=None):
         print ("Quiting")
@@ -63,10 +66,24 @@ class InterFace(Gtk.Window):
         if text is not None:
             print ("Airfield selected is: %s" % text)
 
+
+    def populateAirfieldComboBox(self, combo):
+        combo.append_text("All airfields")
+        
+        # extract the airfields from teh DB
+        b_return, airfields, count = database.select ("SELECT * FROM `airfields` WHERE 1")
+        if (b_return and count > 0):
+            for airfield in airfields:
+                combo.append_text(airfield['name'])
+        else:
+            logger.error ('Error when retrieving airfields for dropdown menu')
+        
+        combo.set_active(0)
+
     def btnSendTestPage(self, object, data=None):
         
         __ser = self.InitSerialPort()        
-        __message = (b'\r\nM 000000002 @@ALERT F123456789 INVL2 G&SC1 SMALL GRADD FIRE EMMA LANE INVERLOCHSVC 6962 D7 (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337\r\n')
+        __message = (b'\r\nM 000000002 @@ALERT F123456789 INVL2 G&SC1 SMALL GRASS FIRE EMMA LANE INVERLOCH SVC 6962 D7 (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337\r\n')
         __ser.write (__message)
         __ser.close()
         
@@ -130,6 +147,8 @@ class InterFace(Gtk.Window):
                                 message = message[2:] #remove the "M " from the start
 
                                 if (len(message) > 11):                  # at least the capcode and priority
+                                    
+                                    self.TimeOfPage = datetime.now()
                                     
                                     print ("original message is %s" % message)
                                     
@@ -237,6 +256,20 @@ class InterFace(Gtk.Window):
                                             else:
                                                 logging.debug("No match for Assignment Area")
                                                 parseOK = False
+                                                firecall = False                                                
+                                                                                                                            
+                                            # Dispatch channel
+                                            expression = "DISP[0-9]{1,} "
+                                            search_response = re.search(expression, message)      # extract DispatchChannel
+                                            if (search_response != None):
+                                                DispatchChannel = search_response.group(0)
+                                                message = re.sub(expression, '', message)         # remove DispatchChannel
+                                                message = CleanString (message)
+                                                DispatchChannel = DispatchChannel.replace ("DISP", "")
+                                                logging.debug("Dispatch channel:" + DispatchChannel)
+                                            else:
+                                                logging.debug("No match for Dispatch Channel")
+                                                parseOK = False
                                                 firecall = False
                                                 
                                             # Melways
@@ -300,7 +333,7 @@ class InterFace(Gtk.Window):
                                             
                                             # populate the flight info textbox
                                             distance, bearing = calcs.get_distance_and_bearing (airfield['lat'], airfield['lng'], latitude, longitude, 'N')
-                                            buffer = ("Distance : %s\nBearing : %s" % (str(distance), str(bearing)))
+                                            buffer = ("** FLIGHT DATA**\nDistance : %s\nBearing : %s\nDispatch: %s" % (str(distance), str(bearing), DispatchChannel))
                                             GObject.idle_add(
                                                 self.tbFlightPath.set_text, buffer,
                                                 priority=GObject.PRIORITY_DEFAULT
@@ -329,6 +362,10 @@ class InterFace(Gtk.Window):
         self.tbWeather = self.builder.get_object("tbWeather")
         self.tbFlightPath = self.builder.get_object("tbFlightPath")
         self.tbClosestAirbase = self.builder.get_object("tbClosestAirbase")
+        self.comboAirfield = self.builder.get_object("comboAirfield")
+        self.tbTimeSincePage = self.builder.get_object("tbTimeSincePage")
+        
+        self.populateAirfieldComboBox(self.comboAirfield)
 
         # 1. define the tread, updating your text
         self.update = Thread(target=self.process_serial)
@@ -340,13 +377,27 @@ class InterFace(Gtk.Window):
         
         self.window.queue_draw()
   
+    # Displays Timer
+    def displayclock(self):
+        #  we need to return "True" to ensure the timer continues to run, otherwise it will only run once.
+        if (self.TimeOfPage is not None):
+            time_elapsed = (datetime.now() - self.TimeOfPage).total_seconds()
+            buffer = calcs.hms_string(time_elapsed)
+            self.tbTimeSincePage.set_text (buffer, len(buffer))
+        return True
 
+        
+    # Initialize Timer
+    def startclocktimer(self):
+            #  this takes 2 args: (how often to update in millisec, the method to run)
+            GObject.timeout_add(1000, self.displayclock)
   
 def run_gui():
     main = InterFace()
     # 4. this is where we call GObject.threads_init()
     GObject.threads_init()
     main.show_all()
+    main.startclocktimer()
     Gtk.main()
 
 if __name__ == "__main__":
