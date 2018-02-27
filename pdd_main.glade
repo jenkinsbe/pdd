@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
-  <object class="GtkTextBuffer" id="tbPagerMessage">
-    <property name="text" translatable="yes">** PAGER MESSAGE **</property>
-  </object>
-  <object class="GtkEntryBuffer" id="tbTimeSincePage">
-    <property name="text" translatable="yes">** TIMER **</property>
-  </object>
   <object class="GtkTextBuffer" id="tbClosestAirbase">
     <property name="text" translatable="yes">** CLOSEST AIR BASE **</property>
   </object>
   <object class="GtkTextBuffer" id="tbFlightPath">
     <property name="text" translatable="yes">** FLIGHT PATH **</property>
   </object>
+  <object class="GtkTextBuffer" id="tbPagerMessage">
+    <property name="text" translatable="yes">** PAGER MESSAGE **</property>
+  </object>
+  <object class="GtkEntryBuffer" id="tbTimeSincePage">
+    <property name="text" translatable="yes">** TIMER **</property>
+  </object>
   <object class="GtkTextBuffer" id="tbWeather">
     <property name="text" translatable="yes">** WEATHER **</property>
   </object>
   <object class="GtkWindow" id="mainwindow">
     <property name="can_focus">False</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
     <property name="title" translatable="yes">Pre determined Dispatch</property>
     <property name="window_position">center</property>
     <property name="default_width">800</property>
     <property name="default_height">600</property>
+    <property name="urgency_hint">True</property>
     <signal name="destroy" handler="on_window_destroy" swapped="no"/>
     <child>
       <object class="GtkBox" id="box1">
@@ -56,12 +59,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="entry_text_column">0</property>
-                <items>
-                  <item translatable="yes">Albury</item>
-                  <item translatable="yes">Bacchus Marsh</item>
-                  <item translatable="yes">Ballarat</item>
-                  <item translatable="yes">Benella</item>
-                </items>
                 <signal name="changed" handler="airfield_changed" swapped="no"/>
               </object>
               <packing>
@@ -158,6 +155,7 @@
                 <property name="margin_top">5</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
+                <property name="pixbuf">route_map.png</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -242,6 +240,7 @@
                 <property name="margin_top">5</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
+                <property name="pixbuf">destination_map.png</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
