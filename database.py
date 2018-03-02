@@ -7,11 +7,11 @@ db_lock = Lock()
 
 def db_connect():
     conn_handle = None
-    conn_handle = lite.connect('./db/pdd')
+    conn_handle = lite.connect('./db/pdd.db')
     if (conn_handle == None):
         logger.error ('Could not connect to database')
-    else:
-        logger.debug ('Connected to database')
+    #else:
+        #logger.debug ('Connected to database')
     return conn_handle
     
 def select (sql):

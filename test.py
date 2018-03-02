@@ -1,56 +1,26 @@
-import gi
-gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, GObject
-import time
-from threading import Thread
+from bs4 import BeautifulSoup
+import re
+import weather
 
-class InterFace(Gtk.Window):
+fwb = weather.download_fire_weather_bulletin()
+soup = BeautifulSoup (fwb, 'html.parser')
 
-    def __init__(self):
+aws = 'Bendigo'
+ 
+tags = soup.find_all('td')
 
-        Gtk.Window.__init__(self, title="Test 123")
+regex = re.compile("[^0-9]")
 
-        maingrid = Gtk.Grid()
-        maingrid.set_border_width(10)
-        self.add(maingrid)
+for x in range (0, len(tags)):
+    tag = tags[x].string.strip()
+    
+    #print (tag)
+    
+    if (tag == aws):
+        print ('%s at %d' % (aws, x))
+        
+        ffdi = regex.sub ("", str(tags[x+11]))
+        print ('FFDI: %s' % ffdi)
 
-        scrolledwindow = Gtk.ScrolledWindow()
-        scrolledwindow.set_hexpand(True)
-        scrolledwindow.set_vexpand(True)
-        scrolledwindow.set_min_content_height(50)
-        scrolledwindow.set_min_content_width(150)
-        maingrid.attach(scrolledwindow, 0,0,1,1)
-
-        self.textfield = Gtk.TextView()
-        self.textbuffer = self.textfield.get_buffer()
-        self.textbuffer.set_text("Let's count monkeys")
-        self.textfield.set_wrap_mode(Gtk.WrapMode.WORD)
-        scrolledwindow.add(self.textfield)
-
-        # 1. define the tread, updating your text
-        self.update = Thread(target=self.counting_monkeys)
-        # 2. Deamonize the thread to make it stop with the GUI
-        self.update.setDaemon(True)
-        # 3. Start the thread
-        self.update.start()
-
-    def counting_monkeys(self):
-        # replace this with your thread to update the text
-        n = 1
-        while True:
-            time.sleep(2)
-            newtext = str(n)+" monkey" if n == 1 else str(n)+" monkeys"
-            GObject.idle_add(
-                self.textbuffer.set_text, newtext,
-                priority=GObject.PRIORITY_DEFAULT
-                )
-            n += 1
-
-def run_gui():
-    window = InterFace()
-    # 4. this is where we call GObject.threads_init()
-    GObject.threads_init()
-    window.show_all()
-    Gtk.main()
-
-run_gui()
+        gfdi = regex.sub ("", str(tags[x+12]))
+        print ('GFDI: %s' % gfdi)

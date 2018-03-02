@@ -2,7 +2,7 @@
 
 import gi
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, Gdk, GObject, Gio
 
 from datetime import datetime
 import time
@@ -17,9 +17,12 @@ from logging.handlers import TimedRotatingFileHandler
 from urllib.request import urlopen
 import urllib
 import math
+import os
+from bs4 import BeautifulSoup
 
 import database
 import calcs
+import weather
 
 
 if sys.version_info<(3,4,2):
@@ -83,7 +86,7 @@ class InterFace(Gtk.Window):
         
         combo.set_active(0)
         
-    def populateMap(self, image, airfield_lat, airfield_lng, firecall_lat, firecall_lon):
+    def populateMapRoute(self, image, airfield_lat, airfield_lng, firecall_lat, firecall_lon):
         
         url = 'https://maps.googleapis.com/maps/api/staticmap'
         url += '?size=640x640'
@@ -93,14 +96,37 @@ class InterFace(Gtk.Window):
         url += '&path=color:0xff0000ff|weight:5|%s,%s|%s,%s' % (airfield_lat, airfield_lng, firecall_lat, firecall_lon)
         url += '&key=AIzaSyCLUBXHPmb5uCNcjAgr4T-PVMII2IoHmD8'
         
-        with urllib.request.urlopen(url) as response, open('./route_map.png', 'wb') as out_file:
-            data = response.read()
-            out_file.write(data)
-            
-        image.set_from_file ('./route_map.png')
-        
-        return True
+        try:
+            with urllib.request.urlopen(url) as response, open('./route_map.png', 'wb') as out_file:
+                data = response.read()
+                out_file.write(data)
+                image.set_from_file ('./route_map.png')
+            return True
+        except:
+            logger.error ('Could not download route map. Possible internet connection issue.')
+            return False
     
+    def populateMapDestination(self, image, airfield_lat, airfield_lng, firecall_lat, firecall_lon):
+        
+        url = 'https://maps.googleapis.com/maps/api/staticmap'
+        url += '?center=%s,%s' % (firecall_lat, firecall_lon)
+        url += '&size=640x640'
+        url += '&zoom=16'
+        url += '&maptype=satellite'
+        url += '&markers=color:red|label:F|%s,%s' % (firecall_lat, firecall_lon)
+        url += '&key=AIzaSyCLUBXHPmb5uCNcjAgr4T-PVMII2IoHmD8'
+        
+        try:
+            with urllib.request.urlopen(url) as response, open('./destination_map.png', 'wb') as out_file:
+                data = response.read()
+                out_file.write(data)
+                image.set_from_file ('./destination_map.png')
+            return True
+        except:
+            logger.error ('Could not download destination map. Possible internet connection issue.')
+            return False
+
+
     def updateNearestBomberReloadingAirfields(self, tbClosestAirbase, latitude, longitude):
         
         # if not then bug out.
@@ -118,14 +144,58 @@ class InterFace(Gtk.Window):
         else:
             #logger.debug ("airfield: %s" % airfields)
             sorted_list = calcs.find_closest_airbases (latitude, longitude, airfields)
-            buffer = "** CLOSEST REFILLING AIRBASES **\n%s: %.0f Nm\n%s: %.0f Nm" % (sorted_list[0]['name'], math.ceil(float(sorted_list[0]['distance'])), sorted_list[1]['name'], math.ceil(float(sorted_list[1]['distance'])))
-            tbClosestAirbase.set_text(buffer)
+            buffer = "** CLOSEST RELOADING AIRBASES **\n%s: %.0f Nm\n%s: %.0f Nm" % (sorted_list[0]['name'], math.ceil(float(sorted_list[0]['distance'])), sorted_list[1]['name'], math.ceil(float(sorted_list[1]['distance'])))
+            GObject.idle_add(self.tbClosestAirbase.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
+
         return True
     
+    def updateAWS(self, tbWeather, aws_short_name):
+        
+        screen_buffer = "ERROR"
+        
+        # what is the AWS for this airfield
+        b_return, airfields_aws_dict, count = database.select ("SELECT * FROM `airfield_aws` WHERE short_name = '%s';" % aws_short_name)
+        if (b_return):
+            if (count > 0):
+                
+                b_dfwb, fwb = weather.download_fire_weather_bulletin()
+                if (b_dfwb):
+                    try:
+                        soup = BeautifulSoup(fwb, 'html.parser')
+                        
+                        buffer = "** WEATHER **\n\n"
+
+                        for airfield in airfields_aws_dict:
+                            
+                            b_success, aws_time, ffdi, gfdi = weather.parse_wx_from_fwb (soup, airfield['aws'])
+                            if (b_success):
+
+                                if (int(max(gfdi, ffdi)) > int(airfield['fdi_trigger'])):
+                                    gonogo = "GO"
+                                else:
+                                    gonogo = "NO GO"
+                                buffer += "%s(%s) FFDI is %d, GFDI is %d: %s\n" % (airfield['name'], airfield['fdi_trigger'], ffdi, gfdi, gonogo)
+
+                            else:
+                                logger.error ('Could not parse weather data')
+                            
+                        buffer += "\nCorrect as at %s" % aws_time
+                        screen_buffer = buffer
+                    except:
+                        logging.error (sys.exc_info()[0])
+                else:
+                    logging.error ('Could not download FWB from BOM. Possible internet connection issue.')
+                    screen_buffer = 'Could not download FWB from BOM. Possible internet connection issue.'
+        else:
+            logging.error ('Cant get AWS from short name')
+
+        GObject.idle_add(self.tbWeather.set_text, screen_buffer, priority=GObject.PRIORITY_DEFAULT)
+        
+        
     def btnSendTestPage(self, object, data=None):
         
         __ser = self.InitSerialPort()        
-        __message = (b'\r\nM 000000002 @@ALERT F123456789 INVL2 G&SC1 SMALL GRASS FIRE EMMA LANE INVERLOCH SVC 6962 D7 (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337\r\n')
+        __message = (b'\r\nM 001817568 @@ALERT F123456789 INVL2 G&SC1 SMALL GRASS FIRE EMMA LANE INVERLOCH SVC 6962 D7 (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337\r\n')
         __ser.write (__message)
         __ser.close()
         
@@ -236,10 +306,7 @@ class InterFace(Gtk.Window):
                                         print ("message is %s" % message)
                                         
                                         # show the message in the textbox
-                                        GObject.idle_add(
-                                            self.tbPagerMessage.set_text, message,
-                                            priority=GObject.PRIORITY_DEFAULT
-                                        )
+                                        GObject.idle_add(self.tbPagerMessage.set_text, message, priority=GObject.PRIORITY_DEFAULT)
                                         
                                         parseOK = True
                                         firecall = True
@@ -377,19 +444,27 @@ class InterFace(Gtk.Window):
                                         
                                         if (parseOK):
                                             
+                                            # let the pilots know that the screen is updating
+                                            GObject.idle_add(self.tbWeather.set_text, "Downloading weather from BOM...", priority=GObject.PRIORITY_DEFAULT)
+                                            GObject.idle_add(self.tbFlightPath.set_text, "Calculating flight details...", priority=GObject.PRIORITY_DEFAULT)
+                                            GObject.idle_add(self.tbClosestAirbase.set_text, "Finding nearest reloading bases...", priority=GObject.PRIORITY_DEFAULT)
+                                            
                                             # populate the flight info textbox
                                             distance, bearing = calcs.get_distance_and_bearing (airfield['lat'], airfield['lng'], latitude, longitude)
                                             buffer = ("** FLIGHT DATA**\nDistance : %s\nBearing : %s\nDispatch: %s" % (str(distance), str(bearing), DispatchChannel))
-                                            GObject.idle_add(
-                                                self.tbFlightPath.set_text, buffer,
-                                                priority=GObject.PRIORITY_DEFAULT
-                                            )
-                                            
-                                            # update image
-                                            self.populateMap(self.imageMap, airfield['lat'], airfield['lng'], latitude, longitude)
+                                            GObject.idle_add(self.tbFlightPath.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
                                             
                                             # update closest bomber reloading airfields
                                             self.updateNearestBomberReloadingAirfields(self.tbClosestAirbase, latitude, longitude)
+                                            
+                                            # update weather information
+                                            self.updateAWS(self.tbWeather, airfield['short_name'])                                            
+
+                                            # update image
+                                            self.populateMapRoute(self.imageMapRoute, airfield['lat'], airfield['lng'], latitude, longitude)
+                                            self.populateMapDestination(self.imageMapDestination, airfield['lat'], airfield['lng'], latitude, longitude)
+                                            
+                                            
 
                                                 
                                     else:
@@ -403,11 +478,42 @@ class InterFace(Gtk.Window):
 
             
     def __init__(self):
+
+        # set css style for window
+        style_provider = Gtk.CssProvider()
+        css = """
+        .tvPagerMessage {
+            background-color: red;
+            border-radius: 10px;
+            outline:none;
+        }
+
+        #header {
+            background-color: blue;
+        }
+        """
+        style_provider.load_from_data(bytes(css.encode()))
+        Gtk.StyleContext.add_provider_for_screen(
+            Gdk.Screen.get_default(), style_provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        )
+        #logger.debug (os.path.dirname(os.path.realpath(__file__)) + "/pdd.css")
+        #style_provider.load_from_path(os.path.dirname(os.path.realpath(__file__)) + "/pdd.css")
+
+#        bytes = Gio.resources_lookup_data(os.path.dirname(os.path.realpath(__file__)) + "/pdd.css", 0)
+#        style_provider.load_from_data(bytes.get_data())
+#        Gtk.StyleContext.add_provider_for_screen(
+#        Gdk.Screen.get_default(),
+#        style_provider,
+#        Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+#        )
+                    
         self.gladefile = "pdd_main.glade"
         self.builder = Gtk.Builder()
         self.builder.add_from_file(self.gladefile)
         self.builder.connect_signals(self)
         self.window = self.builder.get_object("mainwindow")
+        self.window.maximize()
         self.window.show()
 
         self.tbPagerMessage = self.builder.get_object("tbPagerMessage")
@@ -416,7 +522,8 @@ class InterFace(Gtk.Window):
         self.tbClosestAirbase = self.builder.get_object("tbClosestAirbase")
         self.comboAirfield = self.builder.get_object("comboAirfield")
         self.tbTimeSincePage = self.builder.get_object("tbTimeSincePage")
-        self.imageMap = self.builder.get_object("imageMap")
+        self.imageMapRoute = self.builder.get_object("imageMapRoute")
+        self.imageMapDestination = self.builder.get_object("imageMapDestination")
                              
         self.populateAirfieldComboBox(self.comboAirfield)
         
@@ -438,7 +545,7 @@ class InterFace(Gtk.Window):
         if (self.TimeOfPage is not None):
             time_elapsed = (datetime.now() - self.TimeOfPage).total_seconds()
             buffer = calcs.hms_string(time_elapsed)
-            self.tbTimeSincePage.set_text (buffer, len(buffer))
+            GObject.idle_add(self.tbTimeSincePage.set_text, buffer, len(buffer), priority=GObject.PRIORITY_DEFAULT)
         return True
 
         

@@ -67,12 +67,12 @@ def find_closest_airbases(firecall_lat, firecall_lng, unsorted_list):
         else:
             unsorted_list[x]['distance'] = 9999999999
     
-    logger.debug (unsorted_list)
-#    sorted_list = sorted(unsorted_list, key=itemgetter('distance'))
+    #logger.debug (unsorted_list)
     
     sorted_list = [(dict_["distance"], dict_) for dict_ in unsorted_list]
     sorted_list.sort()
     result = [dict_ for (key, dict_) in sorted_list]
 
-    logger.debug (result)          
+    #logger.debug (result)
     return result
+
