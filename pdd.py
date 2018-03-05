@@ -2,7 +2,7 @@
 
 import gi
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, Gdk, GObject, Gio
+from gi.repository import Gtk, Gdk, GObject, Gio, Pango
 
 from datetime import datetime
 import time
@@ -156,7 +156,7 @@ class InterFace(Gtk.Window):
                 
                 b_dfwb, fwb = weather.download_fire_weather_bulletin()
                 if (b_dfwb):
-                    try:
+#                    try:
                         soup = BeautifulSoup(fwb, 'html.parser')
                         
                         buffer = "** WEATHER **\n\n"
@@ -177,8 +177,8 @@ class InterFace(Gtk.Window):
                             
                         buffer += "\nCorrect as at %s" % aws_time
                         screen_buffer = buffer
-                    except:
-                        logging.error (sys.exc_info()[0])
+ #                   except:
+ #                       logging.error (sys.exc_info()[0])
                 else:
                     logging.error ('Could not download FWB from BOM. Possible internet connection issue.')
                     screen_buffer = 'Could not download FWB from BOM. Possible internet connection issue.'
@@ -206,7 +206,7 @@ class InterFace(Gtk.Window):
         __pdd_test_broken_list.append(b'\r\nM 001816088 @@ALERT F180300913 MTEL1 G&SC1 UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD M 106 C3 (354711) LAT/LN:-38.1926135, 145.1209718 DISP27 AIRMMB CFTONS CMTEL FBD302 HEL338\r\n')
         __pdd_test_broken_list.append(b'\r\nM 001816184 @@ALERT F180301004 KYAB4 G&SC1 TREE FIRE BEHIND CALLERS ADDRESS 12 CROW CR KYABRAM /MELLIS ST SVNE 8362 E5 (243803) LAT/LON:-36.3059159, 140437140 DISP520 AIRSHP CKYAB CMGUM CTGAL HEL331\r\n')
 
-        __message = (random.choice(__pdd_test_broken_list))
+        __message = (random.choice(__pdd_test_list))
         __ser.write (__message)
         __ser.close()
         
@@ -505,23 +505,28 @@ class InterFace(Gtk.Window):
     def __init__(self):
 
         # set css style for window
-        style_provider = Gtk.CssProvider()
-        css = """
-        .tvPagerMessage {
-            background-color: red;
-            border-radius: 10px;
-            outline:none;
-        }
-
-        #header {
-            background-color: blue;
-        }
-        """
-        style_provider.load_from_data(bytes(css.encode()))
-        Gtk.StyleContext.add_provider_for_screen(
-            Gdk.Screen.get_default(), style_provider,
-            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        )
+        # style_provider = Gtk.CssProvider()
+        # css = """
+        # textview text {
+            # font: 15px Times New Roman, serif;
+        # }
+        # """
+        # style_provider.load_from_data(bytes(css.encode()))
+        # Gtk.StyleContext.add_provider_for_screen(
+            # Gdk.Screen.get_default(), style_provider,
+            # Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        # )
+        
+        screen = Gdk.Screen.get_default()
+        gtk_provider = Gtk.CssProvider()
+        gtk_context = Gtk.StyleContext()
+        gtk_context.add_provider_for_screen(screen, gtk_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+        css = """#styled_tv { font-weight: bold; font-size: 22px; }""" #also valid
+        #css = """#styled_button { font: bold 16}""" #bold is not necessary 
+        #css = "textview text { font: bold 16}"
+        gtk_provider.load_from_data(bytes(css.encode()))
+        
+        
         #logger.debug (os.path.dirname(os.path.realpath(__file__)) + "/pdd.css")
         #style_provider.load_from_path(os.path.dirname(os.path.realpath(__file__)) + "/pdd.css")
 
@@ -542,6 +547,7 @@ class InterFace(Gtk.Window):
         self.window.show()
 
         self.tbPagerMessage = self.builder.get_object("tbPagerMessage")
+        self.tvPagerMessage = self.builder.get_object("tvPagerMessage")
         self.tbWeather = self.builder.get_object("tbWeather")
         self.tbFlightPath = self.builder.get_object("tbFlightPath")
         self.tbClosestAirbase = self.builder.get_object("tbClosestAirbase")
@@ -549,6 +555,9 @@ class InterFace(Gtk.Window):
         self.tbTimeSincePage = self.builder.get_object("tbTimeSincePage")
         self.imageMapRoute = self.builder.get_object("imageMapRoute")
         self.imageMapDestination = self.builder.get_object("imageMapDestination")
+        
+        #self.tvPagerMessage.set_name("styled_tv")
+        self.tvPagerMessage.override_font(Pango.font_description_from_string('DejaVu Sans Mono 12'))
                              
         self.populateAirfieldComboBox(self.comboAirfield)
         

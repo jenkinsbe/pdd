@@ -28,17 +28,37 @@ def download_fire_weather_bulletin():
 def parse_wx_from_fwb(soup, aws):
     
     logger.debug ('AWS for parsing is %s' % aws)
-
-    aws_time = 'TIME'
-    ffdi = -1
-    gfdi = -1
     b_return = False
-    
-    tags = soup.find_all('td')
-    regex = re.compile("[^0-9]")
 
     if (soup is not None):
         if (aws is not None):
+
+            # get the FWB time
+            aws_time = 'TIME'        
+            tags = soup.find_all('h3')
+            for x in range (0, len(tags)):
+                tag = tags[x].string
+                if tag is not None:
+                    if 'EDT' in tag:
+                        
+                        tag = re.sub("\r\n", '', tag)   # remove <CR><LF> from string
+                        tag = re.sub("At ", '', tag)    # remove 'At ' from start of string
+                        tag = re.sub("  ", ' ', tag)    # remove double spaces
+                        aws_time = tag
+                        logger.debug(tag)
+                        break
+                    else:
+                        logger.debug ('EDT not found')
+                        break
+    
+    
+            # get the FWB wx data for AWS
+            ffdi = -1
+            gfdi = -1
+            
+            tags = soup.find_all('td')
+            regex = re.compile("[^0-9]")
+
             
             for x in range (0, len(tags)):
                 tag = tags[x].string.strip()
@@ -53,6 +73,7 @@ def parse_wx_from_fwb(soup, aws):
                     logger.debug ('GFDI: %s' % gfdi)
                     
                     b_return = True
+                    
         else:
             logger.debug ('No AWS selected for parsing')
     else:

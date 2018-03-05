@@ -2,25 +2,52 @@ from bs4 import BeautifulSoup
 import re
 import weather
 
-fwb = weather.download_fire_weather_bulletin()
-soup = BeautifulSoup (fwb, 'html.parser')
 
-aws = 'Bendigo'
- 
-tags = soup.find_all('td')
+import logging
+from logging.handlers import TimedRotatingFileHandler
 
-regex = re.compile("[^0-9]")
+log_file_name = '/home/pi/pdd/logs/pdd.log'
+logging_level = logging.DEBUG
+formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s', "%Y-%m-%d %H:%M:%S")
+handler = logging.handlers.TimedRotatingFileHandler(log_file_name,  when='midnight')
+handler.suffix = '%Y_%m_%d.log'
+handler.setFormatter(formatter)
+logger = logging.getLogger() # or pass string to give it a name
+logger.addHandler(handler)
+logger.setLevel(logging_level)
 
-for x in range (0, len(tags)):
-    tag = tags[x].string.strip()
-    
-    #print (tag)
-    
-    if (tag == aws):
-        print ('%s at %d' % (aws, x))
-        
-        ffdi = regex.sub ("", str(tags[x+11]))
-        print ('FFDI: %s' % ffdi)
+console = logging.StreamHandler()
+console.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s %(levelname)-8s %(message)s', "%Y-%m-%d %H:%M:%S")
+console.setFormatter(formatter)
+logging.getLogger('').addHandler(console)
 
-        gfdi = regex.sub ("", str(tags[x+12]))
-        print ('GFDI: %s' % gfdi)
+success, fwb = weather.download_fire_weather_bulletin()
+aws = 'Shepparton'
+
+if (success):
+    soup = BeautifulSoup (fwb, 'html.parser')
+    logger.debug ('AWS for parsing is %s' % aws)
+
+    if (soup is not None):
+        if (aws is not None):
+
+            # get the FWB time
+            aws_time = 'TIME'        
+            tags = soup.find_all('h3')
+            for x in range (0, len(tags)):
+                
+                tag = tags[x].string
+                if tag is not None:
+                    logger.debug (tag)
+                    if 'EDT' in tag:
+                        
+                        # remove <CR><LF> from string
+                        tag = re.sub("\r\n", '', tag)   # remove ALERT
+                        aws_time = tag
+                        logger.debug(tag)
+                        break
+                    else:
+                        logger.debug ('EDT not found')
+else:
+    logger.debug('weather.download_fire_weather_bulletin() FAILED')
