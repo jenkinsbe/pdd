@@ -1884,3 +1884,468 @@ At 2005 EDT  on Monday,  5 March 2018
 2018-03-05 20:11:19 weather      DEBUG    Bendigo at 768
 2018-03-05 20:11:19 weather      DEBUG    FFDI: 9
 2018-03-05 20:11:19 weather      DEBUG    GFDI: 10
+2018-03-05 20:43:58 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-05 20:43:58 root         INFO     Serial port initialised
+2018-03-05 20:44:01 root         INFO     Serial port initialised
+2018-03-05 20:44:01 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001876600';
+2018-03-05 20:44:01 root         DEBUG    b_return: True
+2018-03-05 20:44:01 root         DEBUG    row     : {'lng': 144.428482, 'name': 'PDD - Bacchus Marsh', 'capcode': '001876600', 'short_name': 'AIRBAC', 'lat': -37.730476}
+2018-03-05 20:44:01 root         DEBUG    count   : 1
+2018-03-05 20:44:01 root         DEBUG    Alert           :ALERT
+2018-03-05 20:44:01 root         DEBUG    Fnumber         :F180300904
+2018-03-05 20:44:01 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 20:44:01 root         DEBUG    AssignmentArea  :TOOL2
+2018-03-05 20:44:01 root         DEBUG    Dispatch channel:61 
+2018-03-05 20:44:01 root         DEBUG    No match for Map ref
+2018-03-05 20:44:01 root         DEBUG    Latitude        :-37.6281814
+2018-03-05 20:44:01 root         DEBUG    Longitude       :144.6449890
+2018-03-05 20:44:01 root         DEBUG    Remaining msg   :GRASS FIRE SPREADING CNR COIMADAI-DIGGERS REST RD/HOLDEN RD TOOLERN VALE M 332 (921328) AIRBAC CMTON CTOOL HEL345
+2018-03-05 20:44:01 root         DEBUG    parse_alert            :True
+2018-03-05 20:44:01 root         DEBUG    parse_f_number         :True
+2018-03-05 20:44:01 root         DEBUG    parse_incident_type    :True
+2018-03-05 20:44:01 root         DEBUG    parse_assignment_area  :True
+2018-03-05 20:44:01 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 20:44:01 root         DEBUG    parse_mapbook          :False
+2018-03-05 20:44:01 root         DEBUG    parse_lat_long         :True
+2018-03-05 20:44:01 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 20:44:01 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBAC';
+2018-03-05 20:44:04 weather      DEBUG    AWS for parsing is Melbourne Ap
+2018-03-05 20:44:04 weather      DEBUG    2036 EDT on Monday, 5 March 2018
+2018-03-05 20:44:04 weather      DEBUG    Melbourne Ap at 1376
+2018-03-05 20:44:04 weather      DEBUG    FFDI: 5
+2018-03-05 20:44:04 weather      DEBUG    GFDI: 9
+2018-03-05 20:44:04 weather      DEBUG    AWS for parsing is Melbourne Ap
+2018-03-05 20:44:04 weather      DEBUG    2036 EDT on Monday, 5 March 2018
+2018-03-05 20:44:04 weather      DEBUG    Melbourne Ap at 1376
+2018-03-05 20:44:04 weather      DEBUG    FFDI: 5
+2018-03-05 20:44:04 weather      DEBUG    GFDI: 9
+2018-03-05 21:00:38 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-05 21:00:38 root         INFO     Serial port initialised
+2018-03-05 21:00:42 root         INFO     Serial port initialised
+2018-03-05 21:00:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001814336';
+2018-03-05 21:00:42 root         DEBUG    b_return: True
+2018-03-05 21:00:42 root         DEBUG    row     : {'short_name': 'AIRBEN', 'lat': -36.737926, 'lng': 144.327026, 'name': 'PDD - Bendigo', 'capcode': '001814336'}
+2018-03-05 21:00:42 root         DEBUG    count   : 1
+2018-03-05 21:00:42 root         DEBUG    Alert           :ALERT
+2018-03-05 21:00:42 root         DEBUG    Fnumber         :F180300594
+2018-03-05 21:00:42 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:00:42 root         DEBUG    AssignmentArea  :JUNO3
+2018-03-05 21:00:42 root         DEBUG    Dispatch channel:502 
+2018-03-05 21:00:42 root         DEBUG    Map ref         :SVNW 8285 
+2018-03-05 21:00:42 root         DEBUG    Latitude        :-36.7938187
+2018-03-05 21:00:42 root         DEBUG    Longitude       :144.3928462
+2018-03-05 21:00:42 root         DEBUG    Remaining msg   :SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA (673248) AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN ]
+2018-03-05 21:00:42 root         DEBUG    parse_alert            :True
+2018-03-05 21:00:42 root         DEBUG    parse_f_number         :True
+2018-03-05 21:00:42 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:00:42 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:00:42 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:00:42 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:00:42 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:00:42 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:00:42 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBEN';
+2018-03-05 21:00:45 weather      DEBUG    AWS for parsing is Bendigo
+2018-03-05 21:00:45 weather      DEBUG    2043 EDT on Monday, 5 March 2018
+2018-03-05 21:00:45 weather      DEBUG    Bendigo at 768
+2018-03-05 21:00:45 weather      DEBUG    FFDI: 9
+2018-03-05 21:00:45 weather      DEBUG    GFDI: 10
+2018-03-05 21:01:06 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-05 21:01:06 root         INFO     Serial port initialised
+2018-03-05 21:01:08 root         INFO     Serial port initialised
+2018-03-05 21:01:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001814336';
+2018-03-05 21:01:08 root         DEBUG    b_return: True
+2018-03-05 21:01:08 root         DEBUG    row     : {'name': 'PDD - Bendigo', 'lat': -36.737926, 'lng': 144.327026, 'capcode': '001814336', 'short_name': 'AIRBEN'}
+2018-03-05 21:01:08 root         DEBUG    count   : 1
+2018-03-05 21:01:08 root         DEBUG    Alert           :ALERT
+2018-03-05 21:01:08 root         DEBUG    Fnumber         :F180300594
+2018-03-05 21:01:08 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:01:08 root         DEBUG    AssignmentArea  :JUNO3
+2018-03-05 21:01:08 root         DEBUG    Dispatch channel:502 
+2018-03-05 21:01:08 root         DEBUG    Map ref         :SVNW 8285 
+2018-03-05 21:01:08 root         DEBUG    Latitude        :-36.7938187
+2018-03-05 21:01:08 root         DEBUG    Longitude       :144.3928462
+2018-03-05 21:01:08 root         DEBUG    Remaining msg   :SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA (673248) AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN ]
+2018-03-05 21:01:08 root         DEBUG    parse_alert            :True
+2018-03-05 21:01:08 root         DEBUG    parse_f_number         :True
+2018-03-05 21:01:08 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:01:08 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:01:08 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:01:08 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:01:08 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:01:08 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:01:08 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBEN';
+2018-03-05 21:01:10 weather      DEBUG    AWS for parsing is Bendigo
+2018-03-05 21:01:10 weather      DEBUG    2043 EDT on Monday, 5 March 2018
+2018-03-05 21:01:10 weather      DEBUG    Bendigo at 768
+2018-03-05 21:01:10 weather      DEBUG    FFDI: 9
+2018-03-05 21:01:10 weather      DEBUG    GFDI: 10
+2018-03-05 21:04:39 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-05 21:04:39 root         INFO     Serial port initialised
+2018-03-05 21:04:41 root         INFO     Serial port initialised
+2018-03-05 21:04:41 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816088';
+2018-03-05 21:04:41 root         DEBUG    b_return: True
+2018-03-05 21:04:41 root         DEBUG    row     : {'capcode': '001816088', 'lng': 145.093857, 'lat': -37.971375, 'name': 'PDD - Moorabbin', 'short_name': 'AIRMMB'}
+2018-03-05 21:04:41 root         DEBUG    count   : 1
+2018-03-05 21:04:41 root         DEBUG    Alert           :ALERT
+2018-03-05 21:04:41 root         DEBUG    Fnumber         :F180300913
+2018-03-05 21:04:41 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:04:41 root         DEBUG    AssignmentArea  :MTEL1
+2018-03-05 21:04:41 root         DEBUG    Dispatch channel:27 
+2018-03-05 21:04:41 root         DEBUG    Map ref         :M 106 C3
+2018-03-05 21:04:41 root         DEBUG    Latitude        :-38.1926135
+2018-03-05 21:04:41 root         DEBUG    Longitude       :145.1209718
+2018-03-05 21:04:41 root         DEBUG    Remaining msg   :UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD (354711) AIRMMB CFTONS CMTEL FBD302 HEL338
+2018-03-05 21:04:41 root         DEBUG    parse_alert            :True
+2018-03-05 21:04:41 root         DEBUG    parse_f_number         :True
+2018-03-05 21:04:41 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:04:41 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:04:41 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:04:41 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:04:41 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:04:41 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:04:41 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRMMB';
+2018-03-05 21:04:44 weather      DEBUG    AWS for parsing is Moorabbin AWS
+2018-03-05 21:04:44 weather      DEBUG    2043 EDT on Monday, 5 March 2018
+2018-03-05 21:04:44 weather      DEBUG    Moorabbin AWS at 1440
+2018-03-05 21:04:44 weather      DEBUG    FFDI: 5
+2018-03-05 21:04:44 weather      DEBUG    GFDI: 4
+2018-03-05 21:17:41 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-05 21:17:41 root         INFO     Serial port initialised
+2018-03-05 21:17:43 root         INFO     Serial port initialised
+2018-03-05 21:17:43 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816184';
+2018-03-05 21:17:43 root         DEBUG    b_return: True
+2018-03-05 21:17:43 root         DEBUG    row     : {'short_name': 'AIRSHP', 'capcode': '001816184', 'name': 'PDD - Shepparton', 'lng': 145.390488, 'lat': -36.428467}
+2018-03-05 21:17:43 root         DEBUG    count   : 1
+2018-03-05 21:17:43 root         DEBUG    Alert           :ALERT
+2018-03-05 21:17:43 root         DEBUG    Fnumber         :F180301004
+2018-03-05 21:17:43 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:17:43 root         DEBUG    AssignmentArea  :KYAB4
+2018-03-05 21:17:43 root         DEBUG    Dispatch channel:520 
+2018-03-05 21:17:43 root         DEBUG    Map ref         :SVNE 8362 E5
+2018-03-05 21:17:43 root         DEBUG    Latitude        :-36.3059159
+2018-03-05 21:17:43 root         DEBUG    Longitude       :145.0437140
+2018-03-05 21:17:43 root         DEBUG    Remaining msg   :TREE FIRE BEHIND CALLERS ADDRESS 12 CROW CR KYABRAM /MELLIS ST (243803) AIRSHP CKYAB CMGUM CTGAL HEL331
+2018-03-05 21:17:43 root         DEBUG    parse_alert            :True
+2018-03-05 21:17:43 root         DEBUG    parse_f_number         :True
+2018-03-05 21:17:43 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:17:43 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:17:43 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:17:43 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:17:43 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:17:43 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:17:43 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRSHP';
+2018-03-05 21:17:46 weather      DEBUG    AWS for parsing is Shepparton
+2018-03-05 21:17:46 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:17:46 weather      DEBUG    Shepparton at 896
+2018-03-05 21:17:46 weather      DEBUG    FFDI: 10
+2018-03-05 21:17:46 weather      DEBUG    GFDI: 13
+2018-03-05 21:18:22 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-05 21:18:22 root         INFO     Serial port initialised
+2018-03-05 21:18:47 root         INFO     Serial port initialised
+2018-03-05 21:18:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001876600';
+2018-03-05 21:18:47 root         DEBUG    b_return: True
+2018-03-05 21:18:47 root         DEBUG    row     : {'lat': -37.730476, 'name': 'PDD - Bacchus Marsh', 'short_name': 'AIRBAC', 'lng': 144.428482, 'capcode': '001876600'}
+2018-03-05 21:18:47 root         DEBUG    count   : 1
+2018-03-05 21:18:47 root         DEBUG    Alert           :ALERT
+2018-03-05 21:18:47 root         DEBUG    Fnumber         :F180300904
+2018-03-05 21:18:47 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:18:47 root         DEBUG    AssignmentArea  :TOOL2
+2018-03-05 21:18:47 root         DEBUG    Dispatch channel:61 
+2018-03-05 21:18:47 root         DEBUG    No match for Map ref
+2018-03-05 21:18:47 root         DEBUG    Latitude        :-37.6281814
+2018-03-05 21:18:47 root         DEBUG    Longitude       :144.6449890
+2018-03-05 21:18:47 root         DEBUG    Remaining msg   :GRASS FIRE SPREADING CNR COIMADAI-DIGGERS REST RD/HOLDEN RD TOOLERN VALE M 332 (921328) AIRBAC CMTON CTOOL HEL345
+2018-03-05 21:18:47 root         DEBUG    parse_alert            :True
+2018-03-05 21:18:47 root         DEBUG    parse_f_number         :True
+2018-03-05 21:18:47 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:18:47 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:18:47 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:18:47 root         DEBUG    parse_mapbook          :False
+2018-03-05 21:18:47 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:18:47 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:18:47 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBAC';
+2018-03-05 21:18:50 weather      DEBUG    AWS for parsing is Melbourne Ap
+2018-03-05 21:18:50 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:18:50 weather      DEBUG    Melbourne Ap at 1376
+2018-03-05 21:18:50 weather      DEBUG    FFDI: 5
+2018-03-05 21:18:50 weather      DEBUG    GFDI: 10
+2018-03-05 21:18:50 weather      DEBUG    AWS for parsing is Melbourne Ap
+2018-03-05 21:18:50 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:18:50 weather      DEBUG    Melbourne Ap at 1376
+2018-03-05 21:18:50 weather      DEBUG    FFDI: 5
+2018-03-05 21:18:50 weather      DEBUG    GFDI: 10
+2018-03-05 21:19:11 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-05 21:19:11 root         INFO     Serial port initialised
+2018-03-05 21:19:13 root         INFO     Serial port initialised
+2018-03-05 21:19:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816088';
+2018-03-05 21:19:13 root         DEBUG    b_return: True
+2018-03-05 21:19:13 root         DEBUG    row     : {'name': 'PDD - Moorabbin', 'capcode': '001816088', 'lat': -37.971375, 'lng': 145.093857, 'short_name': 'AIRMMB'}
+2018-03-05 21:19:13 root         DEBUG    count   : 1
+2018-03-05 21:19:13 root         DEBUG    Alert           :ALERT
+2018-03-05 21:19:13 root         DEBUG    Fnumber         :F180300913
+2018-03-05 21:19:13 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:19:13 root         DEBUG    AssignmentArea  :MTEL1
+2018-03-05 21:19:13 root         DEBUG    Dispatch channel:27 
+2018-03-05 21:19:13 root         DEBUG    Map ref         :M 106 C3
+2018-03-05 21:19:13 root         DEBUG    Latitude        :-38.1926135
+2018-03-05 21:19:13 root         DEBUG    Longitude       :145.1209718
+2018-03-05 21:19:13 root         DEBUG    Remaining msg   :UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD (354711) AIRMMB CFTONS CMTEL FBD302 HEL338
+2018-03-05 21:19:13 root         DEBUG    parse_alert            :True
+2018-03-05 21:19:13 root         DEBUG    parse_f_number         :True
+2018-03-05 21:19:13 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:19:13 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:19:13 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:19:13 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:19:13 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:19:13 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:19:13 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRMMB';
+2018-03-05 21:19:15 weather      DEBUG    AWS for parsing is Moorabbin AWS
+2018-03-05 21:19:15 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:19:15 weather      DEBUG    Moorabbin AWS at 1440
+2018-03-05 21:19:15 weather      DEBUG    FFDI: 4
+2018-03-05 21:19:15 weather      DEBUG    GFDI: 3
+2018-03-05 21:21:01 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-05 21:21:01 root         INFO     Serial port initialised
+2018-03-05 21:21:04 root         INFO     Serial port initialised
+2018-03-05 21:21:04 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001817568';
+2018-03-05 21:21:04 root         DEBUG    b_return: True
+2018-03-05 21:21:04 root         DEBUG    row     : {'name': 'PDD - Healesville', 'lng': 145.519714, 'lat': -37.65538, 'capcode': '001817568', 'short_name': 'AIRHVL'}
+2018-03-05 21:21:04 root         DEBUG    count   : 1
+2018-03-05 21:21:04 root         DEBUG    Alert           :ALERT
+2018-03-05 21:21:04 root         DEBUG    Fnumber         :F123456789
+2018-03-05 21:21:04 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:21:04 root         DEBUG    AssignmentArea  :INVL2
+2018-03-05 21:21:04 root         DEBUG    Dispatch channel:509 
+2018-03-05 21:21:04 root         DEBUG    Map ref         :SVC 6962 D7
+2018-03-05 21:21:04 root         DEBUG    Latitude        :-38.6313124
+2018-03-05 21:21:04 root         DEBUG    Longitude       :145.6566964
+2018-03-05 21:21:04 root         DEBUG    Remaining msg   :SMALL GRASS FIRE EMMA LANE INVERLOCH (123456) AIRLTV BDG374 CINVL CWOGI HEL337
+2018-03-05 21:21:04 root         DEBUG    parse_alert            :True
+2018-03-05 21:21:04 root         DEBUG    parse_f_number         :True
+2018-03-05 21:21:04 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:21:04 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:21:04 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:21:04 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:21:04 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:21:04 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:21:04 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRHVL';
+2018-03-05 21:21:06 weather      DEBUG    AWS for parsing is Eildon Fire Tower
+2018-03-05 21:21:06 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:21:06 weather      DEBUG    Eildon Fire Tower at 992
+2018-03-05 21:21:06 weather      DEBUG    FFDI: 5
+2018-03-05 21:21:06 weather      DEBUG    GFDI: 5
+2018-03-05 21:21:06 weather      DEBUG    AWS for parsing is Coldstream
+2018-03-05 21:21:06 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:21:06 weather      DEBUG    Coldstream at 1184
+2018-03-05 21:21:06 weather      DEBUG    FFDI: 4
+2018-03-05 21:21:06 weather      DEBUG    GFDI: 3
+2018-03-05 21:21:12 root         INFO     Serial port initialised
+2018-03-05 21:21:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816088';
+2018-03-05 21:21:12 root         DEBUG    b_return: True
+2018-03-05 21:21:12 root         DEBUG    row     : {'name': 'PDD - Moorabbin', 'lng': 145.093857, 'lat': -37.971375, 'capcode': '001816088', 'short_name': 'AIRMMB'}
+2018-03-05 21:21:12 root         DEBUG    count   : 1
+2018-03-05 21:21:12 root         DEBUG    Alert           :ALERT
+2018-03-05 21:21:12 root         DEBUG    Fnumber         :F180300913
+2018-03-05 21:21:12 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:21:12 root         DEBUG    AssignmentArea  :MTEL1
+2018-03-05 21:21:12 root         DEBUG    Dispatch channel:27 
+2018-03-05 21:21:12 root         DEBUG    Map ref         :M 106 C3
+2018-03-05 21:21:12 root         DEBUG    Latitude        :-38.1926135
+2018-03-05 21:21:12 root         DEBUG    Longitude       :145.1209718
+2018-03-05 21:21:12 root         DEBUG    Remaining msg   :UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD (354711) AIRMMB CFTONS CMTEL FBD302 HEL338
+2018-03-05 21:21:12 root         DEBUG    parse_alert            :True
+2018-03-05 21:21:12 root         DEBUG    parse_f_number         :True
+2018-03-05 21:21:12 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:21:12 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:21:12 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:21:12 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:21:12 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:21:12 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:21:12 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRMMB';
+2018-03-05 21:21:14 weather      DEBUG    AWS for parsing is Moorabbin AWS
+2018-03-05 21:21:14 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:21:14 weather      DEBUG    Moorabbin AWS at 1440
+2018-03-05 21:21:14 weather      DEBUG    FFDI: 4
+2018-03-05 21:21:14 weather      DEBUG    GFDI: 3
+2018-03-05 21:21:19 root         INFO     Serial port initialised
+2018-03-05 21:21:19 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001817568';
+2018-03-05 21:21:19 root         DEBUG    b_return: True
+2018-03-05 21:21:19 root         DEBUG    row     : {'name': 'PDD - Healesville', 'lng': 145.519714, 'lat': -37.65538, 'capcode': '001817568', 'short_name': 'AIRHVL'}
+2018-03-05 21:21:19 root         DEBUG    count   : 1
+2018-03-05 21:21:19 root         DEBUG    Alert           :ALERT
+2018-03-05 21:21:19 root         DEBUG    Fnumber         :F123456789
+2018-03-05 21:21:19 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:21:19 root         DEBUG    AssignmentArea  :INVL2
+2018-03-05 21:21:19 root         DEBUG    Dispatch channel:509 
+2018-03-05 21:21:19 root         DEBUG    Map ref         :SVC 6962 D7
+2018-03-05 21:21:19 root         DEBUG    Latitude        :-38.6313124
+2018-03-05 21:21:19 root         DEBUG    Longitude       :145.6566964
+2018-03-05 21:21:19 root         DEBUG    Remaining msg   :SMALL GRASS FIRE EMMA LANE INVERLOCH (123456) AIRLTV BDG374 CINVL CWOGI HEL337
+2018-03-05 21:21:19 root         DEBUG    parse_alert            :True
+2018-03-05 21:21:19 root         DEBUG    parse_f_number         :True
+2018-03-05 21:21:19 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:21:19 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:21:19 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:21:19 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:21:19 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:21:19 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:21:19 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRHVL';
+2018-03-05 21:21:21 weather      DEBUG    AWS for parsing is Eildon Fire Tower
+2018-03-05 21:21:22 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:21:22 weather      DEBUG    Eildon Fire Tower at 992
+2018-03-05 21:21:22 weather      DEBUG    FFDI: 5
+2018-03-05 21:21:22 weather      DEBUG    GFDI: 5
+2018-03-05 21:21:22 weather      DEBUG    AWS for parsing is Coldstream
+2018-03-05 21:21:22 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:21:22 weather      DEBUG    Coldstream at 1184
+2018-03-05 21:21:22 weather      DEBUG    FFDI: 4
+2018-03-05 21:21:22 weather      DEBUG    GFDI: 3
+2018-03-05 21:21:22 root         INFO     Serial port initialised
+2018-03-05 21:21:23 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816184';
+2018-03-05 21:21:23 root         DEBUG    b_return: True
+2018-03-05 21:21:23 root         DEBUG    row     : {'name': 'PDD - Shepparton', 'lng': 145.390488, 'lat': -36.428467, 'capcode': '001816184', 'short_name': 'AIRSHP'}
+2018-03-05 21:21:23 root         DEBUG    count   : 1
+2018-03-05 21:21:23 root         DEBUG    Alert           :ALERT
+2018-03-05 21:21:23 root         DEBUG    Fnumber         :F180301004
+2018-03-05 21:21:23 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:21:23 root         DEBUG    AssignmentArea  :KYAB4
+2018-03-05 21:21:23 root         DEBUG    Dispatch channel:520 
+2018-03-05 21:21:23 root         DEBUG    Map ref         :SVNE 8362 E5
+2018-03-05 21:21:23 root         DEBUG    Latitude        :-36.3059159
+2018-03-05 21:21:23 root         DEBUG    Longitude       :145.0437140
+2018-03-05 21:21:23 root         DEBUG    Remaining msg   :TREE FIRE BEHIND CALLERS ADDRESS 12 CROW CR KYABRAM /MELLIS ST (243803) AIRSHP CKYAB CMGUM CTGAL HEL331
+2018-03-05 21:21:23 root         DEBUG    parse_alert            :True
+2018-03-05 21:21:23 root         DEBUG    parse_f_number         :True
+2018-03-05 21:21:23 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:21:23 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:21:23 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:21:23 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:21:23 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:21:23 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:21:23 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRSHP';
+2018-03-05 21:21:26 weather      DEBUG    AWS for parsing is Shepparton
+2018-03-05 21:21:26 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:21:26 weather      DEBUG    Shepparton at 896
+2018-03-05 21:21:26 weather      DEBUG    FFDI: 10
+2018-03-05 21:21:26 weather      DEBUG    GFDI: 13
+2018-03-05 21:21:29 root         INFO     Serial port initialised
+2018-03-05 21:21:30 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001814336';
+2018-03-05 21:21:30 root         DEBUG    b_return: True
+2018-03-05 21:21:30 root         DEBUG    row     : {'name': 'PDD - Bendigo', 'lng': 144.327026, 'lat': -36.737926, 'capcode': '001814336', 'short_name': 'AIRBEN'}
+2018-03-05 21:21:30 root         DEBUG    count   : 1
+2018-03-05 21:21:30 root         DEBUG    Alert           :ALERT
+2018-03-05 21:21:30 root         DEBUG    Fnumber         :F180300594
+2018-03-05 21:21:30 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:21:30 root         DEBUG    AssignmentArea  :JUNO3
+2018-03-05 21:21:30 root         DEBUG    Dispatch channel:502 
+2018-03-05 21:21:30 root         DEBUG    Map ref         :SVNW 8285 
+2018-03-05 21:21:30 root         DEBUG    Latitude        :-36.7938187
+2018-03-05 21:21:30 root         DEBUG    Longitude       :144.3928462
+2018-03-05 21:21:30 root         DEBUG    Remaining msg   :SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA (673248) AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN ]
+2018-03-05 21:21:30 root         DEBUG    parse_alert            :True
+2018-03-05 21:21:30 root         DEBUG    parse_f_number         :True
+2018-03-05 21:21:30 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:21:30 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:21:30 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:21:30 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:21:30 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:21:30 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:21:30 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBEN';
+2018-03-05 21:21:32 weather      DEBUG    AWS for parsing is Bendigo
+2018-03-05 21:21:32 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:21:32 weather      DEBUG    Bendigo at 768
+2018-03-05 21:21:32 weather      DEBUG    FFDI: 6
+2018-03-05 21:21:32 weather      DEBUG    GFDI: 6
+2018-03-05 21:28:33 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-05 21:28:33 root         INFO     Serial port initialised
+2018-03-05 21:28:35 root         INFO     Serial port initialised
+2018-03-05 21:28:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001814336';
+2018-03-05 21:28:35 root         DEBUG    b_return: True
+2018-03-05 21:28:35 root         DEBUG    row     : {'lat': -36.737926, 'name': 'PDD - Bendigo', 'lng': 144.327026, 'short_name': 'AIRBEN', 'capcode': '001814336'}
+2018-03-05 21:28:35 root         DEBUG    count   : 1
+2018-03-05 21:28:35 root         DEBUG    Alert           :ALERT
+2018-03-05 21:28:35 root         DEBUG    Fnumber         :F180300594
+2018-03-05 21:28:35 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:28:35 root         DEBUG    AssignmentArea  :JUNO3
+2018-03-05 21:28:35 root         DEBUG    Dispatch channel:502 
+2018-03-05 21:28:35 root         DEBUG    Map ref         :SVNW 8285 
+2018-03-05 21:28:35 root         DEBUG    Latitude        :-36.7938187
+2018-03-05 21:28:35 root         DEBUG    Longitude       :144.3928462
+2018-03-05 21:28:35 root         DEBUG    Remaining msg   :SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA (673248) AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN ]
+2018-03-05 21:28:35 root         DEBUG    parse_alert            :True
+2018-03-05 21:28:35 root         DEBUG    parse_f_number         :True
+2018-03-05 21:28:35 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:28:35 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:28:35 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:28:35 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:28:35 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:28:35 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:28:35 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBEN';
+2018-03-05 21:28:38 weather      DEBUG    AWS for parsing is Bendigo
+2018-03-05 21:28:38 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:28:38 weather      DEBUG    Bendigo at 768
+2018-03-05 21:28:38 weather      DEBUG    FFDI: 6
+2018-03-05 21:28:38 weather      DEBUG    GFDI: 6
+2018-03-05 21:28:47 root         INFO     Serial port initialised
+2018-03-05 21:28:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816088';
+2018-03-05 21:28:47 root         DEBUG    b_return: True
+2018-03-05 21:28:47 root         DEBUG    row     : {'lat': -37.971375, 'name': 'PDD - Moorabbin', 'lng': 145.093857, 'short_name': 'AIRMMB', 'capcode': '001816088'}
+2018-03-05 21:28:47 root         DEBUG    count   : 1
+2018-03-05 21:28:47 root         DEBUG    Alert           :ALERT
+2018-03-05 21:28:47 root         DEBUG    Fnumber         :F180300913
+2018-03-05 21:28:47 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:28:47 root         DEBUG    AssignmentArea  :MTEL1
+2018-03-05 21:28:47 root         DEBUG    Dispatch channel:27 
+2018-03-05 21:28:47 root         DEBUG    Map ref         :M 106 C3
+2018-03-05 21:28:47 root         DEBUG    Latitude        :-38.1926135
+2018-03-05 21:28:47 root         DEBUG    Longitude       :145.1209718
+2018-03-05 21:28:47 root         DEBUG    Remaining msg   :UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD (354711) AIRMMB CFTONS CMTEL FBD302 HEL338
+2018-03-05 21:28:47 root         DEBUG    parse_alert            :True
+2018-03-05 21:28:47 root         DEBUG    parse_f_number         :True
+2018-03-05 21:28:47 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:28:47 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:28:47 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:28:47 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:28:47 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:28:47 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:28:47 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRMMB';
+2018-03-05 21:28:50 weather      DEBUG    AWS for parsing is Moorabbin AWS
+2018-03-05 21:28:50 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:28:50 weather      DEBUG    Moorabbin AWS at 1440
+2018-03-05 21:28:50 weather      DEBUG    FFDI: 4
+2018-03-05 21:28:50 weather      DEBUG    GFDI: 3
+2018-03-05 21:30:19 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-05 21:30:19 root         INFO     Serial port initialised
+2018-03-05 21:30:22 root         INFO     Serial port initialised
+2018-03-05 21:30:22 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001817568';
+2018-03-05 21:30:22 root         DEBUG    b_return: True
+2018-03-05 21:30:22 root         DEBUG    row     : {'name': 'PDD - Healesville', 'short_name': 'AIRHVL', 'capcode': '001817568', 'lat': -37.65538, 'lng': 145.519714}
+2018-03-05 21:30:22 root         DEBUG    count   : 1
+2018-03-05 21:30:22 root         DEBUG    Alert           :ALERT
+2018-03-05 21:30:22 root         DEBUG    Fnumber         :F123456789
+2018-03-05 21:30:22 root         DEBUG    IncidentType    :G&SC1
+2018-03-05 21:30:22 root         DEBUG    AssignmentArea  :INVL2
+2018-03-05 21:30:22 root         DEBUG    Dispatch channel:509 
+2018-03-05 21:30:22 root         DEBUG    Map ref         :SVC 6962 D7
+2018-03-05 21:30:22 root         DEBUG    Latitude        :-38.6313124
+2018-03-05 21:30:22 root         DEBUG    Longitude       :145.6566964
+2018-03-05 21:30:22 root         DEBUG    Remaining msg   :SMALL GRASS FIRE EMMA LANE INVERLOCH (123456) AIRLTV BDG374 CINVL CWOGI HEL337
+2018-03-05 21:30:22 root         DEBUG    parse_alert            :True
+2018-03-05 21:30:22 root         DEBUG    parse_f_number         :True
+2018-03-05 21:30:22 root         DEBUG    parse_incident_type    :True
+2018-03-05 21:30:22 root         DEBUG    parse_assignment_area  :True
+2018-03-05 21:30:22 root         DEBUG    parse_dispatch_channel :True
+2018-03-05 21:30:22 root         DEBUG    parse_mapbook          :True
+2018-03-05 21:30:22 root         DEBUG    parse_lat_long         :True
+2018-03-05 21:30:22 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-05 21:30:22 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRHVL';
+2018-03-05 21:30:25 weather      DEBUG    AWS for parsing is Eildon Fire Tower
+2018-03-05 21:30:25 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:30:25 weather      DEBUG    Eildon Fire Tower at 992
+2018-03-05 21:30:25 weather      DEBUG    FFDI: 5
+2018-03-05 21:30:25 weather      DEBUG    GFDI: 5
+2018-03-05 21:30:25 weather      DEBUG    AWS for parsing is Coldstream
+2018-03-05 21:30:25 weather      DEBUG    2114 EDT on Monday, 5 March 2018
+2018-03-05 21:30:25 weather      DEBUG    Coldstream at 1184
+2018-03-05 21:30:25 weather      DEBUG    FFDI: 4
+2018-03-05 21:30:25 weather      DEBUG    GFDI: 3

@@ -148,6 +148,8 @@ class InterFace(Gtk.Window):
     def updateAWS(self, tbWeather, aws_short_name):
         
         screen_buffer = "ERROR"
+        tbWeather.set_text('')
+        iter = tbWeather.get_iter_at_offset(0)
         
         # what is the AWS for this airfield
         b_return, airfields_aws_dict, count = database.select ("SELECT * FROM `airfield_aws` WHERE short_name = '%s';" % aws_short_name)
@@ -159,6 +161,7 @@ class InterFace(Gtk.Window):
 #                    try:
                         soup = BeautifulSoup(fwb, 'html.parser')
                         
+                        GObject.idle_add(tbWeather.insert_with_tags_by_name, iter, "** WEATHER **\n\n", "tag_Bold", priority=GObject.PRIORITY_DEFAULT)
                         buffer = "** WEATHER **\n\n"
 
                         for airfield in airfields_aws_dict:
@@ -166,16 +169,23 @@ class InterFace(Gtk.Window):
                             b_success, aws_time, ffdi, gfdi = weather.parse_wx_from_fwb (soup, airfield['aws'])
                             if (b_success):
 
+                                message = "%s(%s) FFDI is %d, GFDI is %d: " % (airfield['name'], airfield['fdi_trigger'], ffdi, gfdi)
+                                GObject.idle_add(tbWeather.insert, iter, message, priority=GObject.PRIORITY_DEFAULT)
+                            
                                 if (int(max(gfdi, ffdi)) > int(airfield['fdi_trigger'])):
                                     gonogo = "GO"
+                                    GObject.idle_add(tbWeather.insert_with_tags_by_name, iter, "GO", "tag_Go", priority=GObject.PRIORITY_DEFAULT)
                                 else:
                                     gonogo = "NO GO"
-                                buffer += "%s(%s) FFDI is %d, GFDI is %d: %s\n" % (airfield['name'], airfield['fdi_trigger'], ffdi, gfdi, gonogo)
+                                    GObject.idle_add(tbWeather.insert_with_tags_by_name, iter, "NO GO", "tag_NoGo", priority=GObject.PRIORITY_DEFAULT)
+                                    buffer += "%s(%s) FFDI is %d, GFDI is %d: %s\n" % (airfield['name'], airfield['fdi_trigger'], ffdi, gfdi, gonogo)
 
                             else:
                                 logger.error ('Could not parse weather data')
                             
-                        buffer += "\nCorrect as at %s" % aws_time
+                        message = "\nCorrect as at %s" % aws_time
+                        GObject.idle_add(tbWeather.insert, iter, message, priority=GObject.PRIORITY_DEFAULT)
+                        #buffer += "\nCorrect as at %s" % aws_time
                         screen_buffer = buffer
  #                   except:
  #                       logging.error (sys.exc_info()[0])
@@ -185,7 +195,9 @@ class InterFace(Gtk.Window):
         else:
             logging.error ('Cant get AWS from short name')
 
-        GObject.idle_add(self.tbWeather.set_text, screen_buffer, priority=GObject.PRIORITY_DEFAULT)
+        
+        #GObject.idle_add(tbWeather.insert_with_tags_by_name, iter, message, "tag_Large", priority=GObject.PRIORITY_DEFAULT)
+        #GObject.idle_add(self.tbWeather.set_text, screen_buffer, priority=GObject.PRIORITY_DEFAULT)
         
         
     def btnSendTestPage(self, object, data=None):
@@ -317,7 +329,10 @@ class InterFace(Gtk.Window):
                                         print ("message is %s" % message)
                                         
                                         # show the message in the textbox
-                                        GObject.idle_add(self.tbPagerMessage.set_text, message, priority=GObject.PRIORITY_DEFAULT)
+                                        self.tbPagerMessage.set_text('')
+                                        iter = self.tbPagerMessage.get_iter_at_offset(0)
+                                        GObject.idle_add(self.tbPagerMessage.insert_with_tags_by_name, iter, message, "tag_Large", priority=GObject.PRIORITY_DEFAULT)
+                                        
                                         
                                         parse_alert = False
                                         parse_f_number = False
@@ -517,14 +532,14 @@ class InterFace(Gtk.Window):
             # Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         # )
         
-        screen = Gdk.Screen.get_default()
-        gtk_provider = Gtk.CssProvider()
-        gtk_context = Gtk.StyleContext()
-        gtk_context.add_provider_for_screen(screen, gtk_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
-        css = """#styled_tv { font-weight: bold; font-size: 22px; }""" #also valid
-        #css = """#styled_button { font: bold 16}""" #bold is not necessary 
-        #css = "textview text { font: bold 16}"
-        gtk_provider.load_from_data(bytes(css.encode()))
+        # screen = Gdk.Screen.get_default()
+        # gtk_provider = Gtk.CssProvider()
+        # gtk_context = Gtk.StyleContext()
+        # gtk_context.add_provider_for_screen(screen, gtk_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+        # css = """#styled_tv { font-weight: bold; font-size: 22px; }""" #also valid
+        # #css = """#styled_button { font: bold 16}""" #bold is not necessary 
+        # #css = "textview text { font: bold 16}"
+        # gtk_provider.load_from_data(bytes(css.encode()))
         
         
         #logger.debug (os.path.dirname(os.path.realpath(__file__)) + "/pdd.css")
@@ -556,8 +571,11 @@ class InterFace(Gtk.Window):
         self.imageMapRoute = self.builder.get_object("imageMapRoute")
         self.imageMapDestination = self.builder.get_object("imageMapDestination")
         
-        #self.tvPagerMessage.set_name("styled_tv")
-        self.tvPagerMessage.override_font(Pango.font_description_from_string('DejaVu Sans Mono 12'))
+        self.tbPagerMessage.create_tag("tag_Large", weight=Pango.Weight.BOLD, size=30 * Pango.SCALE)
+        self.tbWeather.create_tag("tag_Bold", weight=Pango.Weight.BOLD)
+        self.tbWeather.create_tag("tag_NoGo", foreground="red")
+        self.tbWeather.create_tag("tag_Go", foreground="green")
+        
                              
         self.populateAirfieldComboBox(self.comboAirfield)
         

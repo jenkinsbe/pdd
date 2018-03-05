@@ -39,7 +39,6 @@ if (success):
                 
                 tag = tags[x].string
                 if tag is not None:
-                    logger.debug (tag)
                     if 'EDT' in tag:
                         
                         # remove <CR><LF> from string
