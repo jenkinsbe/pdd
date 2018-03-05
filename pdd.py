@@ -19,6 +19,7 @@ import urllib
 import math
 import os
 from bs4 import BeautifulSoup
+import random
 
 import database
 import calcs
@@ -86,46 +87,41 @@ class InterFace(Gtk.Window):
         
         combo.set_active(0)
         
+    def populateImage(self, image, url, filename):
+        
+        try:
+            with urllib.request.urlopen(url) as response, open(filename, 'wb') as out_file:
+                data = response.read()
+                out_file.write(data)
+                image.set_from_file (filename)
+            return True
+        except:
+            return False
+
     def populateMapRoute(self, image, airfield_lat, airfield_lng, firecall_lat, firecall_lon):
         
         url = 'https://maps.googleapis.com/maps/api/staticmap'
-        url += '?size=640x640'
+        url += '?size=480x480'
         url += '&maptype=terrain'
         url += '&markers=color:blue|label:H|%s,%s' % (airfield_lat, airfield_lng)
         url += '&markers=color:red|label:F|%s,%s' % (firecall_lat, firecall_lon)
         url += '&path=color:0xff0000ff|weight:5|%s,%s|%s,%s' % (airfield_lat, airfield_lng, firecall_lat, firecall_lon)
         url += '&key=AIzaSyCLUBXHPmb5uCNcjAgr4T-PVMII2IoHmD8'
         
-        try:
-            with urllib.request.urlopen(url) as response, open('./route_map.png', 'wb') as out_file:
-                data = response.read()
-                out_file.write(data)
-                image.set_from_file ('./route_map.png')
-            return True
-        except:
-            logger.error ('Could not download route map. Possible internet connection issue.')
-            return False
+        return self.populateImage (image, url, './route_map.png')
     
     def populateMapDestination(self, image, airfield_lat, airfield_lng, firecall_lat, firecall_lon):
         
         url = 'https://maps.googleapis.com/maps/api/staticmap'
         url += '?center=%s,%s' % (firecall_lat, firecall_lon)
-        url += '&size=640x640'
+        url += '&size=480x480'
         url += '&zoom=16'
         url += '&maptype=satellite'
         url += '&markers=color:red|label:F|%s,%s' % (firecall_lat, firecall_lon)
         url += '&key=AIzaSyCLUBXHPmb5uCNcjAgr4T-PVMII2IoHmD8'
         
-        try:
-            with urllib.request.urlopen(url) as response, open('./destination_map.png', 'wb') as out_file:
-                data = response.read()
-                out_file.write(data)
-                image.set_from_file ('./destination_map.png')
-            return True
-        except:
-            logger.error ('Could not download destination map. Possible internet connection issue.')
-            return False
-
+        return self.populateImage (image, url, './destination_map.png')
+   
 
     def updateNearestBomberReloadingAirfields(self, tbClosestAirbase, latitude, longitude):
         
@@ -194,8 +190,23 @@ class InterFace(Gtk.Window):
         
     def btnSendTestPage(self, object, data=None):
         
-        __ser = self.InitSerialPort()        
-        __message = (b'\r\nM 001817568 @@ALERT F123456789 INVL2 G&SC1 SMALL GRASS FIRE EMMA LANE INVERLOCH SVC 6962 D7 (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337\r\n')
+        __ser = self.InitSerialPort()
+        
+        __pdd_test_list = []
+        __pdd_test_list.append(b'\r\nM 001817568 @@ALERT F123456789 INVL2 G&SC1 SMALL GRASS FIRE EMMA LANE INVERLOCH SVC 6962 D7 (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337\r\n')
+        __pdd_test_list.append(b'\r\nM 001814336 @@ALERT F180300594 JUNO3 G&SC1 SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA SVNW 8285 F9 (673248) LAT/LON:-36.7938187, 144.3928462 DISP502 AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN ]\r\n')
+        __pdd_test_list.append(b'\r\nM 001876600 @@ALERT F180300904 TOOL2 G&SC1 GRASS FIRE SPREADING CNR COIMADAI-DIGGERS REST RD/HOLDEN RD TOOLERN VALE M 332 F5 (921328) LAT/LON:-37.6281814, 144.6449890 DISP61 AIRBAC CMTON CTOOL HEL345\r\n')
+        __pdd_test_list.append(b'\r\nM 001816088 @@ALERT F180300913 MTEL1 G&SC1 UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD M 106 C3 (354711) LAT/LON:-38.1926135, 145.1209718 DISP27 AIRMMB CFTONS CMTEL FBD302 HEL338\r\n')
+        __pdd_test_list.append(b'\r\nM 001816184 @@ALERT F180301004 KYAB4 G&SC1 TREE FIRE BEHIND CALLERS ADDRESS 12 CROW CR KYABRAM /MELLIS ST SVNE 8362 E5 (243803) LAT/LON:-36.3059159, 145.0437140 DISP520 AIRSHP CKYAB CMGUM CTGAL HEL331\r\n')
+        
+        __pdd_test_broken_list = []
+        __pdd_test_broken_list.append(b'\r\nM 00181768 @@ALERT F123456789 INVL2 G&SC1 SMALL GRASS FIRE EMMA LANE INVERLOCH SVC 6962 D7 (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337\r\n')
+        __pdd_test_broken_list.append(b'\r\nM 001814336 @@ALERT F18030594 JUNO3 G&SC1 SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA SVNW 8285 F9 (673248) LAT/LON:-36.7938187, 144.3928462 DISP502 AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN ]\r\n')
+        __pdd_test_broken_list.append(b'\r\nM 001876600 @@ALER F180300904 TOOL2 G&SC1 GRASS FIRE SPREADING CNR COIMADAI-DIGGERS REST RD/HOLDEN RD TOOLERN VALE M 332 F5 (921328) LAT/LON:-37.6281814, 144.6449890 DISP61 AIRBAC CMTON CTOOL HEL345\r\n')
+        __pdd_test_broken_list.append(b'\r\nM 001816088 @@ALERT F180300913 MTEL1 G&SC1 UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD M 106 C3 (354711) LAT/LN:-38.1926135, 145.1209718 DISP27 AIRMMB CFTONS CMTEL FBD302 HEL338\r\n')
+        __pdd_test_broken_list.append(b'\r\nM 001816184 @@ALERT F180301004 KYAB4 G&SC1 TREE FIRE BEHIND CALLERS ADDRESS 12 CROW CR KYABRAM /MELLIS ST SVNE 8362 E5 (243803) LAT/LON:-36.3059159, 140437140 DISP520 AIRSHP CKYAB CMGUM CTGAL HEL331\r\n')
+
+        __message = (random.choice(__pdd_test_broken_list))
         __ser.write (__message)
         __ser.close()
         
@@ -292,7 +303,7 @@ class InterFace(Gtk.Window):
                                         # start the clock
                                         self.TimeOfPage = datetime.now()
 
-                                        # extract the page prority (EMERG, NON EMERG or ADMIN)
+                                        # extract the page priority (EMERG, NON EMERG or ADMIN)
                                         priority = message[0:2]
                                         message = message[2:].lstrip()
                                         if (priority == '@@'):
@@ -308,8 +319,13 @@ class InterFace(Gtk.Window):
                                         # show the message in the textbox
                                         GObject.idle_add(self.tbPagerMessage.set_text, message, priority=GObject.PRIORITY_DEFAULT)
                                         
-                                        parseOK = True
-                                        firecall = True
+                                        parse_alert = False
+                                        parse_f_number = False
+                                        parse_incident_type = False
+                                        parse_assignment_area = False
+                                        parse_dispatch_channel = False
+                                        parse_mapbook = False
+                                        parse_lat_long = False
                                     
                                         if ((re.search("ALERT.{1,}", message) != None) and (re.search("F[0-9]{1,}", message) != None)):
                                             #logging.debug ("FIRECALL page received")
@@ -323,10 +339,10 @@ class InterFace(Gtk.Window):
                                                 message = re.sub(expression, '', message)   # remove ALERT
                                                 message = CleanString (message)
                                                 logging.debug("Alert           :" + alert)
+                                                parse_alert = True
                                             else:
                                                 logging.debug("No match for ALERT")
-                                                parseOK = False
-                                                firecall = False                                            
+                                                
                                         
                                             # Fnumber
                                             #expression = "^F[0-9]{1,}"
@@ -337,11 +353,9 @@ class InterFace(Gtk.Window):
                                                 message = re.sub(expression, '', message)   # remove Fxxxxxxxxx
                                                 message = CleanString (message)
                                                 logging.debug("Fnumber         :" + Fnumber)
+                                                parse_f_number = True
                                             else:
-                                                logging.debug("No match for Fnumber")
-                                                parseOK = False
-                                                firecall = False
-
+                                                logging.debug("No match for Fnumber")                                                
 
                                             # Incident type and response code
                                             expression = "\\b(ALARC1|ALARC3|STRUC1|STRUC3|INCIC1|INCIC3|NOSTC1|NOSTC3|G&SC1|G&SC3|NS&RC1|NS&RC3|RESCC1|RESCC3|CONFC1|CONFC3|HIARC1|HIARC3|STCOC1|STCOC3|TRCHC1|TRCHC3|AFEMR|AFPEMR|STRIKE)\\b"
@@ -351,11 +365,9 @@ class InterFace(Gtk.Window):
                                                 message = re.sub(expression, '', message)   # remove IncidentType
                                                 message = CleanString (message)
                                                 logging.debug("IncidentType    :" + IncidentType)
+                                                parse_incident_type = True
                                             else:
-                                                logging.debug("No match for IncidentType")
-                                                parseOK = False
-                                                firecall = False                                        
-                                        
+                                                logging.debug("No match for IncidentType")                                                
                                                                                 
                                             # Assignment Area
                                             #expression = "(^(\w+\s){1})"
@@ -366,11 +378,10 @@ class InterFace(Gtk.Window):
                                                 message = re.sub(expression, '', message)         # remove AssignmentArea
                                                 message = CleanString (message)
                                                 logging.debug("AssignmentArea  :" + AssignmentArea)
+                                                parse_assignment_area = True
                                             else:
                                                 logging.debug("No match for Assignment Area")
-                                                parseOK = False
-                                                firecall = False                                                
-                                                                                                                            
+                                                                                                                                                                            
                                             # Dispatch channel
                                             expression = "DISP[0-9]{1,} "
                                             search_response = re.search(expression, message)      # extract DispatchChannel
@@ -380,11 +391,10 @@ class InterFace(Gtk.Window):
                                                 message = CleanString (message)
                                                 DispatchChannel = DispatchChannel.replace ("DISP", "")
                                                 logging.debug("Dispatch channel:" + DispatchChannel)
+                                                parse_dispatch_channel = True
                                             else:
                                                 logging.debug("No match for Dispatch Channel")
-                                                parseOK = False
-                                                firecall = False
-                                                
+                                                                                                
                                             # Melways
                                             expression = "M[ ]\\d{1,4}[A-Z]?[ ]\\w{1}\\d{1,2}"
                                             Map_Melways = None
@@ -406,15 +416,17 @@ class InterFace(Gtk.Window):
                                             # check the mapping
                                             MapRef = None
                                             if (Map_Melways == None and Map_SV == None):
-                                                logging.debug("No match for Map ref")
+                                                logging.debug("No match for Map ref")                                                
                                             else:
+                                                parse_mapbook = True
                                                 if (Map_Melways != None):
                                                     MapRef = Map_Melways
                                                 else:
                                                     MapRef = Map_SV
                                                 logging.debug("Map ref         :" + MapRef)
                                             
-                                            expression = '(-?[0-9]{2,}.[0-9]{3,}),?\s([0-9]{2,}.[0-9]{3,})'
+                                            # parse lat/long
+                                            expression = '(-?[0-9]{2,}[.]{1,}[0-9]{3,}),?\s([0-9]{2,}[.]{1,}[0-9]{3,})'
                                             Latitude = None
                                             Longitude = None
                                             search_response = re.search (expression, message)  # extract lat/lon
@@ -428,44 +440,57 @@ class InterFace(Gtk.Window):
                                                 longitude = longitude.strip()
                                                 logging.debug("Latitude        :" + latitude)
                                                 logging.debug("Longitude       :" + longitude)
+                                                parse_lat_long = True
                                             else:
                                                 logging.debug("No match for Lat/Long")
-                                                parseOK = False
-                                                firecall = False
-                                            
+                                                                                            
                                             
                                             logging.debug ("Remaining msg   :" + message)
                                         else:
                                             logging.debug ("Not a FIRECALL")
-                                            firecall = False
                                             
-                                        logging.debug ("parseOK         :" + str(parseOK))
-                                        logging.debug ("firecall        :" + str(firecall))
+                                        logging.debug ("parse_alert            :" + str(parse_alert))
+                                        logging.debug ("parse_f_number         :" + str(parse_f_number))
+                                        logging.debug ("parse_incident_type    :" + str(parse_incident_type))
+                                        logging.debug ("parse_assignment_area  :" + str(parse_assignment_area))
+                                        logging.debug ("parse_dispatch_channel :" + str(parse_dispatch_channel))
+                                        logging.debug ("parse_mapbook          :" + str(parse_mapbook))
+                                        logging.debug ("parse_lat_long         :" + str(parse_lat_long))
                                         
-                                        if (parseOK):
-                                            
-                                            # let the pilots know that the screen is updating
-                                            GObject.idle_add(self.tbWeather.set_text, "Downloading weather from BOM...", priority=GObject.PRIORITY_DEFAULT)
-                                            GObject.idle_add(self.tbFlightPath.set_text, "Calculating flight details...", priority=GObject.PRIORITY_DEFAULT)
-                                            GObject.idle_add(self.tbClosestAirbase.set_text, "Finding nearest reloading bases...", priority=GObject.PRIORITY_DEFAULT)
-                                            
-                                            # populate the flight info textbox
+                                        # let the pilots know that the screen is updating
+                                        GObject.idle_add(self.tbWeather.set_text, "Downloading weather from BOM...", priority=GObject.PRIORITY_DEFAULT)
+                                        GObject.idle_add(self.tbFlightPath.set_text, "Calculating flight details...", priority=GObject.PRIORITY_DEFAULT)
+                                        GObject.idle_add(self.tbClosestAirbase.set_text, "Finding nearest reloading bases...", priority=GObject.PRIORITY_DEFAULT)
+                                        GObject.idle_add(self.imageMapRoute.clear, priority=GObject.PRIORITY_DEFAULT)
+                                        GObject.idle_add(self.imageMapDestination.clear, priority=GObject.PRIORITY_DEFAULT)
+                                        
+                                        
+                                        # populate the flight info text box
+                                        if (parse_lat_long and parse_dispatch_channel):
                                             distance, bearing = calcs.get_distance_and_bearing (airfield['lat'], airfield['lng'], latitude, longitude)
                                             buffer = ("** FLIGHT DATA**\nDistance : %s\nBearing : %s\nDispatch: %s" % (str(distance), str(bearing), DispatchChannel))
                                             GObject.idle_add(self.tbFlightPath.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
-                                            
-                                            # update closest bomber reloading airfields
+                                        else:
+                                            GObject.idle_add(self.tbFlightPath.set_text, 'Error extracting flight details.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long\n-Problem with dispatch channel', priority=GObject.PRIORITY_DEFAULT)
+                                        
+                                        # update closest bomber reloading airfields
+                                        if (parse_lat_long):
                                             self.updateNearestBomberReloadingAirfields(self.tbClosestAirbase, latitude, longitude)
-                                            
-                                            # update weather information
+                                        else:
+                                            GObject.idle_add(self.tbClosestAirbase.set_text, 'Error finding nearest reloading base.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long', priority=GObject.PRIORITY_DEFAULT)
+                                        
+                                        # update weather information
+                                        if (parse_alert):
                                             self.updateAWS(self.tbWeather, airfield['short_name'])                                            
+                                        else:
+                                            GObject.idle_add(self.tbWeather.set_text, 'Error with weather.\n\nPossible causes;\n-Not an ALERT page', priority=GObject.PRIORITY_DEFAULT)
 
-                                            # update image
+                                        # update image
+                                        if (parse_lat_long):
                                             self.populateMapRoute(self.imageMapRoute, airfield['lat'], airfield['lng'], latitude, longitude)
                                             self.populateMapDestination(self.imageMapDestination, airfield['lat'], airfield['lng'], latitude, longitude)
-                                            
-                                            
-
+                                        else:
+                                            pass
                                                 
                                     else:
                                         print ('Not a PDD response')
