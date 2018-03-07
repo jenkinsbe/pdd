@@ -20,6 +20,7 @@ import math
 import os
 from bs4 import BeautifulSoup
 import random
+from socket import timeout
 
 import database
 import calcs
@@ -52,6 +53,8 @@ def CleanString (str):
     str = str.lstrip()
     return str
 
+                            
+    
 class InterFace(Gtk.Window):
     
     TimeOfPage = None
@@ -73,6 +76,23 @@ class InterFace(Gtk.Window):
         if text is not None:
             print ("Airfield selected is: %s" % text)
 
+    def update_text_buffer(self, text_buffer, text, tag=None, clear_buffer_first=False):
+        
+        if clear_buffer_first:
+            self.clear_text_buffer(text_buffer)
+            
+        iter = text_buffer.get_end_iter()
+        if tag is None:
+            GObject.idle_add(text_buffer.insert, iter, text, priority=GObject.PRIORITY_DEFAULT)
+            #text_buffer.insert (iter, text)
+        else:
+            GObject.idle_add(text_buffer.insert_with_tags_by_name, iter, text, tag, priority=GObject.PRIORITY_DEFAULT)
+            #text_buffer.insert_with_tags_by_name (iter, text, tag)
+
+    def clear_text_buffer(self, text_buffer):
+        start, end = text_buffer.get_bounds()
+        GObject.idle_add(text_buffer.delete, start, end, priority=GObject.PRIORITY_DEFAULT)
+
 
     def populateAirfieldComboBox(self, combo):
         combo.append_text("All airfields")
@@ -90,13 +110,20 @@ class InterFace(Gtk.Window):
     def populateImage(self, image, url, filename):
         
         try:
-            with urllib.request.urlopen(url) as response, open(filename, 'wb') as out_file:
+            with urllib.request.urlopen(url, timeout=5) as response, open(filename, 'wb') as out_file:
                 data = response.read()
                 out_file.write(data)
-                image.set_from_file (filename)
-            return True
-        except:
+                #image.set_from_file (filename)
+                GObject.idle_add(image.set_from_file, filename, priority=GObject.PRIORITY_DEFAULT)
+
+        except (HTTPError, URLError) as error:
+            logging.error('Image data did not download because %s\nURL: %s', error, url)
             return False
+        except timeout:
+            logging.error('Image data did not download because the socket timed out\nURL: %s', url)
+            return False
+        else:
+            return True
 
     def populateMapRoute(self, image, airfield_lat, airfield_lng, firecall_lat, firecall_lon):
         
@@ -145,11 +172,16 @@ class InterFace(Gtk.Window):
 
         return True
     
+    def update_tbWeather(self, text, tag=None):
+        iter = self.tbWeather.get_end_iter()
+        if tag is None:
+            self.tbWeather.insert (iter, text)
+        else:
+            self.tbWeather.insert_with_tags_by_name (iter, text, tag)
+    
     def updateAWS(self, tbWeather, aws_short_name):
         
-        screen_buffer = "ERROR"
-        tbWeather.set_text('')
-        iter = tbWeather.get_iter_at_offset(0)
+        self.update_text_buffer(self.tbWeather, 'Downloading weather data...', "tag_Bold", clear_buffer_first=True)
         
         # what is the AWS for this airfield
         b_return, airfields_aws_dict, count = database.select ("SELECT * FROM `airfield_aws` WHERE short_name = '%s';" % aws_short_name)
@@ -161,43 +193,34 @@ class InterFace(Gtk.Window):
 #                    try:
                         soup = BeautifulSoup(fwb, 'html.parser')
                         
-                        GObject.idle_add(tbWeather.insert_with_tags_by_name, iter, "** WEATHER **\n\n", "tag_Bold", priority=GObject.PRIORITY_DEFAULT)
-                        buffer = "** WEATHER **\n\n"
+                        self.update_text_buffer(self.tbWeather, '*** WEATHER ***\n', "tag_Bold", clear_buffer_first=True)
 
                         for airfield in airfields_aws_dict:
                             
                             b_success, aws_time, ffdi, gfdi = weather.parse_wx_from_fwb (soup, airfield['aws'])
                             if (b_success):
 
-                                message = "%s(%s) FFDI is %d, GFDI is %d: " % (airfield['name'], airfield['fdi_trigger'], ffdi, gfdi)
-                                GObject.idle_add(tbWeather.insert, iter, message, priority=GObject.PRIORITY_DEFAULT)
+                                message = "\n%s(%s) FFDI is %d, GFDI is %d: " % (airfield['name'], airfield['fdi_trigger'], ffdi, gfdi)
+                                self.update_text_buffer(self.tbWeather, message)
+
                             
                                 if (int(max(gfdi, ffdi)) > int(airfield['fdi_trigger'])):
-                                    gonogo = "GO"
-                                    GObject.idle_add(tbWeather.insert_with_tags_by_name, iter, "GO", "tag_Go", priority=GObject.PRIORITY_DEFAULT)
+                                    self.update_text_buffer(self.tbWeather, "GO", "tag_Go")
                                 else:
-                                    gonogo = "NO GO"
-                                    GObject.idle_add(tbWeather.insert_with_tags_by_name, iter, "NO GO", "tag_NoGo", priority=GObject.PRIORITY_DEFAULT)
-                                    buffer += "%s(%s) FFDI is %d, GFDI is %d: %s\n" % (airfield['name'], airfield['fdi_trigger'], ffdi, gfdi, gonogo)
-
+                                    self.update_text_buffer(self.tbWeather, "NO GO", "tag_NoGo")
                             else:
                                 logger.error ('Could not parse weather data')
                             
-                        message = "\nCorrect as at %s" % aws_time
-                        GObject.idle_add(tbWeather.insert, iter, message, priority=GObject.PRIORITY_DEFAULT)
-                        #buffer += "\nCorrect as at %s" % aws_time
-                        screen_buffer = buffer
+                        message = "\n\nCorrect as at %s" % aws_time
+                        self.update_text_buffer(self.tbWeather, message)
  #                   except:
  #                       logging.error (sys.exc_info()[0])
                 else:
                     logging.error ('Could not download FWB from BOM. Possible internet connection issue.')
-                    screen_buffer = 'Could not download FWB from BOM. Possible internet connection issue.'
+                    self.update_text_buffer(self.tbWeather, 'Could not download FWB from BOM. Possible internet connection issue.', "tag_Bold", clear_buffer_first=True)
         else:
             logging.error ('Cant get AWS from short name')
-
-        
-        #GObject.idle_add(tbWeather.insert_with_tags_by_name, iter, message, "tag_Large", priority=GObject.PRIORITY_DEFAULT)
-        #GObject.idle_add(self.tbWeather.set_text, screen_buffer, priority=GObject.PRIORITY_DEFAULT)
+            self.update_text_buffer(self.tbWeather, 'Cant get AWS from short name', "tag_Bold", clear_buffer_first=True)
         
         
     def btnSendTestPage(self, object, data=None):
@@ -257,12 +280,14 @@ class InterFace(Gtk.Window):
                         ch = self.ser.read(1)
                     except serial.SerialException as e:
                         logging.error ("Failed to read from serial port")
-                        pass
+                        continue
                     
                     #only allow printable characters
+                    if len(ch) == 0:
+                        continue
                     if (ord(ch) < 32 or ord(ch) > 126):
-                       if (ord(ch) != 10 and ord(ch) != 13):
-                           continue
+                        if (ord(ch) != 10 and ord(ch) != 13):
+                            continue
                     
                     parse_msg += ch.decode()
                             
@@ -283,7 +308,7 @@ class InterFace(Gtk.Window):
 
                                 if (len(message) > 11):                  # at least the capcode and priority
                                     
-                                    print ("original message is %s" % message)
+                                    logging.debug("Raw             :" + message)
                                     
                                     capcode = message[0:9]
                                     message = message[9:].lstrip()                                
@@ -296,9 +321,9 @@ class InterFace(Gtk.Window):
                                     try:
                                         b_return, airfield, count = database.select ("SELECT * FROM `airfields` WHERE capcode = '%s';" % capcode)
                                         airfield = airfield[0]
-                                        logger.debug ("b_return: %s" % b_return)
-                                        logger.debug ("row     : %s" % airfield)
-                                        logger.debug ("count   : %s" % count)
+                                        #logger.debug ("b_return: %s" % b_return)
+                                        #logger.debug ("row     : %s" % airfield)
+                                        #logger.debug ("count   : %s" % count)
                                     except:
                                         pass
                                     
@@ -325,8 +350,8 @@ class InterFace(Gtk.Window):
                                         if (priority == 'QD'):
                                             priority = 'ADMIN'
                                         
-                                        print ("priority is %s" % priority)                                    
-                                        print ("message is %s" % message)
+                                        logging.debug("Priority        :" + priority)
+                                        logging.debug("Message         :" + message)
                                         
                                         # show the message in the textbox
                                         self.tbPagerMessage.set_text('')
@@ -496,7 +521,8 @@ class InterFace(Gtk.Window):
                                         
                                         # update weather information
                                         if (parse_alert):
-                                            self.updateAWS(self.tbWeather, airfield['short_name'])                                            
+                                            self.updateAWS(self.tbWeather, airfield['short_name'])
+                                            #pass
                                         else:
                                             GObject.idle_add(self.tbWeather.set_text, 'Error with weather.\n\nPossible causes;\n-Not an ALERT page', priority=GObject.PRIORITY_DEFAULT)
 
@@ -518,41 +544,8 @@ class InterFace(Gtk.Window):
 
             
     def __init__(self):
-
-        # set css style for window
-        # style_provider = Gtk.CssProvider()
-        # css = """
-        # textview text {
-            # font: 15px Times New Roman, serif;
-        # }
-        # """
-        # style_provider.load_from_data(bytes(css.encode()))
-        # Gtk.StyleContext.add_provider_for_screen(
-            # Gdk.Screen.get_default(), style_provider,
-            # Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        # )
-        
-        # screen = Gdk.Screen.get_default()
-        # gtk_provider = Gtk.CssProvider()
-        # gtk_context = Gtk.StyleContext()
-        # gtk_context.add_provider_for_screen(screen, gtk_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
-        # css = """#styled_tv { font-weight: bold; font-size: 22px; }""" #also valid
-        # #css = """#styled_button { font: bold 16}""" #bold is not necessary 
-        # #css = "textview text { font: bold 16}"
-        # gtk_provider.load_from_data(bytes(css.encode()))
-        
-        
-        #logger.debug (os.path.dirname(os.path.realpath(__file__)) + "/pdd.css")
-        #style_provider.load_from_path(os.path.dirname(os.path.realpath(__file__)) + "/pdd.css")
-
-#        bytes = Gio.resources_lookup_data(os.path.dirname(os.path.realpath(__file__)) + "/pdd.css", 0)
-#        style_provider.load_from_data(bytes.get_data())
-#        Gtk.StyleContext.add_provider_for_screen(
-#        Gdk.Screen.get_default(),
-#        style_provider,
-#        Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-#        )
                     
+        logging.debug ('** Executing def __init__(self):')
         self.gladefile = "pdd_main.glade"
         self.builder = Gtk.Builder()
         self.builder.add_from_file(self.gladefile)
@@ -560,7 +553,7 @@ class InterFace(Gtk.Window):
         self.window = self.builder.get_object("mainwindow")
         self.window.maximize()
         self.window.show()
-
+        
         self.tbPagerMessage = self.builder.get_object("tbPagerMessage")
         self.tvPagerMessage = self.builder.get_object("tvPagerMessage")
         self.tbWeather = self.builder.get_object("tbWeather")
@@ -608,6 +601,8 @@ class InterFace(Gtk.Window):
   
 def run_gui():
     main = InterFace()
+    #exit()
+    
     # 4. this is where we call GObject.threads_init()
     GObject.threads_init()
     main.show_all()

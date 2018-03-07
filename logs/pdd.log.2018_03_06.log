@@ -1,0 +1,1284 @@
+2018-03-06 08:07:36 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-06 08:07:36 root         INFO     Serial port initialised
+2018-03-06 08:17:22 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-06 08:17:22 root         INFO     Serial port initialised
+2018-03-06 08:17:56 root         INFO     Serial port initialised
+2018-03-06 08:18:52 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-06 08:18:53 root         INFO     Serial port initialised
+2018-03-06 08:19:04 root         INFO     Serial port initialised
+2018-03-06 08:19:22 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816088';
+2018-03-06 08:19:22 root         DEBUG    b_return: True
+2018-03-06 08:19:23 root         DEBUG    row     : {'lng': 145.093857, 'capcode': '001816088', 'name': 'PDD - Moorabbin', 'lat': -37.971375, 'short_name': 'AIRMMB'}
+2018-03-06 08:19:23 root         DEBUG    count   : 1
+2018-03-06 08:19:23 root         DEBUG    Alert           :ALERT
+2018-03-06 08:19:23 root         DEBUG    Fnumber         :F180300913
+2018-03-06 08:19:23 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 08:19:23 root         DEBUG    AssignmentArea  :MTEL1
+2018-03-06 08:19:23 root         DEBUG    Dispatch channel:27 
+2018-03-06 08:19:23 root         DEBUG    Map ref         :M 106 C3
+2018-03-06 08:19:23 root         DEBUG    Latitude        :-38.1926135
+2018-03-06 08:19:23 root         DEBUG    Longitude       :145.1209718
+2018-03-06 08:19:23 root         DEBUG    Remaining msg   :UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD (354711) AIRMMB CFTONS CMTEL FBD302 HEL338
+2018-03-06 08:19:23 root         DEBUG    parse_alert            :True
+2018-03-06 08:19:23 root         DEBUG    parse_f_number         :True
+2018-03-06 08:19:23 root         DEBUG    parse_incident_type    :True
+2018-03-06 08:19:23 root         DEBUG    parse_assignment_area  :True
+2018-03-06 08:19:23 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 08:19:23 root         DEBUG    parse_mapbook          :True
+2018-03-06 08:19:23 root         DEBUG    parse_lat_long         :True
+2018-03-06 08:19:23 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 08:19:23 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRMMB';
+2018-03-06 08:19:25 weather      DEBUG    AWS for parsing is Moorabbin AWS
+2018-03-06 08:19:25 weather      DEBUG    0813 EDT on Tuesday, 6 March 2018
+2018-03-06 08:19:25 weather      DEBUG    Moorabbin AWS at 1440
+2018-03-06 08:19:25 weather      DEBUG    FFDI: 1
+2018-03-06 08:19:25 weather      DEBUG    GFDI: 1
+2018-03-06 08:20:18 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-06 08:20:18 root         INFO     Serial port initialised
+2018-03-06 08:21:57 root         INFO     Serial port initialised
+2018-03-06 08:22:07 root         INFO     Serial port initialised
+2018-03-06 08:29:47 root         INFO     Serial port initialised
+2018-03-06 08:29:57 root         INFO     Serial port initialised
+2018-03-06 08:29:57 root         ERROR    Failed to read from serial port
+2018-03-06 08:29:57 root         ERROR    Failed to read from serial port
+2018-03-06 08:29:57 root         ERROR    Failed to read from serial port
+2018-03-06 08:29:57 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '0018168 @';
+2018-03-06 08:30:07 root         INFO     Serial port initialised
+2018-03-06 08:30:07 root         ERROR    Failed to read from serial port
+2018-03-06 08:30:07 root         ERROR    Failed to read from serial port
+2018-03-06 08:30:07 root         ERROR    Failed to read from serial port
+2018-03-06 08:30:07 root         ERROR    Failed to read from serial port
+2018-03-06 08:30:07 root         ERROR    Failed to read from serial port
+2018-03-06 08:30:07 root         ERROR    Failed to read from serial port
+2018-03-06 08:30:07 root         ERROR    Failed to read from serial port
+2018-03-06 08:30:07 root         ERROR    Failed to read from serial port
+2018-03-06 08:30:07 root         ERROR    Failed to read from serial port
+2018-03-06 08:30:07 root         ERROR    Failed to read from serial port
+2018-03-06 08:34:49 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-06 08:34:49 root         INFO     Serial port initialised
+2018-03-06 08:34:50 root         INFO     Serial port initialised
+2018-03-06 08:34:50 root         ERROR    Failed to read from serial port
+2018-03-06 08:34:50 root         ERROR    Failed to read from serial port
+2018-03-06 08:34:50 root         ERROR    Failed to read from serial port
+2018-03-06 08:34:50 root         ERROR    Failed to read from serial port
+2018-03-06 08:36:22 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-06 08:36:22 root         INFO     Serial port initialised
+2018-03-06 08:36:24 root         INFO     Serial port initialised
+2018-03-06 08:36:24 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001817568';
+2018-03-06 08:36:24 root         DEBUG    b_return: True
+2018-03-06 08:36:24 root         DEBUG    row     : {'lng': 145.519714, 'short_name': 'AIRHVL', 'capcode': '001817568', 'lat': -37.65538, 'name': 'PDD - Healesville'}
+2018-03-06 08:36:24 root         DEBUG    count   : 1
+2018-03-06 08:36:24 root         DEBUG    Alert           :ALERT
+2018-03-06 08:36:24 root         DEBUG    Fnumber         :F123456789
+2018-03-06 08:36:24 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 08:36:24 root         DEBUG    AssignmentArea  :INVL2
+2018-03-06 08:36:24 root         DEBUG    Dispatch channel:509 
+2018-03-06 08:36:24 root         DEBUG    Map ref         :SVC 6962 D7
+2018-03-06 08:36:24 root         DEBUG    Latitude        :-38.6313124
+2018-03-06 08:36:24 root         DEBUG    Longitude       :145.6566964
+2018-03-06 08:36:24 root         DEBUG    Remaining msg   :SMALL GRASS FIRE EMMA LANE INVERLOCH (123456) AIRLTV BDG374 CINVL CWOGI HEL337
+2018-03-06 08:36:24 root         DEBUG    parse_alert            :True
+2018-03-06 08:36:24 root         DEBUG    parse_f_number         :True
+2018-03-06 08:36:24 root         DEBUG    parse_incident_type    :True
+2018-03-06 08:36:24 root         DEBUG    parse_assignment_area  :True
+2018-03-06 08:36:24 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 08:36:24 root         DEBUG    parse_mapbook          :True
+2018-03-06 08:36:24 root         DEBUG    parse_lat_long         :True
+2018-03-06 08:36:24 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 08:36:24 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRHVL';
+2018-03-06 08:36:27 weather      DEBUG    AWS for parsing is Eildon Fire Tower
+2018-03-06 08:36:27 weather      DEBUG    0835 EDT on Tuesday, 6 March 2018
+2018-03-06 08:36:27 weather      DEBUG    Eildon Fire Tower at 992
+2018-03-06 08:36:27 weather      DEBUG    FFDI: 7
+2018-03-06 08:36:27 weather      DEBUG    GFDI: 8
+2018-03-06 08:36:27 weather      DEBUG    AWS for parsing is Coldstream
+2018-03-06 08:36:27 weather      DEBUG    0835 EDT on Tuesday, 6 March 2018
+2018-03-06 08:36:27 weather      DEBUG    Coldstream at 1184
+2018-03-06 08:36:27 weather      DEBUG    FFDI: 1
+2018-03-06 08:36:27 weather      DEBUG    GFDI: 1
+2018-03-06 08:36:50 root         INFO     Serial port initialised
+2018-03-06 08:36:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816184';
+2018-03-06 08:36:50 root         DEBUG    b_return: True
+2018-03-06 08:36:50 root         DEBUG    row     : {'lng': 145.390488, 'short_name': 'AIRSHP', 'capcode': '001816184', 'lat': -36.428467, 'name': 'PDD - Shepparton'}
+2018-03-06 08:36:50 root         DEBUG    count   : 1
+2018-03-06 08:36:50 root         DEBUG    Alert           :ALERT
+2018-03-06 08:36:50 root         DEBUG    Fnumber         :F180301004
+2018-03-06 08:36:50 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 08:36:50 root         DEBUG    AssignmentArea  :KYAB4
+2018-03-06 08:36:50 root         DEBUG    Dispatch channel:520 
+2018-03-06 08:36:50 root         DEBUG    Map ref         :SVNE 8362 E5
+2018-03-06 08:36:50 root         DEBUG    Latitude        :-36.3059159
+2018-03-06 08:36:50 root         DEBUG    Longitude       :145.0437140
+2018-03-06 08:36:50 root         DEBUG    Remaining msg   :TREE FIRE BEHIND CALLERS ADDRESS 12 CROW CR KYABRAM /MELLIS ST (243803) AIRSHP CKYAB CMGUM CTGAL HEL331
+2018-03-06 08:36:50 root         DEBUG    parse_alert            :True
+2018-03-06 08:36:50 root         DEBUG    parse_f_number         :True
+2018-03-06 08:36:50 root         DEBUG    parse_incident_type    :True
+2018-03-06 08:36:50 root         DEBUG    parse_assignment_area  :True
+2018-03-06 08:36:50 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 08:36:50 root         DEBUG    parse_mapbook          :True
+2018-03-06 08:36:50 root         DEBUG    parse_lat_long         :True
+2018-03-06 08:36:50 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 08:36:50 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRSHP';
+2018-03-06 08:36:53 weather      DEBUG    AWS for parsing is Shepparton
+2018-03-06 08:36:53 weather      DEBUG    0835 EDT on Tuesday, 6 March 2018
+2018-03-06 08:36:53 weather      DEBUG    Shepparton at 896
+2018-03-06 08:36:53 weather      DEBUG    FFDI: 4
+2018-03-06 08:36:53 weather      DEBUG    GFDI: 4
+2018-03-06 08:39:41 root         INFO     Serial port initialised
+2018-03-06 08:39:41 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001817568';
+2018-03-06 08:39:41 root         DEBUG    b_return: True
+2018-03-06 08:39:41 root         DEBUG    row     : {'lng': 145.519714, 'short_name': 'AIRHVL', 'capcode': '001817568', 'lat': -37.65538, 'name': 'PDD - Healesville'}
+2018-03-06 08:39:41 root         DEBUG    count   : 1
+2018-03-06 08:39:41 root         DEBUG    Alert           :ALERT
+2018-03-06 08:39:41 root         DEBUG    Fnumber         :F123456789
+2018-03-06 08:39:41 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 08:39:41 root         DEBUG    AssignmentArea  :INVL2
+2018-03-06 08:39:41 root         DEBUG    Dispatch channel:509 
+2018-03-06 08:39:41 root         DEBUG    Map ref         :SVC 6962 D7
+2018-03-06 08:39:41 root         DEBUG    Latitude        :-38.6313124
+2018-03-06 08:39:41 root         DEBUG    Longitude       :145.6566964
+2018-03-06 08:39:41 root         DEBUG    Remaining msg   :SMALL GRASS FIRE EMMA LANE INVERLOCH (123456) AIRLTV BDG374 CINVL CWOGI HEL337
+2018-03-06 08:39:41 root         DEBUG    parse_alert            :True
+2018-03-06 08:39:41 root         DEBUG    parse_f_number         :True
+2018-03-06 08:39:41 root         DEBUG    parse_incident_type    :True
+2018-03-06 08:39:41 root         DEBUG    parse_assignment_area  :True
+2018-03-06 08:39:41 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 08:39:41 root         DEBUG    parse_mapbook          :True
+2018-03-06 08:39:41 root         DEBUG    parse_lat_long         :True
+2018-03-06 08:39:41 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 08:39:41 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRHVL';
+2018-03-06 08:39:44 weather      DEBUG    AWS for parsing is Eildon Fire Tower
+2018-03-06 08:39:44 weather      DEBUG    0835 EDT on Tuesday, 6 March 2018
+2018-03-06 08:39:44 weather      DEBUG    Eildon Fire Tower at 992
+2018-03-06 08:39:44 weather      DEBUG    FFDI: 7
+2018-03-06 08:39:44 weather      DEBUG    GFDI: 8
+2018-03-06 08:39:44 weather      DEBUG    AWS for parsing is Coldstream
+2018-03-06 08:39:44 weather      DEBUG    0835 EDT on Tuesday, 6 March 2018
+2018-03-06 08:39:44 weather      DEBUG    Coldstream at 1184
+2018-03-06 08:39:44 weather      DEBUG    FFDI: 1
+2018-03-06 08:39:44 weather      DEBUG    GFDI: 1
+2018-03-06 08:40:17 root         INFO     Serial port initialised
+2018-03-06 08:40:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001817568';
+2018-03-06 08:40:17 root         DEBUG    b_return: True
+2018-03-06 08:40:17 root         DEBUG    row     : {'lng': 145.519714, 'short_name': 'AIRHVL', 'capcode': '001817568', 'lat': -37.65538, 'name': 'PDD - Healesville'}
+2018-03-06 08:40:17 root         DEBUG    count   : 1
+2018-03-06 08:40:17 root         DEBUG    Alert           :ALERT
+2018-03-06 08:40:17 root         DEBUG    Fnumber         :F123456789
+2018-03-06 08:40:17 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 08:40:17 root         DEBUG    AssignmentArea  :INVL2
+2018-03-06 08:40:17 root         DEBUG    Dispatch channel:509 
+2018-03-06 08:40:17 root         DEBUG    Map ref         :SVC 6962 D7
+2018-03-06 08:40:17 root         DEBUG    Latitude        :-38.6313124
+2018-03-06 08:40:17 root         DEBUG    Longitude       :145.6566964
+2018-03-06 08:40:17 root         DEBUG    Remaining msg   :SMALL GRASS FIRE EMMA LANE INVERLOCH (123456) AIRLTV BDG374 CINVL CWOGI HEL337
+2018-03-06 08:40:17 root         DEBUG    parse_alert            :True
+2018-03-06 08:40:17 root         DEBUG    parse_f_number         :True
+2018-03-06 08:40:17 root         DEBUG    parse_incident_type    :True
+2018-03-06 08:40:17 root         DEBUG    parse_assignment_area  :True
+2018-03-06 08:40:17 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 08:40:17 root         DEBUG    parse_mapbook          :True
+2018-03-06 08:40:17 root         DEBUG    parse_lat_long         :True
+2018-03-06 08:40:17 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 08:40:17 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRHVL';
+2018-03-06 08:40:20 weather      DEBUG    AWS for parsing is Eildon Fire Tower
+2018-03-06 08:40:20 weather      DEBUG    0835 EDT on Tuesday, 6 March 2018
+2018-03-06 08:40:20 weather      DEBUG    Eildon Fire Tower at 992
+2018-03-06 08:40:20 weather      DEBUG    FFDI: 7
+2018-03-06 08:40:20 weather      DEBUG    GFDI: 8
+2018-03-06 08:40:20 weather      DEBUG    AWS for parsing is Coldstream
+2018-03-06 08:40:20 weather      DEBUG    0835 EDT on Tuesday, 6 March 2018
+2018-03-06 08:40:20 weather      DEBUG    Coldstream at 1184
+2018-03-06 08:40:20 weather      DEBUG    FFDI: 1
+2018-03-06 08:40:20 weather      DEBUG    GFDI: 1
+2018-03-06 08:40:22 root         INFO     Serial port initialised
+2018-03-06 08:40:22 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816184';
+2018-03-06 08:40:22 root         DEBUG    b_return: True
+2018-03-06 08:40:22 root         DEBUG    row     : {'lng': 145.390488, 'short_name': 'AIRSHP', 'capcode': '001816184', 'lat': -36.428467, 'name': 'PDD - Shepparton'}
+2018-03-06 08:40:22 root         DEBUG    count   : 1
+2018-03-06 08:40:22 root         DEBUG    Alert           :ALERT
+2018-03-06 08:40:22 root         DEBUG    Fnumber         :F180301004
+2018-03-06 08:40:22 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 08:40:22 root         DEBUG    AssignmentArea  :KYAB4
+2018-03-06 08:40:22 root         DEBUG    Dispatch channel:520 
+2018-03-06 08:40:22 root         DEBUG    Map ref         :SVNE 8362 E5
+2018-03-06 08:40:22 root         DEBUG    Latitude        :-36.3059159
+2018-03-06 08:40:22 root         DEBUG    Longitude       :145.0437140
+2018-03-06 08:40:22 root         DEBUG    Remaining msg   :TREE FIRE BEHIND CALLERS ADDRESS 12 CROW CR KYABRAM /MELLIS ST (243803) AIRSHP CKYAB CMGUM CTGAL HEL331
+2018-03-06 08:40:22 root         DEBUG    parse_alert            :True
+2018-03-06 08:40:22 root         DEBUG    parse_f_number         :True
+2018-03-06 08:40:22 root         DEBUG    parse_incident_type    :True
+2018-03-06 08:40:22 root         DEBUG    parse_assignment_area  :True
+2018-03-06 08:40:22 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 08:40:22 root         DEBUG    parse_mapbook          :True
+2018-03-06 08:40:22 root         DEBUG    parse_lat_long         :True
+2018-03-06 08:40:22 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 09:10:55 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-06 09:10:55 root         INFO     Serial port initialised
+2018-03-06 09:10:57 root         INFO     Serial port initialised
+2018-03-06 09:10:57 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816088';
+2018-03-06 09:10:57 root         DEBUG    b_return: True
+2018-03-06 09:10:57 root         DEBUG    row     : {'short_name': 'AIRMMB', 'name': 'PDD - Moorabbin', 'lng': 145.093857, 'capcode': '001816088', 'lat': -37.971375}
+2018-03-06 09:10:57 root         DEBUG    count   : 1
+2018-03-06 09:10:57 root         DEBUG    Alert           :ALERT
+2018-03-06 09:10:57 root         DEBUG    Fnumber         :F180300913
+2018-03-06 09:10:57 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 09:10:57 root         DEBUG    AssignmentArea  :MTEL1
+2018-03-06 09:10:57 root         DEBUG    Dispatch channel:27 
+2018-03-06 09:10:57 root         DEBUG    Map ref         :M 106 C3
+2018-03-06 09:10:57 root         DEBUG    Latitude        :-38.1926135
+2018-03-06 09:10:57 root         DEBUG    Longitude       :145.1209718
+2018-03-06 09:10:57 root         DEBUG    Remaining msg   :UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD (354711) AIRMMB CFTONS CMTEL FBD302 HEL338
+2018-03-06 09:10:57 root         DEBUG    parse_alert            :True
+2018-03-06 09:10:57 root         DEBUG    parse_f_number         :True
+2018-03-06 09:10:57 root         DEBUG    parse_incident_type    :True
+2018-03-06 09:10:57 root         DEBUG    parse_assignment_area  :True
+2018-03-06 09:10:57 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 09:10:57 root         DEBUG    parse_mapbook          :True
+2018-03-06 09:10:57 root         DEBUG    parse_lat_long         :True
+2018-03-06 09:10:57 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 11:53:04 root         INFO     Serial port initialised
+2018-03-06 11:53:05 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816088';
+2018-03-06 11:53:05 root         DEBUG    b_return: True
+2018-03-06 11:53:05 root         DEBUG    row     : {'short_name': 'AIRMMB', 'name': 'PDD - Moorabbin', 'lng': 145.093857, 'capcode': '001816088', 'lat': -37.971375}
+2018-03-06 11:53:05 root         DEBUG    count   : 1
+2018-03-06 11:53:05 root         DEBUG    Alert           :ALERT
+2018-03-06 11:53:05 root         DEBUG    Fnumber         :F180300913
+2018-03-06 11:53:05 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 11:53:05 root         DEBUG    AssignmentArea  :MTEL1
+2018-03-06 11:53:05 root         DEBUG    Dispatch channel:27 
+2018-03-06 11:53:05 root         DEBUG    Map ref         :M 106 C3
+2018-03-06 11:53:05 root         DEBUG    Latitude        :-38.1926135
+2018-03-06 11:53:05 root         DEBUG    Longitude       :145.1209718
+2018-03-06 11:53:05 root         DEBUG    Remaining msg   :UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD (354711) AIRMMB CFTONS CMTEL FBD302 HEL338
+2018-03-06 11:53:05 root         DEBUG    parse_alert            :True
+2018-03-06 11:53:05 root         DEBUG    parse_f_number         :True
+2018-03-06 11:53:05 root         DEBUG    parse_incident_type    :True
+2018-03-06 11:53:05 root         DEBUG    parse_assignment_area  :True
+2018-03-06 11:53:05 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 11:53:05 root         DEBUG    parse_mapbook          :True
+2018-03-06 11:53:05 root         DEBUG    parse_lat_long         :True
+2018-03-06 11:53:05 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 11:53:09 root         INFO     Serial port initialised
+2018-03-06 11:53:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001814336';
+2018-03-06 11:53:09 root         DEBUG    b_return: True
+2018-03-06 11:53:09 root         DEBUG    row     : {'short_name': 'AIRBEN', 'name': 'PDD - Bendigo', 'lng': 144.327026, 'capcode': '001814336', 'lat': -36.737926}
+2018-03-06 11:53:09 root         DEBUG    count   : 1
+2018-03-06 11:53:09 root         DEBUG    Alert           :ALERT
+2018-03-06 11:53:09 root         DEBUG    Fnumber         :F180300594
+2018-03-06 11:53:09 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 11:53:09 root         DEBUG    AssignmentArea  :JUNO3
+2018-03-06 11:53:09 root         DEBUG    Dispatch channel:502 
+2018-03-06 11:53:09 root         DEBUG    Map ref         :SVNW 8285 
+2018-03-06 11:53:09 root         DEBUG    Latitude        :-36.7938187
+2018-03-06 11:53:09 root         DEBUG    Longitude       :144.3928462
+2018-03-06 11:53:09 root         DEBUG    Remaining msg   :SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA (673248) AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN ]
+2018-03-06 11:53:09 root         DEBUG    parse_alert            :True
+2018-03-06 11:53:09 root         DEBUG    parse_f_number         :True
+2018-03-06 11:53:09 root         DEBUG    parse_incident_type    :True
+2018-03-06 11:53:09 root         DEBUG    parse_assignment_area  :True
+2018-03-06 11:53:09 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 11:53:09 root         DEBUG    parse_mapbook          :True
+2018-03-06 11:53:09 root         DEBUG    parse_lat_long         :True
+2018-03-06 11:53:09 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 11:57:42 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-06 11:57:42 root         INFO     Serial port initialised
+2018-03-06 11:57:44 root         INFO     Serial port initialised
+2018-03-06 11:57:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001876600';
+2018-03-06 11:57:44 root         DEBUG    b_return: True
+2018-03-06 11:57:44 root         DEBUG    row     : {'short_name': 'AIRBAC', 'lat': -37.730476, 'name': 'PDD - Bacchus Marsh', 'lng': 144.428482, 'capcode': '001876600'}
+2018-03-06 11:57:44 root         DEBUG    count   : 1
+2018-03-06 11:57:44 root         DEBUG    Alert           :ALERT
+2018-03-06 11:57:44 root         DEBUG    Fnumber         :F180300904
+2018-03-06 11:57:44 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 11:57:44 root         DEBUG    AssignmentArea  :TOOL2
+2018-03-06 11:57:44 root         DEBUG    Dispatch channel:61 
+2018-03-06 11:57:44 root         DEBUG    No match for Map ref
+2018-03-06 11:57:44 root         DEBUG    Latitude        :-37.6281814
+2018-03-06 11:57:44 root         DEBUG    Longitude       :144.6449890
+2018-03-06 11:57:44 root         DEBUG    Remaining msg   :GRASS FIRE SPREADING CNR COIMADAI-DIGGERS REST RD/HOLDEN RD TOOLERN VALE M 332 (921328) AIRBAC CMTON CTOOL HEL345
+2018-03-06 11:57:44 root         DEBUG    parse_alert            :True
+2018-03-06 11:57:44 root         DEBUG    parse_f_number         :True
+2018-03-06 11:57:44 root         DEBUG    parse_incident_type    :True
+2018-03-06 11:57:44 root         DEBUG    parse_assignment_area  :True
+2018-03-06 11:57:44 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 11:57:44 root         DEBUG    parse_mapbook          :False
+2018-03-06 11:57:44 root         DEBUG    parse_lat_long         :True
+2018-03-06 11:57:44 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 11:57:44 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBAC';
+2018-03-06 11:57:47 weather      DEBUG    AWS for parsing is Melbourne Ap
+2018-03-06 11:57:48 weather      DEBUG    1143 EDT on Tuesday, 6 March 2018
+2018-03-06 11:57:48 weather      DEBUG    Melbourne Ap at 1376
+2018-03-06 11:57:48 weather      DEBUG    FFDI: 5
+2018-03-06 11:57:48 weather      DEBUG    GFDI: 2
+2018-03-06 11:57:48 weather      DEBUG    AWS for parsing is Melbourne Ap
+2018-03-06 11:57:48 weather      DEBUG    1143 EDT on Tuesday, 6 March 2018
+2018-03-06 11:57:48 weather      DEBUG    Melbourne Ap at 1376
+2018-03-06 11:57:48 weather      DEBUG    FFDI: 5
+2018-03-06 11:57:48 weather      DEBUG    GFDI: 2
+2018-03-06 12:01:02 root         INFO     Serial port initialised
+2018-03-06 12:01:02 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001814336';
+2018-03-06 12:01:02 root         DEBUG    b_return: True
+2018-03-06 12:01:02 root         DEBUG    row     : {'short_name': 'AIRBEN', 'lat': -36.737926, 'name': 'PDD - Bendigo', 'lng': 144.327026, 'capcode': '001814336'}
+2018-03-06 12:01:02 root         DEBUG    count   : 1
+2018-03-06 12:01:02 root         DEBUG    Alert           :ALERT
+2018-03-06 12:01:02 root         DEBUG    Fnumber         :F180300594
+2018-03-06 12:01:02 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 12:01:02 root         DEBUG    AssignmentArea  :JUNO3
+2018-03-06 12:01:02 root         DEBUG    Dispatch channel:502 
+2018-03-06 12:01:02 root         DEBUG    Map ref         :SVNW 8285 
+2018-03-06 12:01:02 root         DEBUG    Latitude        :-36.7938187
+2018-03-06 12:01:02 root         DEBUG    Longitude       :144.3928462
+2018-03-06 12:01:02 root         DEBUG    Remaining msg   :SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA (673248) AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN ]
+2018-03-06 12:01:02 root         DEBUG    parse_alert            :True
+2018-03-06 12:01:02 root         DEBUG    parse_f_number         :True
+2018-03-06 12:01:02 root         DEBUG    parse_incident_type    :True
+2018-03-06 12:01:02 root         DEBUG    parse_assignment_area  :True
+2018-03-06 12:01:02 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 12:01:02 root         DEBUG    parse_mapbook          :True
+2018-03-06 12:01:02 root         DEBUG    parse_lat_long         :True
+2018-03-06 12:01:02 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 12:01:02 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBEN';
+2018-03-06 12:01:05 weather      DEBUG    AWS for parsing is Bendigo
+2018-03-06 12:01:05 weather      DEBUG    1143 EDT on Tuesday, 6 March 2018
+2018-03-06 12:01:05 weather      DEBUG    Bendigo at 768
+2018-03-06 12:01:05 weather      DEBUG    FFDI: 10
+2018-03-06 12:01:05 weather      DEBUG    GFDI: 8
+2018-03-06 12:03:31 root         INFO     Serial port initialised
+2018-03-06 12:03:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001814336';
+2018-03-06 12:03:31 root         DEBUG    b_return: True
+2018-03-06 12:03:31 root         DEBUG    row     : {'short_name': 'AIRBEN', 'lat': -36.737926, 'name': 'PDD - Bendigo', 'lng': 144.327026, 'capcode': '001814336'}
+2018-03-06 12:03:31 root         DEBUG    count   : 1
+2018-03-06 12:03:31 root         DEBUG    Alert           :ALERT
+2018-03-06 12:03:31 root         DEBUG    Fnumber         :F180300594
+2018-03-06 12:03:31 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 12:03:31 root         DEBUG    AssignmentArea  :JUNO3
+2018-03-06 12:03:31 root         DEBUG    Dispatch channel:502 
+2018-03-06 12:03:31 root         DEBUG    Map ref         :SVNW 8285 
+2018-03-06 12:03:31 root         DEBUG    Latitude        :-36.7938187
+2018-03-06 12:03:31 root         DEBUG    Longitude       :144.3928462
+2018-03-06 12:03:31 root         DEBUG    Remaining msg   :SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA (673248) AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN ]
+2018-03-06 12:03:31 root         DEBUG    parse_alert            :True
+2018-03-06 12:03:31 root         DEBUG    parse_f_number         :True
+2018-03-06 12:03:31 root         DEBUG    parse_incident_type    :True
+2018-03-06 12:03:31 root         DEBUG    parse_assignment_area  :True
+2018-03-06 12:03:31 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 12:03:31 root         DEBUG    parse_mapbook          :True
+2018-03-06 12:03:31 root         DEBUG    parse_lat_long         :True
+2018-03-06 12:03:31 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 12:03:31 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBEN';
+2018-03-06 12:03:34 weather      DEBUG    AWS for parsing is Bendigo
+2018-03-06 12:03:34 weather      DEBUG    1143 EDT on Tuesday, 6 March 2018
+2018-03-06 12:03:34 weather      DEBUG    Bendigo at 768
+2018-03-06 12:03:34 weather      DEBUG    FFDI: 10
+2018-03-06 12:03:34 weather      DEBUG    GFDI: 8
+2018-03-06 12:03:43 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-06 12:03:43 root         INFO     Serial port initialised
+2018-03-06 12:03:47 root         INFO     Serial port initialised
+2018-03-06 12:03:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001876600';
+2018-03-06 12:03:47 root         DEBUG    b_return: True
+2018-03-06 12:03:47 root         DEBUG    row     : {'capcode': '001876600', 'name': 'PDD - Bacchus Marsh', 'lng': 144.428482, 'short_name': 'AIRBAC', 'lat': -37.730476}
+2018-03-06 12:03:47 root         DEBUG    count   : 1
+2018-03-06 12:03:47 root         DEBUG    Alert           :ALERT
+2018-03-06 12:03:47 root         DEBUG    Fnumber         :F180300904
+2018-03-06 12:03:47 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 12:03:47 root         DEBUG    AssignmentArea  :TOOL2
+2018-03-06 12:03:47 root         DEBUG    Dispatch channel:61 
+2018-03-06 12:03:47 root         DEBUG    No match for Map ref
+2018-03-06 12:03:47 root         DEBUG    Latitude        :-37.6281814
+2018-03-06 12:03:47 root         DEBUG    Longitude       :144.6449890
+2018-03-06 12:03:47 root         DEBUG    Remaining msg   :GRASS FIRE SPREADING CNR COIMADAI-DIGGERS REST RD/HOLDEN RD TOOLERN VALE M 332 (921328) AIRBAC CMTON CTOOL HEL345
+2018-03-06 12:03:47 root         DEBUG    parse_alert            :True
+2018-03-06 12:03:47 root         DEBUG    parse_f_number         :True
+2018-03-06 12:03:47 root         DEBUG    parse_incident_type    :True
+2018-03-06 12:03:47 root         DEBUG    parse_assignment_area  :True
+2018-03-06 12:03:47 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 12:03:47 root         DEBUG    parse_mapbook          :False
+2018-03-06 12:03:47 root         DEBUG    parse_lat_long         :True
+2018-03-06 12:03:47 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 12:03:47 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBAC';
+2018-03-06 12:03:49 weather      DEBUG    AWS for parsing is Melbourne Ap
+2018-03-06 12:03:49 weather      DEBUG    1143 EDT on Tuesday, 6 March 2018
+2018-03-06 12:03:49 weather      DEBUG    Melbourne Ap at 1376
+2018-03-06 12:03:49 weather      DEBUG    FFDI: 5
+2018-03-06 12:03:49 weather      DEBUG    GFDI: 2
+2018-03-06 12:03:49 weather      DEBUG    AWS for parsing is Melbourne Ap
+2018-03-06 12:03:49 weather      DEBUG    1143 EDT on Tuesday, 6 March 2018
+2018-03-06 12:03:50 weather      DEBUG    Melbourne Ap at 1376
+2018-03-06 12:03:50 weather      DEBUG    FFDI: 5
+2018-03-06 12:03:50 weather      DEBUG    GFDI: 2
+2018-03-06 12:04:00 root         INFO     Serial port initialised
+2018-03-06 12:04:00 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001876600';
+2018-03-06 12:04:00 root         DEBUG    b_return: True
+2018-03-06 12:04:00 root         DEBUG    row     : {'capcode': '001876600', 'name': 'PDD - Bacchus Marsh', 'lng': 144.428482, 'short_name': 'AIRBAC', 'lat': -37.730476}
+2018-03-06 12:04:00 root         DEBUG    count   : 1
+2018-03-06 12:04:00 root         DEBUG    Alert           :ALERT
+2018-03-06 12:04:00 root         DEBUG    Fnumber         :F180300904
+2018-03-06 12:04:00 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 12:04:00 root         DEBUG    AssignmentArea  :TOOL2
+2018-03-06 12:04:00 root         DEBUG    Dispatch channel:61 
+2018-03-06 12:04:00 root         DEBUG    No match for Map ref
+2018-03-06 12:04:00 root         DEBUG    Latitude        :-37.6281814
+2018-03-06 12:04:00 root         DEBUG    Longitude       :144.6449890
+2018-03-06 12:04:00 root         DEBUG    Remaining msg   :GRASS FIRE SPREADING CNR COIMADAI-DIGGERS REST RD/HOLDEN RD TOOLERN VALE M 332 (921328) AIRBAC CMTON CTOOL HEL345
+2018-03-06 12:04:00 root         DEBUG    parse_alert            :True
+2018-03-06 12:04:00 root         DEBUG    parse_f_number         :True
+2018-03-06 12:04:00 root         DEBUG    parse_incident_type    :True
+2018-03-06 12:04:00 root         DEBUG    parse_assignment_area  :True
+2018-03-06 12:04:00 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 12:04:00 root         DEBUG    parse_mapbook          :False
+2018-03-06 12:04:00 root         DEBUG    parse_lat_long         :True
+2018-03-06 12:04:00 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 12:04:00 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBAC';
+2018-03-06 12:04:03 weather      DEBUG    AWS for parsing is Melbourne Ap
+2018-03-06 12:04:03 weather      DEBUG    1143 EDT on Tuesday, 6 March 2018
+2018-03-06 12:04:03 weather      DEBUG    Melbourne Ap at 1376
+2018-03-06 12:04:03 weather      DEBUG    FFDI: 5
+2018-03-06 12:04:03 weather      DEBUG    GFDI: 2
+2018-03-06 12:04:03 weather      DEBUG    AWS for parsing is Melbourne Ap
+2018-03-06 12:04:03 weather      DEBUG    1143 EDT on Tuesday, 6 March 2018
+2018-03-06 12:04:03 weather      DEBUG    Melbourne Ap at 1376
+2018-03-06 12:04:03 weather      DEBUG    FFDI: 5
+2018-03-06 12:04:03 weather      DEBUG    GFDI: 2
+2018-03-06 13:01:24 root         INFO     Serial port initialised
+2018-03-06 13:01:25 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001814336';
+2018-03-06 13:01:25 root         DEBUG    b_return: True
+2018-03-06 13:01:25 root         DEBUG    row     : {'capcode': '001814336', 'name': 'PDD - Bendigo', 'lng': 144.327026, 'short_name': 'AIRBEN', 'lat': -36.737926}
+2018-03-06 13:01:25 root         DEBUG    count   : 1
+2018-03-06 13:01:25 root         DEBUG    Alert           :ALERT
+2018-03-06 13:01:25 root         DEBUG    Fnumber         :F180300594
+2018-03-06 13:01:25 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 13:01:25 root         DEBUG    AssignmentArea  :JUNO3
+2018-03-06 13:01:25 root         DEBUG    Dispatch channel:502 
+2018-03-06 13:01:25 root         DEBUG    Map ref         :SVNW 8285 
+2018-03-06 13:01:25 root         DEBUG    Latitude        :-36.7938187
+2018-03-06 13:01:25 root         DEBUG    Longitude       :144.3928462
+2018-03-06 13:01:25 root         DEBUG    Remaining msg   :SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA (673248) AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN ]
+2018-03-06 13:01:25 root         DEBUG    parse_alert            :True
+2018-03-06 13:01:25 root         DEBUG    parse_f_number         :True
+2018-03-06 13:01:25 root         DEBUG    parse_incident_type    :True
+2018-03-06 13:01:25 root         DEBUG    parse_assignment_area  :True
+2018-03-06 13:01:25 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 13:01:25 root         DEBUG    parse_mapbook          :True
+2018-03-06 13:01:25 root         DEBUG    parse_lat_long         :True
+2018-03-06 13:01:25 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 13:01:25 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBEN';
+2018-03-06 13:01:27 weather      DEBUG    AWS for parsing is Bendigo
+2018-03-06 13:01:27 weather      DEBUG    1243 EDT on Tuesday, 6 March 2018
+2018-03-06 13:01:27 weather      DEBUG    Bendigo at 768
+2018-03-06 13:01:27 weather      DEBUG    FFDI: 12
+2018-03-06 13:01:27 weather      DEBUG    GFDI: 6
+2018-03-06 13:33:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001139275';
+2018-03-06 13:34:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001139291';
+2018-03-06 13:34:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001445180';
+2018-03-06 13:34:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001461722';
+2018-03-06 13:35:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001467876';
+2018-03-06 13:35:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000084360';
+2018-03-06 13:35:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000725057';
+2018-03-06 13:36:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000472262';
+2018-03-06 13:44:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566424';
+2018-03-06 13:45:05 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000568896';
+2018-03-06 13:45:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000661088';
+2018-03-06 13:45:25 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000585016';
+2018-03-06 13:45:25 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001300378';
+2018-03-06 13:45:28 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000585155';
+2018-03-06 13:45:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000568480';
+2018-03-06 13:45:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000446232';
+2018-03-06 13:46:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000567624';
+2018-03-06 13:46:34 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000568224';
+2018-03-06 13:46:34 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = 'GARDS, DA';
+2018-03-06 13:46:37 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000568912';
+2018-03-06 13:46:38 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000816472';
+2018-03-06 13:46:38 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001023142';
+2018-03-06 13:46:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000122480';
+2018-03-06 13:46:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000127517';
+2018-03-06 13:47:25 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000268689';
+2018-03-06 13:47:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000296857';
+2018-03-06 13:47:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001361860';
+2018-03-06 13:47:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000829848';
+2018-03-06 13:47:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000152468';
+2018-03-06 13:59:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000009243';
+2018-03-06 14:00:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 14:00:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001467876';
+2018-03-06 14:00:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001894352';
+2018-03-06 14:00:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001241417';
+2018-03-06 14:00:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '002052058';
+2018-03-06 14:01:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000000779';
+2018-03-06 14:01:56 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 14:01:57 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000874738';
+2018-03-06 14:02:01 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000127746';
+2018-03-06 14:02:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 14:03:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000242785';
+2018-03-06 14:03:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001997410';
+2018-03-06 14:13:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001519064';
+2018-03-06 14:16:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000564008';
+2018-03-06 14:16:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000559920';
+2018-03-06 14:16:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672032';
+2018-03-06 14:16:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001719361';
+2018-03-06 14:16:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 14:19:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001531346';
+2018-03-06 14:22:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 14:24:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 14:25:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001078350';
+2018-03-06 14:25:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000589264';
+2018-03-06 14:35:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000006720';
+2018-03-06 14:35:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816088';
+2018-03-06 14:35:15 root         DEBUG    b_return: True
+2018-03-06 14:35:15 root         DEBUG    row     : {'capcode': '001816088', 'name': 'PDD - Moorabbin', 'lng': 145.093857, 'short_name': 'AIRMMB', 'lat': -37.971375}
+2018-03-06 14:35:15 root         DEBUG    count   : 1
+2018-03-06 14:35:15 root         DEBUG    Not a FIRECALL
+2018-03-06 14:35:15 root         DEBUG    parse_alert            :False
+2018-03-06 14:35:15 root         DEBUG    parse_f_number         :False
+2018-03-06 14:35:15 root         DEBUG    parse_incident_type    :False
+2018-03-06 14:35:15 root         DEBUG    parse_assignment_area  :False
+2018-03-06 14:35:15 root         DEBUG    parse_dispatch_channel :False
+2018-03-06 14:35:15 root         DEBUG    parse_mapbook          :False
+2018-03-06 14:35:15 root         DEBUG    parse_lat_long         :False
+2018-03-06 14:35:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001709096';
+2018-03-06 14:35:18 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000213409';
+2018-03-06 14:35:19 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001875104';
+2018-03-06 14:35:25 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566264';
+2018-03-06 14:35:30 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001833952';
+2018-03-06 14:35:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566336';
+2018-03-06 14:35:40 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672048';
+2018-03-06 14:35:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 14:35:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 14:40:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000564264';
+2018-03-06 14:40:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 14:41:24 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000562248';
+2018-03-06 14:41:27 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000562104';
+2018-03-06 14:41:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001814328';
+2018-03-06 14:41:32 root         DEBUG    b_return: True
+2018-03-06 14:41:32 root         DEBUG    row     : {'capcode': '001814328', 'name': 'PDD - Casterton', 'lng': 141.361603, 'short_name': 'AIRCAS', 'lat': -37.607258}
+2018-03-06 14:41:32 root         DEBUG    count   : 1
+2018-03-06 14:41:32 root         DEBUG    Alert           :ALERT
+2018-03-06 14:41:32 root         DEBUG    Fnumber         :F180301876
+2018-03-06 14:41:32 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 14:41:32 root         DEBUG    AssignmentArea  :MORV1
+2018-03-06 14:41:32 root         DEBUG    Dispatch channel:504 
+2018-03-06 14:41:32 root         DEBUG    Map ref         :SVSW 472 G6
+2018-03-06 14:41:32 root         DEBUG    Latitude        :-37.8715836
+2018-03-06 14:41:32 root         DEBUG    Longitude       :141.7063411
+2018-03-06 14:41:32 root         DEBUG    Remaining msg   :GRASS FIRE 61 DETOUR RD BRANXHOLME (621081) AIRCAS BOM350 BOM351 CBLME CMORV [AIRCAS]
+2018-03-06 14:41:32 root         DEBUG    parse_alert            :True
+2018-03-06 14:41:32 root         DEBUG    parse_f_number         :True
+2018-03-06 14:41:32 root         DEBUG    parse_incident_type    :True
+2018-03-06 14:41:32 root         DEBUG    parse_assignment_area  :True
+2018-03-06 14:41:32 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 14:41:32 root         DEBUG    parse_mapbook          :True
+2018-03-06 14:41:32 root         DEBUG    parse_lat_long         :True
+2018-03-06 14:41:32 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 14:47:52 database     DEBUG    SELECT * FROM `airfields` WHERE 1
+2018-03-06 14:47:52 root         INFO     Serial port initialised
+2018-03-06 14:49:29 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240673';
+2018-03-06 14:49:30 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000365875';
+2018-03-06 14:49:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000341704';
+2018-03-06 14:52:36 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241001';
+2018-03-06 14:52:38 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '002002037';
+2018-03-06 14:52:41 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000574200';
+2018-03-06 14:52:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001841032';
+2018-03-06 14:52:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001198485';
+2018-03-06 14:53:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '002035097';
+2018-03-06 14:55:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000638008';
+2018-03-06 14:55:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000799836';
+2018-03-06 14:55:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000538856';
+2018-03-06 14:55:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001614178';
+2018-03-06 14:56:18 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001862126';
+2018-03-06 14:58:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 14:59:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000960513';
+2018-03-06 15:00:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001532354';
+2018-03-06 15:00:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000599456';
+2018-03-06 15:00:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000091555';
+2018-03-06 15:01:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 15:01:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001560025';
+2018-03-06 15:02:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001379800';
+2018-03-06 15:02:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000335901';
+2018-03-06 15:22:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001546024';
+2018-03-06 15:22:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001863134';
+2018-03-06 15:23:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001840305';
+2018-03-06 15:24:05 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001615890';
+2018-03-06 15:24:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001461720';
+2018-03-06 15:24:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000570128';
+2018-03-06 15:24:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000469025';
+2018-03-06 15:24:46 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001699973';
+2018-03-06 15:24:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001324168';
+2018-03-06 15:24:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000346816';
+2018-03-06 15:24:57 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '002041313';
+2018-03-06 15:26:36 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000637784';
+2018-03-06 15:26:36 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000076087';
+2018-03-06 15:26:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000722476';
+2018-03-06 15:26:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571752';
+2018-03-06 15:26:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000044001';
+2018-03-06 15:27:30 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000815928';
+2018-03-06 15:27:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001918913';
+2018-03-06 15:27:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001123208';
+2018-03-06 15:27:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001597585';
+2018-03-06 15:27:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000306550';
+2018-03-06 15:27:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672104';
+2018-03-06 15:27:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000857946';
+2018-03-06 15:27:46 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000295806';
+2018-03-06 15:27:46 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000743715';
+2018-03-06 15:28:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000152922';
+2018-03-06 15:28:19 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000978390';
+2018-03-06 15:28:23 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 15:28:24 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 15:28:26 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001514989';
+2018-03-06 15:28:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 15:28:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001532285';
+2018-03-06 15:28:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 15:32:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001420612';
+2018-03-06 15:32:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001088565';
+2018-03-06 15:33:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001506101';
+2018-03-06 15:33:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000176928';
+2018-03-06 15:33:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000291925';
+2018-03-06 15:33:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001598360';
+2018-03-06 15:33:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000335386';
+2018-03-06 15:33:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001374499';
+2018-03-06 15:33:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000317541';
+2018-03-06 15:35:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000068461';
+2018-03-06 15:35:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001091134';
+2018-03-06 15:35:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 15:35:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001265085';
+2018-03-06 15:35:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '002006845';
+2018-03-06 15:35:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 15:35:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000986398';
+2018-03-06 15:35:56 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000690832';
+2018-03-06 15:37:49 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 15:37:49 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001508766';
+2018-03-06 15:39:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '002007600';
+2018-03-06 15:39:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001106955';
+2018-03-06 15:39:36 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000503256';
+2018-03-06 15:40:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000806353';
+2018-03-06 15:40:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001990461';
+2018-03-06 15:40:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001426940';
+2018-03-06 15:40:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001531339';
+2018-03-06 15:43:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001879280';
+2018-03-06 15:44:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001116286';
+2018-03-06 15:45:03 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000575488';
+2018-03-06 15:45:03 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000678068';
+2018-03-06 15:45:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000448673';
+2018-03-06 15:45:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000875184';
+2018-03-06 15:45:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001238476';
+2018-03-06 15:45:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000893220';
+2018-03-06 15:45:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000575448';
+2018-03-06 15:45:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001872131';
+2018-03-06 15:46:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001533900';
+2018-03-06 15:47:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000059328';
+2018-03-06 15:47:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000293434';
+2018-03-06 15:47:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000984963';
+2018-03-06 15:47:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000523247';
+2018-03-06 15:47:59 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672088';
+2018-03-06 15:48:01 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 15:48:03 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001347387';
+2018-03-06 15:48:04 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001551771';
+2018-03-06 15:48:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353064';
+2018-03-06 15:48:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566160';
+2018-03-06 15:48:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672048';
+2018-03-06 15:48:57 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 15:53:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 15:53:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001510662';
+2018-03-06 15:55:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001270180';
+2018-03-06 15:57:23 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000082064';
+2018-03-06 15:57:26 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000575448';
+2018-03-06 15:57:26 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000413816';
+2018-03-06 15:57:26 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000210962';
+2018-03-06 15:57:28 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001269782';
+2018-03-06 15:58:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 15:59:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672632';
+2018-03-06 16:00:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000525379';
+2018-03-06 16:00:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000575504';
+2018-03-06 16:00:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '002078763';
+2018-03-06 16:00:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240209';
+2018-03-06 16:00:22 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000567080';
+2018-03-06 16:00:23 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000361499';
+2018-03-06 16:00:36 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240713';
+2018-03-06 16:00:40 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001581649';
+2018-03-06 16:00:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566960';
+2018-03-06 16:00:46 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672048';
+2018-03-06 16:00:49 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566592';
+2018-03-06 16:00:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:00:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001537377';
+2018-03-06 16:00:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:00:57 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001663307';
+2018-03-06 16:04:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241561';
+2018-03-06 16:05:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001361418';
+2018-03-06 16:05:18 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000213467';
+2018-03-06 16:05:19 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572416';
+2018-03-06 16:05:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001313603';
+2018-03-06 16:05:24 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 16:05:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001974202';
+2018-03-06 16:06:27 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571736';
+2018-03-06 16:06:28 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000253358';
+2018-03-06 16:06:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000624008';
+2018-03-06 16:11:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000575472';
+2018-03-06 16:11:39 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:12:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:12:37 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001618840';
+2018-03-06 16:13:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:13:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:13:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572536';
+2018-03-06 16:13:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:14:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001462408';
+2018-03-06 16:14:22 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566696';
+2018-03-06 16:14:25 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572472';
+2018-03-06 16:14:27 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566592';
+2018-03-06 16:14:34 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672048';
+2018-03-06 16:14:37 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572416';
+2018-03-06 16:14:40 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 16:14:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:14:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:14:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:16:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:17:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:17:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:17:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001370202';
+2018-03-06 16:19:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:20:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:21:41 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001288696';
+2018-03-06 16:21:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001550229';
+2018-03-06 16:23:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:23:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353000';
+2018-03-06 16:23:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001036464';
+2018-03-06 16:23:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001800819';
+2018-03-06 16:23:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001746549';
+2018-03-06 16:23:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000976318';
+2018-03-06 16:24:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:24:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:25:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:25:34 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001752072';
+2018-03-06 16:25:38 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:25:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 16:25:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000582104';
+2018-03-06 16:25:49 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:25:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001139291';
+2018-03-06 16:26:20 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 16:26:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:27:05 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000561312';
+2018-03-06 16:27:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 16:27:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:27:57 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000582112';
+2018-03-06 16:28:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:29:18 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571296';
+2018-03-06 16:29:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:30:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:30:34 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:30:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000569904';
+2018-03-06 16:30:46 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572424';
+2018-03-06 16:30:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572456';
+2018-03-06 16:30:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572416';
+2018-03-06 16:30:56 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 16:31:02 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 16:31:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000570280';
+2018-03-06 16:31:20 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000570472';
+2018-03-06 16:31:29 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001360920';
+2018-03-06 16:31:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:31:38 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:31:41 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571360';
+2018-03-06 16:31:43 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571160';
+2018-03-06 16:31:49 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 16:31:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:31:59 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000569904';
+2018-03-06 16:32:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000569912';
+2018-03-06 16:32:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:32:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:32:29 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 16:32:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:33:05 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000567744';
+2018-03-06 16:33:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000567736';
+2018-03-06 16:33:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672056';
+2018-03-06 16:33:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566264';
+2018-03-06 16:33:19 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:33:23 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 16:33:27 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001947703';
+2018-03-06 16:33:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000569792';
+2018-03-06 16:33:37 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000567328';
+2018-03-06 16:33:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816048';
+2018-03-06 16:33:42 root         DEBUG    b_return: True
+2018-03-06 16:33:42 root         DEBUG    row     : {'capcode': '001816048', 'short_name': 'AIRBNS', 'lng': 147.567429, 'name': 'PDD - Bairnsdale', 'lat': -37.882694}
+2018-03-06 16:33:42 root         DEBUG    count   : 1
+2018-03-06 16:33:42 root         DEBUG    Alert           :ALERT
+2018-03-06 16:33:42 root         DEBUG    Fnumber         :F180301919
+2018-03-06 16:33:42 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 16:33:42 root         DEBUG    AssignmentArea  :LENT3
+2018-03-06 16:33:42 root         DEBUG    Dispatch channel:511 
+2018-03-06 16:33:42 root         DEBUG    Map ref         :SVSE 8542 E9
+2018-03-06 16:33:42 root         DEBUG    Latitude        :-37.8621831
+2018-03-06 16:33:42 root         DEBUG    Longitude       :148.0211151
+2018-03-06 16:33:42 root         DEBUG    Remaining msg   :UNDEFINED FRE0IN BACK YARD CNR KETCH ST/PANORAMIC DR LAKES ENTRANCE (898089) ARBNS BOM361 @KM362 CLENT CTLOO
+2018-03-06 16:33:42 root         DEBUG    parse_alert            :True
+2018-03-06 16:33:42 root         DEBUG    parse_f_number         :True
+2018-03-06 16:33:42 root         DEBUG    parse_incident_type    :True
+2018-03-06 16:33:42 root         DEBUG    parse_assignment_area  :True
+2018-03-06 16:33:42 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 16:33:42 root         DEBUG    parse_mapbook          :True
+2018-03-06 16:33:42 root         DEBUG    parse_lat_long         :True
+2018-03-06 16:33:42 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 16:33:42 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRBNS';
+2018-03-06 16:33:42 root         ERROR    Could not download FWB from BOM. Possible internet connection issue.
+2018-03-06 16:33:46 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000569704';
+2018-03-06 16:33:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672072';
+2018-03-06 16:33:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000080192';
+2018-03-06 16:33:59 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:34:02 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:34:03 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001527255';
+2018-03-06 16:34:05 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000569664';
+2018-03-06 16:34:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000092067';
+2018-03-06 16:35:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000562568';
+2018-03-06 16:35:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = 'GS. FDR H';
+2018-03-06 16:36:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:36:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:37:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 16:37:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:37:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003218';
+2018-03-06 16:37:46 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 16:37:49 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000569960';
+2018-03-06 16:37:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:39:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571840';
+2018-03-06 16:39:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672608';
+2018-03-06 16:39:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001332612';
+2018-03-06 16:39:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241897';
+2018-03-06 16:39:19 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572416';
+2018-03-06 16:39:22 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241921';
+2018-03-06 16:39:27 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:39:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000574888';
+2018-03-06 16:39:36 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000073424';
+2018-03-06 16:39:40 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:39:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:40:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:41:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:42:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:42:34 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001527259';
+2018-03-06 16:45:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:46:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:46:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:47:38 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000578360';
+2018-03-06 16:47:39 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001502624';
+2018-03-06 16:47:43 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240513';
+2018-03-06 16:47:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000164834';
+2018-03-06 16:47:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000950037';
+2018-03-06 16:48:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:50:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 16:50:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000245922';
+2018-03-06 16:50:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:50:34 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:52:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:52:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001412895';
+2018-03-06 16:53:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000960200';
+2018-03-06 16:54:34 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:56:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:56:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:57:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:57:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:57:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000560272';
+2018-03-06 16:57:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:58:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000573328';
+2018-03-06 16:58:18 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:58:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241833';
+2018-03-06 16:58:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241921';
+2018-03-06 16:58:40 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:58:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001312136';
+2018-03-06 16:58:59 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001322216';
+2018-03-06 16:59:03 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001806696';
+2018-03-06 16:59:07 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672144';
+2018-03-06 16:59:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:59:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 16:59:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001631696';
+2018-03-06 16:59:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000001027';
+2018-03-06 17:00:03 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 17:02:03 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571024';
+2018-03-06 17:02:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353112';
+2018-03-06 17:02:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571040';
+2018-03-06 17:02:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571016';
+2018-03-06 17:02:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672088';
+2018-03-06 17:02:19 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000564344';
+2018-03-06 17:03:37 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 17:04:28 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571736';
+2018-03-06 17:04:36 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 17:05:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000579624';
+2018-03-06 17:06:59 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001845640';
+2018-03-06 17:07:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001857920';
+2018-03-06 17:10:57 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241833';
+2018-03-06 17:11:49 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000563584';
+2018-03-06 17:12:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000651288';
+2018-03-06 17:14:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241897';
+2018-03-06 17:14:18 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001322216';
+2018-03-06 17:14:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000579336';
+2018-03-06 17:14:59 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000579320';
+2018-03-06 17:15:03 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000579288';
+2018-03-06 17:15:07 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001806696';
+2018-03-06 17:15:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672144';
+2018-03-06 17:17:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000568312';
+2018-03-06 17:17:46 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572416';
+2018-03-06 17:17:49 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 17:18:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571056';
+2018-03-06 17:19:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000576824';
+2018-03-06 17:19:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000576840';
+2018-03-06 17:19:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000576720';
+2018-03-06 17:19:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672128';
+2018-03-06 17:19:56 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566376';
+2018-03-06 17:20:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001327056';
+2018-03-06 17:20:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241129';
+2018-03-06 17:20:25 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241185';
+2018-03-06 17:22:18 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572072';
+2018-03-06 17:22:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 17:22:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000570896';
+2018-03-06 17:26:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000573744';
+2018-03-06 17:27:59 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571344';
+2018-03-06 17:28:03 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001857920';
+2018-03-06 17:28:07 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353056';
+2018-03-06 17:28:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571384';
+2018-03-06 17:28:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672088';
+2018-03-06 17:32:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000560928';
+2018-03-06 17:33:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000565352';
+2018-03-06 17:33:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000565344';
+2018-03-06 17:33:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001368624';
+2018-03-06 17:34:00 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001459744';
+2018-03-06 17:34:02 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001368720';
+2018-03-06 17:34:04 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001368640';
+2018-03-06 17:34:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001368736';
+2018-03-06 17:35:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566824';
+2018-03-06 17:35:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000567048';
+2018-03-06 17:35:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566736';
+2018-03-06 17:35:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672048';
+2018-03-06 17:35:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566960';
+2018-03-06 17:36:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566392';
+2018-03-06 17:40:00 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571072';
+2018-03-06 17:43:56 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000570672';
+2018-03-06 17:45:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856793';
+2018-03-06 17:50:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241129';
+2018-03-06 17:52:05 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001878968';
+2018-03-06 17:52:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000574280';
+2018-03-06 17:52:22 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000574248';
+2018-03-06 17:52:26 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000574344';
+2018-03-06 17:52:30 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000574232';
+2018-03-06 17:52:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816176';
+2018-03-06 17:52:35 root         DEBUG    b_return: True
+2018-03-06 17:52:35 root         DEBUG    row     : {'capcode': '001816176', 'short_name': 'AIRSWL', 'lng': 142.74173, 'name': 'PDD - Stawell', 'lat': -37.068035}
+2018-03-06 17:52:35 root         DEBUG    count   : 1
+2018-03-06 17:52:35 root         DEBUG    Alert           :ALERT
+2018-03-06 17:52:35 root         DEBUG    Fnumber         :F180301949
+2018-03-06 17:52:35 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 17:52:35 root         DEBUG    AssignmentArea  :BUBK1
+2018-03-06 17:52:35 root         DEBUG    Dispatch channel:516 
+2018-03-06 17:52:35 root         DEBUG    Map ref         :SVC 6181 K15
+2018-03-06 17:52:35 root         DEBUG    Latitude        :-37.1933936
+2018-03-06 17:52:35 root         DEBUG    Longitude       :143.5838050
+2018-03-06 17:52:35 root         DEBUG    Remaining msg   :COLUMN OF SMOKE CNR NORBURYS RD/WILSONS RD LILLICUR (293805) AIRSWL BDG372 BOM354 BOM355 CAMPH CAVOU CBUBK CLEXT
+2018-03-06 17:52:35 root         DEBUG    parse_alert            :True
+2018-03-06 17:52:35 root         DEBUG    parse_f_number         :True
+2018-03-06 17:52:35 root         DEBUG    parse_incident_type    :True
+2018-03-06 17:52:35 root         DEBUG    parse_assignment_area  :True
+2018-03-06 17:52:35 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 17:52:35 root         DEBUG    parse_mapbook          :True
+2018-03-06 17:52:35 root         DEBUG    parse_lat_long         :True
+2018-03-06 17:52:35 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 17:52:35 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRSWL';
+2018-03-06 17:52:35 root         ERROR    Could not download FWB from BOM. Possible internet connection issue.
+2018-03-06 17:52:39 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000574224';
+2018-03-06 17:52:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672112';
+2018-03-06 17:52:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000080496';
+2018-03-06 17:53:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001878968';
+2018-03-06 17:56:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000561280';
+2018-03-06 17:56:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241969';
+2018-03-06 17:56:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001312088';
+2018-03-06 17:56:19 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000242345';
+2018-03-06 17:56:23 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001213680';
+2018-03-06 17:56:27 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672008';
+2018-03-06 18:01:03 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000563536';
+2018-03-06 18:01:40 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571216';
+2018-03-06 18:01:43 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571168';
+2018-03-06 18:01:46 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571160';
+2018-03-06 18:01:49 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 18:03:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572488';
+2018-03-06 18:06:41 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001327056';
+2018-03-06 18:07:43 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241969';
+2018-03-06 18:08:03 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003236';
+2018-03-06 18:11:39 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000573104';
+2018-03-06 18:11:43 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000573064';
+2018-03-06 18:11:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672104';
+2018-03-06 18:12:04 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 18:14:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001368664';
+2018-03-06 18:14:59 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001585784';
+2018-03-06 18:15:00 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001368696';
+2018-03-06 18:15:04 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001459744';
+2018-03-06 18:15:05 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001459752';
+2018-03-06 18:15:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001368648';
+2018-03-06 18:18:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000565224';
+2018-03-06 18:20:25 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001017441';
+2018-03-06 18:23:59 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000564696';
+2018-03-06 18:26:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000573232';
+2018-03-06 18:27:04 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003209';
+2018-03-06 18:27:25 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572040';
+2018-03-06 18:27:29 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 18:28:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000573232';
+2018-03-06 18:29:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566248';
+2018-03-06 18:29:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001816088';
+2018-03-06 18:29:50 root         DEBUG    b_return: True
+2018-03-06 18:29:50 root         DEBUG    row     : {'capcode': '001816088', 'short_name': 'AIRMMB', 'lng': 145.093857, 'name': 'PDD - Moorabbin', 'lat': -37.971375}
+2018-03-06 18:29:50 root         DEBUG    count   : 1
+2018-03-06 18:29:50 root         DEBUG    Alert           :ALERT
+2018-03-06 18:29:50 root         DEBUG    Fnumber         :F180301962
+2018-03-06 18:29:50 root         DEBUG    IncidentType    :G&SC1
+2018-03-06 18:29:50 root         DEBUG    AssignmentArea  :KOOW3
+2018-03-06 18:29:50 root         DEBUG    Dispatch channel:27 
+2018-03-06 18:29:50 root         DEBUG    Map ref         :M 300 G6
+2018-03-06 18:29:50 root         DEBUG    Latitude        :-38.1970518
+2018-03-06 18:29:50 root         DEBUG    Longitude       :145.4959442
+2018-03-06 18:29:50 root         DEBUG    Remaining msg   :GRASS FIRE AT BACK OF SCHOOL KOO WEE RUP SECONDARY COLLEGE - KOO WEE RUP 345 ROSSITER RD KOO WEE RUP /JOHN ST //TOWNLEY RD (682712) AIRMMB CKOOW CLANG CPKHMS FBD302 HEL338
+2018-03-06 18:29:50 root         DEBUG    parse_alert            :True
+2018-03-06 18:29:50 root         DEBUG    parse_f_number         :True
+2018-03-06 18:29:50 root         DEBUG    parse_incident_type    :True
+2018-03-06 18:29:50 root         DEBUG    parse_assignment_area  :True
+2018-03-06 18:29:50 root         DEBUG    parse_dispatch_channel :True
+2018-03-06 18:29:50 root         DEBUG    parse_mapbook          :True
+2018-03-06 18:29:50 root         DEBUG    parse_lat_long         :True
+2018-03-06 18:29:50 database     DEBUG    SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`
+2018-03-06 18:29:50 database     DEBUG    SELECT * FROM `airfield_aws` WHERE short_name = 'AIRMMB';
+2018-03-06 18:29:50 root         ERROR    Could not download FWB from BOM. Possible internet connection issue.
+2018-03-06 18:29:56 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566264';
+2018-03-06 18:30:01 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001833952';
+2018-03-06 18:30:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566336';
+2018-03-06 18:30:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672048';
+2018-03-06 18:30:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566600';
+2018-03-06 18:34:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000570672';
+2018-03-06 18:40:26 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240545';
+2018-03-06 18:42:05 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003218';
+2018-03-06 18:48:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240545';
+2018-03-06 18:50:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000564016';
+2018-03-06 18:51:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571360';
+2018-03-06 18:55:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001327056';
+2018-03-06 18:57:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003227';
+2018-03-06 18:58:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000579400';
+2018-03-06 18:58:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000579000';
+2018-03-06 18:58:38 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241769';
+2018-03-06 18:58:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001847016';
+2018-03-06 18:58:49 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000579048';
+2018-03-06 18:58:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241921';
+2018-03-06 18:59:02 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000578928';
+2018-03-06 18:59:07 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672144';
+2018-03-06 18:59:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672152';
+2018-03-06 18:59:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672160';
+2018-03-06 18:59:23 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001867241';
+2018-03-06 18:59:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000567872';
+2018-03-06 18:59:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000568032';
+2018-03-06 18:59:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000567848';
+2018-03-06 18:59:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672056';
+2018-03-06 19:00:38 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000578392';
+2018-03-06 19:00:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000652504';
+2018-03-06 19:01:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000563536';
+2018-03-06 19:01:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000577568';
+2018-03-06 19:01:23 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000578392';
+2018-03-06 19:02:24 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241769';
+2018-03-06 19:02:25 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000562640';
+2018-03-06 19:03:43 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001352992';
+2018-03-06 19:04:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000579000';
+2018-03-06 19:04:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000579320';
+2018-03-06 19:04:19 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001312136';
+2018-03-06 19:04:24 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000578928';
+2018-03-06 19:04:30 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672144';
+2018-03-06 19:04:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001806696';
+2018-03-06 19:04:40 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672144';
+2018-03-06 19:04:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001766584';
+2018-03-06 19:07:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240673';
+2018-03-06 19:08:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241769';
+2018-03-06 19:09:29 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241129';
+2018-03-06 19:09:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240353';
+2018-03-06 19:17:37 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001046392';
+2018-03-06 19:17:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000578792';
+2018-03-06 19:17:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000581224';
+2018-03-06 19:18:49 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571360';
+2018-03-06 19:19:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001315673';
+2018-03-06 19:21:19 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001288704';
+2018-03-06 19:22:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566200';
+2018-03-06 19:22:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566472';
+2018-03-06 19:22:26 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566160';
+2018-03-06 19:22:30 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672048';
+2018-03-06 19:25:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571816';
+2018-03-06 19:25:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000577776';
+2018-03-06 19:26:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000577840';
+2018-03-06 19:28:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000580896';
+2018-03-06 19:30:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000576600';
+2018-03-06 19:36:46 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001286888';
+2018-03-06 19:40:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001618840';
+2018-03-06 19:42:30 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000573248';
+2018-03-06 19:42:34 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000573224';
+2018-03-06 19:42:38 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672104';
+2018-03-06 19:44:27 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000567968';
+2018-03-06 19:44:40 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001618840';
+2018-03-06 19:49:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001618840';
+2018-03-06 19:50:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572520';
+2018-03-06 19:57:07 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000977617';
+2018-03-06 19:57:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '002071843';
+2018-03-06 19:57:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001763125';
+2018-03-06 19:57:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000173214';
+2018-03-06 19:59:20 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000570200';
+2018-03-06 19:59:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001618840';
+2018-03-06 20:00:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 20:01:28 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572088';
+2018-03-06 20:01:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572072';
+2018-03-06 20:01:39 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572008';
+2018-03-06 20:01:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 20:01:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572264';
+2018-03-06 20:02:49 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000573248';
+2018-03-06 20:02:53 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000573224';
+2018-03-06 20:02:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672104';
+2018-03-06 20:03:30 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566200';
+2018-03-06 20:03:34 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566160';
+2018-03-06 20:03:38 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672048';
+2018-03-06 20:04:24 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000578344';
+2018-03-06 20:09:20 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353064';
+2018-03-06 20:09:30 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000565712';
+2018-03-06 20:09:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000560120';
+2018-03-06 20:11:19 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566520';
+2018-03-06 20:12:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 20:13:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000241129';
+2018-03-06 20:16:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000564312';
+2018-03-06 20:17:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000565552';
+2018-03-06 20:18:01 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001877544';
+2018-03-06 20:18:04 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001525176';
+2018-03-06 20:21:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000565584';
+2018-03-06 20:21:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353096';
+2018-03-06 20:21:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001525176';
+2018-03-06 20:24:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 20:25:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000579544';
+2018-03-06 20:29:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000725584';
+2018-03-06 20:31:28 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000568936';
+2018-03-06 20:31:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000565616';
+2018-03-06 20:31:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001464120';
+2018-03-06 20:32:03 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353040';
+2018-03-06 20:32:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001525176';
+2018-03-06 20:36:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 20:38:29 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001433482';
+2018-03-06 20:38:29 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001766451';
+2018-03-06 20:38:29 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001034212';
+2018-03-06 20:38:29 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000924413';
+2018-03-06 20:38:29 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000499854';
+2018-03-06 20:39:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001286305';
+2018-03-06 20:41:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566840';
+2018-03-06 20:41:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353064';
+2018-03-06 20:41:18 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566160';
+2018-03-06 20:41:23 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672048';
+2018-03-06 20:42:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001286305';
+2018-03-06 20:48:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 20:51:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000242553';
+2018-03-06 20:54:36 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001845616';
+2018-03-06 20:55:26 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000242745';
+2018-03-06 20:58:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571944';
+2018-03-06 20:59:01 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000570168';
+2018-03-06 20:59:04 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572344';
+2018-03-06 20:59:07 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000570288';
+2018-03-06 20:59:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672080';
+2018-03-06 20:59:13 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572304';
+2018-03-06 20:59:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672008';
+2018-03-06 21:00:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 21:12:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 21:21:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000565456';
+2018-03-06 21:23:40 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566840';
+2018-03-06 21:23:44 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566792';
+2018-03-06 21:23:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566160';
+2018-03-06 21:23:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672048';
+2018-03-06 21:23:57 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566736';
+2018-03-06 21:24:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 21:26:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566904';
+2018-03-06 21:26:12 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353000';
+2018-03-06 21:26:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353064';
+2018-03-06 21:26:20 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566736';
+2018-03-06 21:26:23 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672048';
+2018-03-06 21:32:30 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566840';
+2018-03-06 21:36:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 21:41:47 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000649704';
+2018-03-06 21:43:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572072';
+2018-03-06 21:43:36 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571736';
+2018-03-06 21:43:39 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 21:43:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571728';
+2018-03-06 21:43:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672104';
+2018-03-06 21:46:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000762920';
+2018-03-06 21:48:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 21:50:09 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001540592';
+2018-03-06 22:00:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 22:08:07 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003236';
+2018-03-06 22:11:27 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000654906';
+2018-03-06 22:11:27 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000376517';
+2018-03-06 22:11:27 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000915503';
+2018-03-06 22:11:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240305';
+2018-03-06 22:12:07 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003200';
+2018-03-06 22:12:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 22:12:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000570168';
+2018-03-06 22:12:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000570312';
+2018-03-06 22:12:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000570288';
+2018-03-06 22:12:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672080';
+2018-03-06 22:15:32 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353040';
+2018-03-06 22:15:36 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000565584';
+2018-03-06 22:15:40 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001525176';
+2018-03-06 22:16:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240305';
+2018-03-06 22:20:46 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000563584';
+2018-03-06 22:20:51 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672024';
+2018-03-06 22:20:55 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000242129';
+2018-03-06 22:21:04 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000242033';
+2018-03-06 22:21:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001618840';
+2018-03-06 22:24:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 22:27:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003209';
+2018-03-06 22:34:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000242033';
+2018-03-06 22:36:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 22:40:39 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000242033';
+2018-03-06 22:42:07 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003218';
+2018-03-06 22:47:11 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240305';
+2018-03-06 22:48:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 22:48:59 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240385';
+2018-03-06 22:51:39 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000240385';
+2018-03-06 22:57:08 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000003227';
+2018-03-06 22:58:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571880';
+2018-03-06 22:58:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001845968';
+2018-03-06 22:58:38 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571840';
+2018-03-06 22:58:42 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672096';
+2018-03-06 22:58:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572416';
+2018-03-06 22:58:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572608';
+2018-03-06 22:58:57 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571784';
+2018-03-06 22:59:01 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572600';
+2018-03-06 22:59:04 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672104';
+2018-03-06 22:59:07 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571728';
+2018-03-06 23:00:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 23:03:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000563584';
+2018-03-06 23:03:20 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672024';
+2018-03-06 23:09:35 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571088';
+2018-03-06 23:09:38 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571104';
+2018-03-06 23:09:41 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571016';
+2018-03-06 23:09:43 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672088';
+2018-03-06 23:09:50 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571088';
+2018-03-06 23:09:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000571016';
+2018-03-06 23:09:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672088';
+2018-03-06 23:12:15 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 23:18:45 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000560800';
+2018-03-06 23:18:48 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000573728';
+2018-03-06 23:18:52 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000560816';
+2018-03-06 23:18:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000560792';
+2018-03-06 23:18:58 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672008';
+2018-03-06 23:19:01 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001861072';
+2018-03-06 23:19:06 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000565936';
+2018-03-06 23:19:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353096';
+2018-03-06 23:19:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001525176';
+2018-03-06 23:19:18 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000572864';
+2018-03-06 23:19:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000560800';
+2018-03-06 23:19:24 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672104';
+2018-03-06 23:19:27 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000560792';
+2018-03-06 23:19:31 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672008';
+2018-03-06 23:24:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 23:25:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001353120';
+2018-03-06 23:30:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001327056';
+2018-03-06 23:32:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001327056';
+2018-03-06 23:33:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000579304';
+2018-03-06 23:33:59 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001322216';
+2018-03-06 23:34:05 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001312136';
+2018-03-06 23:34:10 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001806696';
+2018-03-06 23:34:14 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672144';
+2018-03-06 23:34:21 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566824';
+2018-03-06 23:34:25 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000567048';
+2018-03-06 23:34:29 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566736';
+2018-03-06 23:34:33 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000672048';
+2018-03-06 23:34:36 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000566960';
+2018-03-06 23:36:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
+2018-03-06 23:39:54 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000567048';
+2018-03-06 23:46:17 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000909368';
+2018-03-06 23:46:18 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '002009546';
+2018-03-06 23:46:18 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001564172';
+2018-03-06 23:46:18 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '000528743';
+2018-03-06 23:48:16 database     DEBUG    SELECT * FROM `airfields` WHERE capcode = '001856916';
