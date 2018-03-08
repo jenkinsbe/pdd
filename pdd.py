@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+import sys
+if sys.version_info<(3,4,2):
+  sys.stderr.write("You need python 3.4.2 or later to run this script\n")
+  exit(1)
+
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk, GObject, Gio, Pango
@@ -9,7 +14,6 @@ import time
 from threading import Thread
 import re
 import serial
-import sys
 from time import localtime, strftime
 from collections import deque
 import logging
@@ -27,9 +31,6 @@ import calcs
 import weather
 
 
-if sys.version_info<(3,4,2):
-  sys.stderr.write("You need python 3.4.2 or later to run this script\n")
-  exit(1)
 
 log_file_name = '/home/pi/pdd/logs/pdd.log'
 logging_level = logging.DEBUG
@@ -76,22 +77,30 @@ class InterFace(Gtk.Window):
         if text is not None:
             print ("Airfield selected is: %s" % text)
 
+    def __insert(self, text_buffer, text):
+        iter = text_buffer.get_end_iter()
+        text_buffer.insert (iter, text)
+        
+    def __insert_with_tags_by_name(self, text_buffer, text, tag):
+        iter = text_buffer.get_end_iter()
+        text_buffer.insert_with_tags_by_name (iter, text, tag)
+
     def update_text_buffer(self, text_buffer, text, tag=None, clear_buffer_first=False):
         
         if clear_buffer_first:
-            self.clear_text_buffer(text_buffer)
+            GObject.idle_add(self.clear_text_buffer, text_buffer, priority=GObject.PRIORITY_DEFAULT)
             
-        iter = text_buffer.get_end_iter()
         if tag is None:
-            GObject.idle_add(text_buffer.insert, iter, text, priority=GObject.PRIORITY_DEFAULT)
+            GObject.idle_add(self.__insert, text_buffer, text, priority=GObject.PRIORITY_DEFAULT)
             #text_buffer.insert (iter, text)
         else:
-            GObject.idle_add(text_buffer.insert_with_tags_by_name, iter, text, tag, priority=GObject.PRIORITY_DEFAULT)
+            GObject.idle_add(self.__insert_with_tags_by_name, text_buffer, text, tag, priority=GObject.PRIORITY_DEFAULT)
             #text_buffer.insert_with_tags_by_name (iter, text, tag)
 
     def clear_text_buffer(self, text_buffer):
         start, end = text_buffer.get_bounds()
-        GObject.idle_add(text_buffer.delete, start, end, priority=GObject.PRIORITY_DEFAULT)
+        text_buffer.delete (start, end)
+        #GObject.idle_add(text_buffer.delete, start, end, priority=GObject.PRIORITY_DEFAULT)
 
 
     def populateAirfieldComboBox(self, combo):
@@ -128,7 +137,7 @@ class InterFace(Gtk.Window):
     def populateMapRoute(self, image, airfield_lat, airfield_lng, firecall_lat, firecall_lon):
         
         url = 'https://maps.googleapis.com/maps/api/staticmap'
-        url += '?size=480x480'
+        url += '?size=640x640'
         url += '&maptype=terrain'
         url += '&markers=color:blue|label:H|%s,%s' % (airfield_lat, airfield_lng)
         url += '&markers=color:red|label:F|%s,%s' % (firecall_lat, firecall_lon)
@@ -141,7 +150,7 @@ class InterFace(Gtk.Window):
         
         url = 'https://maps.googleapis.com/maps/api/staticmap'
         url += '?center=%s,%s' % (firecall_lat, firecall_lon)
-        url += '&size=480x480'
+        url += '&size=640x640'
         url += '&zoom=16'
         url += '&maptype=satellite'
         url += '&markers=color:red|label:F|%s,%s' % (firecall_lat, firecall_lon)
@@ -172,16 +181,9 @@ class InterFace(Gtk.Window):
 
         return True
     
-    def update_tbWeather(self, text, tag=None):
-        iter = self.tbWeather.get_end_iter()
-        if tag is None:
-            self.tbWeather.insert (iter, text)
-        else:
-            self.tbWeather.insert_with_tags_by_name (iter, text, tag)
-    
     def updateAWS(self, tbWeather, aws_short_name):
         
-        self.update_text_buffer(self.tbWeather, 'Downloading weather data...', "tag_Bold", clear_buffer_first=True)
+        self.update_text_buffer(self.tbWeather, 'Downloading weather data...', clear_buffer_first=True)
         
         # what is the AWS for this airfield
         b_return, airfields_aws_dict, count = database.select ("SELECT * FROM `airfield_aws` WHERE short_name = '%s';" % aws_short_name)
