@@ -23,7 +23,12 @@ console.setFormatter(formatter)
 logging.getLogger('').addHandler(console)
 
 success, fwb = weather.download_fire_weather_bulletin()
-aws = 'Shepparton'
+aws = 'Deniliquin'
+
+def CleanString (str):
+    str = str.replace ("  ", " ")
+    str = str.lstrip()
+    return str
 
 if (success):
     soup = BeautifulSoup (fwb, 'html.parser')
@@ -48,5 +53,31 @@ if (success):
                         break
                     else:
                         logger.debug ('EDT not found')
+                        
+            # get the FWB wx data for AWS
+            ffdi = -1
+            gfdi = -1
+            
+            tags = soup.find_all('td')
+            regex = re.compile("[^0-9]")
+
+            
+            for x in range (0, len(tags)):
+                logger.debug (tags[x].string)
+                tag = tags[x].string
+                
+                tag = CleanString(tag)
+                
+                if tag is not None:
+                    if tag in aws:
+                        logger.debug (tag)
+                        logger.debug ('%s at %d' % (aws, x))
+                        
+                        ffdi = regex.sub ("", str(tags[x+11]))
+                        logger.debug ('FFDI: %s' % ffdi)
+
+                        gfdi = regex.sub ("", str(tags[x+12]))
+                        logger.debug ('GFDI: %s' % gfdi)
+                        break
 else:
     logger.debug('weather.download_fire_weather_bulletin() FAILED')

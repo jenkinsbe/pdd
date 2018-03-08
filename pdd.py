@@ -29,8 +29,9 @@ from socket import timeout
 import database
 import calcs
 import weather
+import funcs
 
-
+widgets = dict()
 
 log_file_name = '/home/pi/pdd/logs/pdd.log'
 logging_level = logging.DEBUG
@@ -49,10 +50,6 @@ formatter = logging.Formatter('%(asctime)s %(levelname)-8s %(message)s', "%Y-%m-
 console.setFormatter(formatter)
 logging.getLogger('').addHandler(console)
 
-def CleanString (str):
-    str = str.replace ("  ", " ")
-    str = str.lstrip()
-    return str
 
                             
     
@@ -195,21 +192,23 @@ class InterFace(Gtk.Window):
 #                    try:
                         soup = BeautifulSoup(fwb, 'html.parser')
                         
-                        self.update_text_buffer(self.tbWeather, '*** WEATHER ***\n', "tag_Bold", clear_buffer_first=True)
+                        self.update_text_buffer(self.tbWeather, '*** WEATHER ***', "tag_Bold", clear_buffer_first=True)
 
                         for airfield in airfields_aws_dict:
                             
                             b_success, aws_time, ffdi, gfdi = weather.parse_wx_from_fwb (soup, airfield['aws'])
                             if (b_success):
 
-                                message = "\n%s(%s) FFDI is %d, GFDI is %d: " % (airfield['name'], airfield['fdi_trigger'], ffdi, gfdi)
+                                message = "\n\n%s(%s): " % (airfield['name'], airfield['fdi_trigger'])
                                 self.update_text_buffer(self.tbWeather, message)
-
                             
                                 if (int(max(gfdi, ffdi)) > int(airfield['fdi_trigger'])):
                                     self.update_text_buffer(self.tbWeather, "GO", "tag_Go")
                                 else:
                                     self.update_text_buffer(self.tbWeather, "NO GO", "tag_NoGo")
+                                    
+                                message = "\nFFDI is %d, GFDI is %d." % (ffdi, gfdi)
+                                self.update_text_buffer(self.tbWeather, message)
                             else:
                                 logger.error ('Could not parse weather data')
                             
@@ -356,9 +355,9 @@ class InterFace(Gtk.Window):
                                         logging.debug("Message         :" + message)
                                         
                                         # show the message in the textbox
-                                        self.tbPagerMessage.set_text('')
-                                        iter = self.tbPagerMessage.get_iter_at_offset(0)
-                                        GObject.idle_add(self.tbPagerMessage.insert_with_tags_by_name, iter, message, "tag_Large", priority=GObject.PRIORITY_DEFAULT)
+                                        widgets['tbPagerMessage'].set_text('')
+                                        iter = widgets['tbPagerMessage'].get_iter_at_offset(0)
+                                        GObject.idle_add(widgets['tbPagerMessage'].insert_with_tags_by_name, iter, message, "tag_Large", priority=GObject.PRIORITY_DEFAULT)
                                         
                                         
                                         parse_alert = False
@@ -379,7 +378,7 @@ class InterFace(Gtk.Window):
                                             if (search_response != None):
                                                 alert = search_response.group(0)
                                                 message = re.sub(expression, '', message)   # remove ALERT
-                                                message = CleanString (message)
+                                                message = funcs.CleanString (message)
                                                 logging.debug("Alert           :" + alert)
                                                 parse_alert = True
                                             else:
@@ -393,7 +392,7 @@ class InterFace(Gtk.Window):
                                             if (search_response != None):
                                                 Fnumber = search_response.group(0)
                                                 message = re.sub(expression, '', message)   # remove Fxxxxxxxxx
-                                                message = CleanString (message)
+                                                message = funcs.CleanString (message)
                                                 logging.debug("Fnumber         :" + Fnumber)
                                                 parse_f_number = True
                                             else:
@@ -405,7 +404,7 @@ class InterFace(Gtk.Window):
                                             if (search_response != None):
                                                 IncidentType = search_response.group(0)
                                                 message = re.sub(expression, '', message)   # remove IncidentType
-                                                message = CleanString (message)
+                                                message = funcs.CleanString (message)
                                                 logging.debug("IncidentType    :" + IncidentType)
                                                 parse_incident_type = True
                                             else:
@@ -418,7 +417,7 @@ class InterFace(Gtk.Window):
                                             if (search_response != None):
                                                 AssignmentArea = search_response.group(0)
                                                 message = re.sub(expression, '', message)         # remove AssignmentArea
-                                                message = CleanString (message)
+                                                message = funcs.CleanString (message)
                                                 logging.debug("AssignmentArea  :" + AssignmentArea)
                                                 parse_assignment_area = True
                                             else:
@@ -430,7 +429,7 @@ class InterFace(Gtk.Window):
                                             if (search_response != None):
                                                 DispatchChannel = search_response.group(0)
                                                 message = re.sub(expression, '', message)         # remove DispatchChannel
-                                                message = CleanString (message)
+                                                message = funcs.CleanString (message)
                                                 DispatchChannel = DispatchChannel.replace ("DISP", "")
                                                 logging.debug("Dispatch channel:" + DispatchChannel)
                                                 parse_dispatch_channel = True
@@ -444,7 +443,7 @@ class InterFace(Gtk.Window):
                                             if (search_response != None):
                                                 Map_Melways = search_response.group(0)
                                                 message = re.sub(expression, '', message)         # remove Map_Melways
-                                                message = CleanString (message)
+                                                message = funcs.CleanString (message)
 
                                             # Map_SV
                                             expression = "SV(\w{0,})[ 0-9]{0,}\w{0,}"
@@ -453,7 +452,7 @@ class InterFace(Gtk.Window):
                                             if (search_response != None):
                                                 Map_SV = search_response.group(0)
                                                 message = re.sub(expression, '', message)         # remove Map_SV
-                                                message = CleanString (message)
+                                                message = funcs.CleanString (message)
 
                                             # check the mapping
                                             MapRef = None
@@ -476,7 +475,7 @@ class InterFace(Gtk.Window):
                                                 LatLon = search_response.group(0)
                                                 message = re.sub(expression, '', message)
                                                 message = re.sub('LAT/LON:', '', message)
-                                                message = CleanString (message)
+                                                message = funcs.CleanString (message)
                                                 latitude, longitude = LatLon.split(',')
                                                 latitude = latitude.strip()
                                                 longitude = longitude.strip()
@@ -556,7 +555,7 @@ class InterFace(Gtk.Window):
         self.window.maximize()
         self.window.show()
         
-        self.tbPagerMessage = self.builder.get_object("tbPagerMessage")
+        #self.tbPagerMessage = self.builder.get_object("tbPagerMessage")
         self.tvPagerMessage = self.builder.get_object("tvPagerMessage")
         self.tbWeather = self.builder.get_object("tbWeather")
         self.tbFlightPath = self.builder.get_object("tbFlightPath")
@@ -566,10 +565,13 @@ class InterFace(Gtk.Window):
         self.imageMapRoute = self.builder.get_object("imageMapRoute")
         self.imageMapDestination = self.builder.get_object("imageMapDestination")
         
-        self.tbPagerMessage.create_tag("tag_Large", weight=Pango.Weight.BOLD, size=30 * Pango.SCALE)
+        #self.tbPagerMessage.create_tag("tag_Large", weight=Pango.Weight.BOLD, size=30 * Pango.SCALE)
         self.tbWeather.create_tag("tag_Bold", weight=Pango.Weight.BOLD)
         self.tbWeather.create_tag("tag_NoGo", foreground="red")
         self.tbWeather.create_tag("tag_Go", foreground="green")
+        
+        widgets['tbPagerMessage'] = self.builder.get_object("tbPagerMessage")
+        widgets['tbPagerMessage'].create_tag("tag_Large", weight=Pango.Weight.BOLD, size=30 * Pango.SCALE)
         
                              
         self.populateAirfieldComboBox(self.comboAirfield)

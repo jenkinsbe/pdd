@@ -3,7 +3,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 import re
-
+import funcs
 import logging
 logger = logging.getLogger(__name__)
 
@@ -61,18 +61,21 @@ def parse_wx_from_fwb(soup, aws):
 
             
             for x in range (0, len(tags)):
-                tag = tags[x].string.strip()
-        
-                if (tag == aws):
-                    logger.debug ('%s at %d' % (aws, x))
-                    
-                    ffdi = regex.sub ("", str(tags[x+11]))
-                    logger.debug ('FFDI: %s' % ffdi)
+                tag = tags[x].string
+                tag = funcs.CleanString(tag)
+                
+                if tag is not None:
+                    if tag in aws:
+                        logger.debug ('%s at %d' % (aws, x))
+                        
+                        ffdi = regex.sub ("", str(tags[x+11]))
+                        logger.debug ('FFDI: %s' % ffdi)
 
-                    gfdi = regex.sub ("", str(tags[x+12]))
-                    logger.debug ('GFDI: %s' % gfdi)
-                    
-                    b_return = True
+                        gfdi = regex.sub ("", str(tags[x+12]))
+                        logger.debug ('GFDI: %s' % gfdi)
+                        
+                        b_return = True
+                        break
                     
         else:
             logger.debug ('No AWS selected for parsing')
