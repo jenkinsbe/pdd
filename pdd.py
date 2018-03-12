@@ -122,7 +122,7 @@ class InterFace(Gtk.Window):
                 #image.set_from_file (filename)
                 GObject.idle_add(image.set_from_file, filename, priority=GObject.PRIORITY_DEFAULT)
 
-        except (HTTPError, URLError) as error:
+        except (urllib.HTTPError, urllib.URLError) as error:
             logging.error('Image data did not download because %s\nURL: %s', error, url)
             return False
         except timeout:
