@@ -10,6 +10,8 @@ logger = logging.getLogger(__name__)
 
 def download_fire_weather_bulletin():
     
+    logger.debug ("Downloading fire weather bulletin")
+    
     bom_url = 'https://reg.bom.gov.au/products/reg/vicfire/IDV60236.shtml'
     bom_username = 'bomw0026'
     bom_password = 'cfa123'

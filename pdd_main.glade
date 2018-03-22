@@ -4,11 +4,17 @@
   <object class="GtkTextBuffer" id="tbClosestAirbase">
     <property name="text" translatable="yes">** CLOSEST AIR BASE **</property>
   </object>
+  <object class="GtkTextBuffer" id="tbClosestPDD">
+    <property name="text" translatable="yes">** CLOSEST PDD SITE **</property>
+  </object>
   <object class="GtkTextBuffer" id="tbFlightPath">
     <property name="text" translatable="yes">** FLIGHT PATH **</property>
   </object>
   <object class="GtkTextBuffer" id="tbPagerMessage">
     <property name="text" translatable="yes">** PAGER MESSAGE **</property>
+  </object>
+  <object class="GtkEntryBuffer" id="tbTimeOfPage">
+    <property name="text" translatable="yes">** TIME OF PAGE **</property>
   </object>
   <object class="GtkEntryBuffer" id="tbTimeSincePage">
     <property name="text" translatable="yes">** TIMER **</property>
@@ -114,6 +120,24 @@
                 <property name="height">1</property>
               </packing>
             </child>
+            <child>
+              <object class="GtkEntry" id="teTimeOfPage">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="halign">end</property>
+                <property name="buffer">tbTimeOfPage</property>
+                <property name="invisible_char">●</property>
+                <property name="text" translatable="yes">** TIMER **</property>
+                <property name="invisible_char_set">True</property>
+                <property name="placeholder_text">Time since page</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -194,6 +218,7 @@
                   <object class="GtkTextView" id="tvClosestAirbase">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="margin_bottom">5</property>
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
                     <property name="wrap_mode">word</property>
@@ -202,6 +227,22 @@
                   <packing>
                     <property name="left_attach">0</property>
                     <property name="top_attach">2</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkTextView" id="tvClosestPDD">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="wrap_mode">word</property>
+                    <property name="buffer">tbClosestPDD</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">3</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>

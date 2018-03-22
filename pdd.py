@@ -25,6 +25,7 @@ import os
 from bs4 import BeautifulSoup
 import random
 from socket import timeout
+from timeit import default_timer as timer
 
 import database
 import calcs
@@ -32,6 +33,8 @@ import weather
 import funcs
 
 widgets = dict()
+jobs = []
+
 
 log_file_name = '/home/pi/pdd/logs/pdd.log'
 logging_level = logging.DEBUG
@@ -56,6 +59,8 @@ logging.getLogger('').addHandler(console)
 class InterFace(Gtk.Window):
     
     TimeOfPage = None
+    jobs_index = 0
+    
 
     def on_window_destroy(self, object, data=None):
         print ("Quiting")
@@ -64,8 +69,30 @@ class InterFace(Gtk.Window):
     def btnNextJob(self, object, data=None):
         print ("Next job")
 
+        if (len(jobs) > 0):
+            #logging.debug ("len(jobs)  : %d" % len(jobs))
+            #logging.debug ("jobs_index : %d" % self.jobs_index)
+
+            self.jobs_index += 1
+            if ((self.jobs_index) >= len(jobs)):
+                self.jobs_index = len(jobs) - 1
+
+            #logging.debug ("jobs_index : %d" % self.jobs_index)
+            self.update_screen(jobs[self.jobs_index])
+
     def btnPreviousJob(self, object, data=None):
         print ("Previous job")
+
+        if (len(jobs) > 0):
+            #logging.debug ("len(jobs)  : %d" % len(jobs))
+            #logging.debug ("jobs_index : %d" % self.jobs_index)
+
+            self.jobs_index -= 1
+            if ((self.jobs_index) < 0):
+                self.jobs_index = 0
+
+            #logging.debug ("jobs_index : %d" % self.jobs_index)
+            self.update_screen(jobs[self.jobs_index])
         
     def airfield_changed(self, object, data=None):
         print ("Airfield changed")
@@ -155,42 +182,61 @@ class InterFace(Gtk.Window):
         
         return self.populateImage (image, url, './destination_map.png')
    
+   
+    def FindClosestAirfields(self, TextBuffer, latitude, longitude, sql):
 
-    def updateNearestBomberReloadingAirfields(self, tbClosestAirbase, latitude, longitude):
-        
-        # if not then bug out.
-        b_return = False
         try:
-            b_return, airfields, count = database.select ("SELECT * FROM `airfield_bomber_reloading` ORDER BY `name`")
-        except:
-            pass
-        
-        if (not b_return):
-            logger.error ("Error when trying to search `airfield_bomber_reloading`")
-            logger.debug ("b_return: %s" % b_return)
-            logger.debug ("row     : %s" % airfield)
-            logger.debug ("count   : %s" % count)
-        else:
-            #logger.debug ("airfield: %s" % airfields)
-            sorted_list = calcs.find_closest_airbases (latitude, longitude, airfields)
-            buffer = "** CLOSEST RELOADING AIRBASES **\n%s: %.0f Nm\n%s: %.0f Nm" % (sorted_list[0]['name'], math.ceil(float(sorted_list[0]['distance'])), sorted_list[1]['name'], math.ceil(float(sorted_list[1]['distance'])))
-            GObject.idle_add(self.tbClosestAirbase.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
+            b_return, airfields, count = database.select (sql)
+            if (b_return):
+                #logging.debug ("airfield: %s" % airfields)
+                #logging.debug ("b_return: %s" % b_return)
+                #logging.debug ("row     : %s" % airfields)
+                #logging.debug ("count   : %s" % count)
 
-        return True
+                sorted_list = calcs.find_closest_airbases (latitude, longitude, airfields)
+                buffer = "** CLOSEST PDD SITES **\n%s: %.0f Nm\n%s: %.0f Nm" % (sorted_list[0]['name'], math.ceil(float(sorted_list[0]['distance'])), sorted_list[1]['name'], math.ceil(float(sorted_list[1]['distance'])))
+                GObject.idle_add(TextBuffer.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
+
+                b_return = True
+
+            else:
+                b_return = False
+        except:
+            logging.error ("Error when finding closest airfield")
+            b_return = False
+
+        return b_return    
+   
+    def updateNearestBomberReloadingAirfields(self, tbClosestAirbase, latitude, longitude):
+        b_return = self.FindClosestAirfields (tbClosestAirbase, latitude, longitude, "SELECT name, lat, lng  FROM `airfield_bomber_reloading` ORDER BY `name`;")
+        if not b_return:
+            logging.error ("Could not find closest Bomber Reloading Airfields")
     
-    def updateAWS(self, tbWeather, aws_short_name):
+    def updateNearestPDDAirfields(self, tbClosestPDD, latitude, longitude):
+        b_return = self.FindClosestAirfields (tbClosestPDD, latitude, longitude, "SELECT name, lat, lng FROM `airfields` ORDER BY `name`;")
+        if not b_return:
+            logging.error ("Could not find closest PDD sites")
+
+
+    def updateAWS(self, tbWeather, aws_short_name, b_dfwb=False, fwb=None):
         
+        start = timer()
         self.update_text_buffer(self.tbWeather, 'Downloading weather data...', clear_buffer_first=True)
         
         # what is the AWS for this airfield
         b_return, airfields_aws_dict, count = database.select ("SELECT * FROM `airfield_aws` WHERE short_name = '%s';" % aws_short_name)
+        logging.debug ("%.5fs:%s" %(timer()-start, "Database transaction complete"))
         if (b_return):
             if (count > 0):
+                if (b_dfwb is False or fwb is None):
+                    b_dfwb, fwb = weather.download_fire_weather_bulletin()
                 
-                b_dfwb, fwb = weather.download_fire_weather_bulletin()
                 if (b_dfwb):
+                        logging.debug ("%.5fs:%s" %(timer()-start, "FWB download complete"))
 #                    try:
+                        soup = None
                         soup = BeautifulSoup(fwb, 'html.parser')
+                        logging.debug ("%.5fs:%s" %(timer()-start, "html.parser complete"))
                         
                         self.update_text_buffer(self.tbWeather, '*** WEATHER ***', "tag_Bold", clear_buffer_first=True)
 
@@ -209,11 +255,16 @@ class InterFace(Gtk.Window):
                                     
                                 message = "\nFFDI is %d, GFDI is %d." % (ffdi, gfdi)
                                 self.update_text_buffer(self.tbWeather, message)
+                                
+                                logging.debug ("%.5fs:Found weather for %s AWS" %(timer()-start, airfield['aws']))
+
                             else:
                                 logger.error ('Could not parse weather data')
                             
+                        logging.debug ("%.5fs:%s" %(timer()-start, "Parsing of FWB complete"))
                         message = "\n\nCorrect as at %s" % aws_time
                         self.update_text_buffer(self.tbWeather, message)
+                        logging.debug ("%.5fs:%s" %(timer()-start, "Screen update complete"))
  #                   except:
  #                       logging.error (sys.exc_info()[0])
                 else:
@@ -266,6 +317,63 @@ class InterFace(Gtk.Window):
         
         return port
     
+    def update_screen(self, job=None):
+
+        if job is not None:
+            # let the pilots know that the screen is updating
+            logging.debug ("Updating screen")
+            GObject.idle_add(self.tbWeather.set_text, "Downloading weather from BOM...", priority=GObject.PRIORITY_DEFAULT)
+            GObject.idle_add(self.tbFlightPath.set_text, "Calculating flight details...", priority=GObject.PRIORITY_DEFAULT)
+            GObject.idle_add(self.tbClosestAirbase.set_text, "Finding nearest reloading bases...", priority=GObject.PRIORITY_DEFAULT)
+            GObject.idle_add(self.tbClosestPDD.set_text, "Finding nearest PDD bases...", priority=GObject.PRIORITY_DEFAULT)
+            GObject.idle_add(self.imageMapRoute.clear, priority=GObject.PRIORITY_DEFAULT)
+            GObject.idle_add(self.imageMapDestination.clear, priority=GObject.PRIORITY_DEFAULT)
+            
+            # show the message in the textbox
+            logging.debug ("Update message textbox")
+            widgets['tbPagerMessage'].set_text('')
+            iter = widgets['tbPagerMessage'].get_iter_at_offset(0)
+            GObject.idle_add(widgets['tbPagerMessage'].insert_with_tags_by_name, iter, job['message'], "tag_Large", priority=GObject.PRIORITY_DEFAULT)
+
+            
+            # update the timer
+            logging.debug ("Update time of page")
+            self.TimeOfPage = job['TimeOfPage']
+            
+            # update the clock
+            logging.debug ("Update clock")
+            buffer = str(job['TimeOfPage'].strftime("%H:%M:%S"))
+            GObject.idle_add(self.tbTimeOfPage.set_text, buffer, len(buffer), priority=GObject.PRIORITY_DEFAULT)            
+            
+            # populate the flight info text box
+            logging.debug ("Update flight info textbox")
+            GObject.idle_add(self.tbFlightPath.set_text, job['buffer_flight_info'], priority=GObject.PRIORITY_DEFAULT)
+            
+            # update closest airfields
+            logging.debug ("Update closest airfields")
+            if (job['parse_lat_long']):
+                self.updateNearestBomberReloadingAirfields(self.tbClosestAirbase, job['latitude'], job['longitude'])
+                self.updateNearestPDDAirfields(self.tbClosestPDD, job['latitude'], job['longitude'])
+            else:
+                GObject.idle_add(self.tbClosestAirbase.set_text, 'Error finding nearest reloading base.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long', priority=GObject.PRIORITY_DEFAULT)
+                GObject.idle_add(self.tbClosestPDD.set_text, 'Error finding nearest PDD base.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long', priority=GObject.PRIORITY_DEFAULT)
+                
+            # update weather information
+            logging.debug ("Update weather information")
+            if (job['parse_alert']):
+                self.updateAWS(self.tbWeather, job['airfield']['short_name'], job['b_dfwb'], job['fwb'])
+                #self.updateAWS(self.tbWeather, job['airfield']['short_name'])
+            else:
+                GObject.idle_add(self.tbWeather.set_text, 'Error with weather.\n\nPossible causes;\n-Not an ALERT page', priority=GObject.PRIORITY_DEFAULT)
+
+            # update image
+            logging.debug ("Update maps")
+            if (job['parse_lat_long']):
+                self.populateMapRoute(self.imageMapRoute, job['airfield']['lat'], job['airfield']['lng'], job['latitude'], job['longitude'])
+                self.populateMapDestination(self.imageMapDestination, job['airfield']['lat'], job['airfield']['lng'], job['latitude'], job['longitude'])
+            else:
+                pass
+            
     
     def process_serial(self):
         # replace this with your thread to update the text
@@ -322,6 +430,7 @@ class InterFace(Gtk.Window):
                                     try:
                                         b_return, airfield, count = database.select ("SELECT * FROM `airfields` WHERE capcode = '%s';" % capcode)
                                         airfield = airfield[0]
+                                        
                                         #logger.debug ("b_return: %s" % b_return)
                                         #logger.debug ("row     : %s" % airfield)
                                         #logger.debug ("count   : %s" % count)
@@ -331,42 +440,46 @@ class InterFace(Gtk.Window):
                                     if (not b_return):
                                         logger.error ('Error when trying to search for airfield')
                                     
+                                    
                                     if (count > 0):
                                         b_pdd_response = True
                                     else:
                                         b_pdd_response = False
                                     
+                                    
+                                    # job is a pdd job
                                     if (b_pdd_response):
                                     
-                                        # start the clock
-                                        self.TimeOfPage = datetime.now()
-
+                                        # process the job
+                                        job = dict()
+                                        job['airfield'] = airfield
+                                        job['capcode'] = capcode
+                                        job['TimeOfPage'] = datetime.now()
+                                                                            
+                                    
                                         # extract the page priority (EMERG, NON EMERG or ADMIN)
                                         priority = message[0:2]
                                         message = message[2:].lstrip()
+                                        job['message'] = message
+                                        
                                         if (priority == '@@'):
                                             priority = 'EMERGENCY'
                                         if (priority == 'HB'):
                                             priority = 'NON EMERGENCY'
                                         if (priority == 'QD'):
                                             priority = 'ADMIN'
-                                        
+                                        job['priority'] = priority
                                         logging.debug("Priority        :" + priority)
                                         logging.debug("Message         :" + message)
                                         
-                                        # show the message in the textbox
-                                        widgets['tbPagerMessage'].set_text('')
-                                        iter = widgets['tbPagerMessage'].get_iter_at_offset(0)
-                                        GObject.idle_add(widgets['tbPagerMessage'].insert_with_tags_by_name, iter, message, "tag_Large", priority=GObject.PRIORITY_DEFAULT)
                                         
-                                        
-                                        parse_alert = False
-                                        parse_f_number = False
-                                        parse_incident_type = False
-                                        parse_assignment_area = False
-                                        parse_dispatch_channel = False
-                                        parse_mapbook = False
-                                        parse_lat_long = False
+                                        job['parse_alert'] = False
+                                        job['parse_f_number'] = False
+                                        job['parse_incident_type'] = False
+                                        job['parse_assignment_area'] = False
+                                        job['parse_dispatch_channel'] = False
+                                        job['parse_mapbook'] = False
+                                        job['parse_lat_long'] = False
                                     
                                         if ((re.search("ALERT.{1,}", message) != None) and (re.search("F[0-9]{1,}", message) != None)):
                                             #logging.debug ("FIRECALL page received")
@@ -380,21 +493,21 @@ class InterFace(Gtk.Window):
                                                 message = re.sub(expression, '', message)   # remove ALERT
                                                 message = funcs.CleanString (message)
                                                 logging.debug("Alert           :" + alert)
-                                                parse_alert = True
+                                                job['parse_alert'] = True
                                             else:
                                                 logging.debug("No match for ALERT")
                                                 
                                         
-                                            # Fnumber
+                                            # job['Fnumber']
                                             #expression = "^F[0-9]{1,}"
                                             expression = "F[0-9]{1,9}"
                                             search_response = re.search(expression, message)      # extract Fxxxxxxxxx
                                             if (search_response != None):
-                                                Fnumber = search_response.group(0)
+                                                job['Fnumber'] = search_response.group(0)
                                                 message = re.sub(expression, '', message)   # remove Fxxxxxxxxx
                                                 message = funcs.CleanString (message)
-                                                logging.debug("Fnumber         :" + Fnumber)
-                                                parse_f_number = True
+                                                logging.debug("Fnumber         :" + job['Fnumber'])
+                                                job['parse_f_number'] = True
                                             else:
                                                 logging.debug("No match for Fnumber")                                                
 
@@ -402,11 +515,11 @@ class InterFace(Gtk.Window):
                                             expression = "\\b(ALARC1|ALARC3|STRUC1|STRUC3|INCIC1|INCIC3|NOSTC1|NOSTC3|G&SC1|G&SC3|NS&RC1|NS&RC3|RESCC1|RESCC3|CONFC1|CONFC3|HIARC1|HIARC3|STCOC1|STCOC3|TRCHC1|TRCHC3|AFEMR|AFPEMR|STRIKE)\\b"
                                             search_response = re.search(expression, message)      # extract IncidentType
                                             if (search_response != None):
-                                                IncidentType = search_response.group(0)
+                                                job['IncidentType'] = search_response.group(0)
                                                 message = re.sub(expression, '', message)   # remove IncidentType
                                                 message = funcs.CleanString (message)
-                                                logging.debug("IncidentType    :" + IncidentType)
-                                                parse_incident_type = True
+                                                logging.debug("IncidentType    :" + job['IncidentType'])
+                                                job['parse_incident_type'] = True
                                             else:
                                                 logging.debug("No match for IncidentType")                                                
                                                                                 
@@ -415,11 +528,11 @@ class InterFace(Gtk.Window):
                                             expression = "^(\w{1,})"
                                             search_response = re.search(expression, message)      # extract AssignmentArea
                                             if (search_response != None):
-                                                AssignmentArea = search_response.group(0)
+                                                job['AssignmentArea'] = search_response.group(0)
                                                 message = re.sub(expression, '', message)         # remove AssignmentArea
                                                 message = funcs.CleanString (message)
-                                                logging.debug("AssignmentArea  :" + AssignmentArea)
-                                                parse_assignment_area = True
+                                                logging.debug("AssignmentArea  :" + job['AssignmentArea'])
+                                                job['parse_assignment_area'] = True
                                             else:
                                                 logging.debug("No match for Assignment Area")
                                                                                                                                                                             
@@ -427,12 +540,12 @@ class InterFace(Gtk.Window):
                                             expression = "DISP[0-9]{1,} "
                                             search_response = re.search(expression, message)      # extract DispatchChannel
                                             if (search_response != None):
-                                                DispatchChannel = search_response.group(0)
+                                                job['DispatchChannel'] = search_response.group(0)
                                                 message = re.sub(expression, '', message)         # remove DispatchChannel
                                                 message = funcs.CleanString (message)
-                                                DispatchChannel = DispatchChannel.replace ("DISP", "")
-                                                logging.debug("Dispatch channel:" + DispatchChannel)
-                                                parse_dispatch_channel = True
+                                                job['DispatchChannel'] = job['DispatchChannel'].replace ("DISP", "")
+                                                logging.debug("Dispatch channel:" + job['DispatchChannel'])
+                                                job['parse_dispatch_channel'] = True
                                             else:
                                                 logging.debug("No match for Dispatch Channel")
                                                                                                 
@@ -455,33 +568,33 @@ class InterFace(Gtk.Window):
                                                 message = funcs.CleanString (message)
 
                                             # check the mapping
-                                            MapRef = None
+                                            job['MapRef'] = None
                                             if (Map_Melways == None and Map_SV == None):
                                                 logging.debug("No match for Map ref")                                                
                                             else:
-                                                parse_mapbook = True
+                                                job['parse_mapbook'] = True
                                                 if (Map_Melways != None):
-                                                    MapRef = Map_Melways
+                                                    job['MapRef'] = Map_Melways
                                                 else:
-                                                    MapRef = Map_SV
-                                                logging.debug("Map ref         :" + MapRef)
+                                                    job['MapRef'] = Map_SV
+                                                logging.debug("Map ref         :" + job['MapRef'])
                                             
                                             # parse lat/long
                                             expression = '(-?[0-9]{2,}[.]{1,}[0-9]{3,}),?\s([0-9]{2,}[.]{1,}[0-9]{3,})'
-                                            Latitude = None
-                                            Longitude = None
+                                            job['latitude'] = None
+                                            job['longitude'] = None
                                             search_response = re.search (expression, message)  # extract lat/lon
                                             if (search_response != None):
                                                 LatLon = search_response.group(0)
                                                 message = re.sub(expression, '', message)
                                                 message = re.sub('LAT/LON:', '', message)
                                                 message = funcs.CleanString (message)
-                                                latitude, longitude = LatLon.split(',')
-                                                latitude = latitude.strip()
-                                                longitude = longitude.strip()
-                                                logging.debug("Latitude        :" + latitude)
-                                                logging.debug("Longitude       :" + longitude)
-                                                parse_lat_long = True
+                                                job['latitude'], job['longitude'] = LatLon.split(',')
+                                                job['latitude'] = job['latitude'].strip()
+                                                job['longitude'] = job['longitude'].strip()
+                                                logging.debug("Latitude        :" + job['latitude'])
+                                                logging.debug("Longitude       :" + job['longitude'])
+                                                job['parse_lat_long'] = True
                                             else:
                                                 logging.debug("No match for Lat/Long")
                                                                                             
@@ -490,50 +603,46 @@ class InterFace(Gtk.Window):
                                         else:
                                             logging.debug ("Not a FIRECALL")
                                             
-                                        logging.debug ("parse_alert            :" + str(parse_alert))
-                                        logging.debug ("parse_f_number         :" + str(parse_f_number))
-                                        logging.debug ("parse_incident_type    :" + str(parse_incident_type))
-                                        logging.debug ("parse_assignment_area  :" + str(parse_assignment_area))
-                                        logging.debug ("parse_dispatch_channel :" + str(parse_dispatch_channel))
-                                        logging.debug ("parse_mapbook          :" + str(parse_mapbook))
-                                        logging.debug ("parse_lat_long         :" + str(parse_lat_long))
+                                        logging.debug ("job['parse_alert']            :" + str(job['parse_alert']))
+                                        logging.debug ("job['parse_f_number']         :" + str(job['parse_f_number']))
+                                        logging.debug ("job['parse_incident_type']    :" + str(job['parse_incident_type']))
+                                        logging.debug ("job['parse_assignment_area']  :" + str(job['parse_assignment_area']))
+                                        logging.debug ("job['parse_dispatch_channel'] :" + str(job['parse_dispatch_channel']))
+                                        logging.debug ("job['parse_mapbook']          :" + str(job['parse_mapbook']))
+                                        logging.debug ("job['parse_lat_long']         :" + str(job['parse_lat_long']))
                                         
-                                        # let the pilots know that the screen is updating
-                                        GObject.idle_add(self.tbWeather.set_text, "Downloading weather from BOM...", priority=GObject.PRIORITY_DEFAULT)
-                                        GObject.idle_add(self.tbFlightPath.set_text, "Calculating flight details...", priority=GObject.PRIORITY_DEFAULT)
-                                        GObject.idle_add(self.tbClosestAirbase.set_text, "Finding nearest reloading bases...", priority=GObject.PRIORITY_DEFAULT)
-                                        GObject.idle_add(self.imageMapRoute.clear, priority=GObject.PRIORITY_DEFAULT)
-                                        GObject.idle_add(self.imageMapDestination.clear, priority=GObject.PRIORITY_DEFAULT)
+                                        for keys,values in job.items():
+                                            logging.debug("%s:%s" % (keys, values))
                                         
-                                        
+                                        # process the job
                                         # populate the flight info text box
-                                        if (parse_lat_long and parse_dispatch_channel):
-                                            distance, bearing = calcs.get_distance_and_bearing (airfield['lat'], airfield['lng'], latitude, longitude)
-                                            buffer = ("** FLIGHT DATA**\nDistance : %s\nBearing : %s\nDispatch: %s" % (str(distance), str(bearing), DispatchChannel))
-                                            GObject.idle_add(self.tbFlightPath.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
+                                        if (job['parse_lat_long'] and job['parse_dispatch_channel']):
+                                            job['distance'], job['bearing'] = calcs.get_distance_and_bearing (job['airfield']['lat'], job['airfield']['lng'], job['latitude'], job['longitude'])
+                                            job['buffer_flight_info'] = ("** FLIGHT DATA**\nDistance : %s\nBearing : %s\nDispatch: %s" % (str(job['distance']), str(job['bearing']), job['DispatchChannel']))
                                         else:
-                                            GObject.idle_add(self.tbFlightPath.set_text, 'Error extracting flight details.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long\n-Problem with dispatch channel', priority=GObject.PRIORITY_DEFAULT)
+                                            job['buffer_flight_info'] = 'Error extracting flight details.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long\n-Problem with dispatch channel'
                                         
-                                        # update closest bomber reloading airfields
-                                        if (parse_lat_long):
-                                            self.updateNearestBomberReloadingAirfields(self.tbClosestAirbase, latitude, longitude)
-                                        else:
-                                            GObject.idle_add(self.tbClosestAirbase.set_text, 'Error finding nearest reloading base.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long', priority=GObject.PRIORITY_DEFAULT)
                                         
                                         # update weather information
-                                        if (parse_alert):
-                                            self.updateAWS(self.tbWeather, airfield['short_name'])
-                                            #pass
-                                        else:
-                                            GObject.idle_add(self.tbWeather.set_text, 'Error with weather.\n\nPossible causes;\n-Not an ALERT page', priority=GObject.PRIORITY_DEFAULT)
+                                        if (job['parse_alert']):
+                                            job['b_dfwb'], job['fwb'] = weather.download_fire_weather_bulletin()
 
                                         # update image
-                                        if (parse_lat_long):
-                                            self.populateMapRoute(self.imageMapRoute, airfield['lat'], airfield['lng'], latitude, longitude)
-                                            self.populateMapDestination(self.imageMapDestination, airfield['lat'], airfield['lng'], latitude, longitude)
-                                        else:
-                                            pass
-                                                
+                                        #if (job['parse_lat_long']):
+                                        #    self.populateMapRoute(self.imageMapRoute, job['airfield']['lat'], job['airfield']['lng'], job['latitude'], job['longitude'])
+                                        #    self.populateMapDestination(self.imageMapDestination, job['airfield']['lat'], job['airfield']['lng'], job['latitude'], job['longitude'])
+                                        #else:
+                                        #    pass
+
+                                        
+                                        
+                                        
+                                        # add it to the list
+                                        jobs.append(job)
+                                        
+                                        
+                                        self.update_screen(job)
+                                        
                                     else:
                                         print ('Not a PDD response')
                                         
@@ -560,8 +669,10 @@ class InterFace(Gtk.Window):
         self.tbWeather = self.builder.get_object("tbWeather")
         self.tbFlightPath = self.builder.get_object("tbFlightPath")
         self.tbClosestAirbase = self.builder.get_object("tbClosestAirbase")
-        self.comboAirfield = self.builder.get_object("comboAirfield")
+        self.tbClosestPDD = self.builder.get_object("tbClosestPDD")
         self.tbTimeSincePage = self.builder.get_object("tbTimeSincePage")
+        self.tbTimeOfPage = self.builder.get_object("tbTimeOfPage")
+        self.comboAirfield = self.builder.get_object("comboAirfield")
         self.imageMapRoute = self.builder.get_object("imageMapRoute")
         self.imageMapDestination = self.builder.get_object("imageMapDestination")
         
