@@ -36,6 +36,15 @@ widgets = dict()
 jobs = []
 
 
+# if there is no directory called 'logs', then generate it.
+if (not os.path.isdir("./logs/")):
+    os.mkdir("./logs")
+
+# if there is no directory called 'maps', then generate it.
+if (not os.path.isdir("./maps/")):
+    os.mkdir("./maps")
+
+    
 log_file_name = '/home/pi/pdd/logs/pdd.log'
 logging_level = logging.DEBUG
 formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s', "%Y-%m-%d %H:%M:%S")
@@ -141,7 +150,6 @@ class InterFace(Gtk.Window):
         combo.set_active(0)
         
     def populateImage(self, image, url, filename):
-        
         try:
             with urllib.request.urlopen(url, timeout=5) as response, open(filename, 'wb') as out_file:
                 data = response.read()
@@ -158,91 +166,152 @@ class InterFace(Gtk.Window):
         else:
             return True
 
-    def populateMapRoute(self, image, airfield_lat, airfield_lng, firecall_lat, firecall_lon):
-        
-        url = 'https://maps.googleapis.com/maps/api/staticmap'
-        url += '?size=640x640'
-        url += '&maptype=terrain'
-        url += '&markers=color:blue|label:H|%s,%s' % (airfield_lat, airfield_lng)
-        url += '&markers=color:red|label:F|%s,%s' % (firecall_lat, firecall_lon)
-        url += '&path=color:0xff0000ff|weight:5|%s,%s|%s,%s' % (airfield_lat, airfield_lng, firecall_lat, firecall_lon)
-        url += '&key=AIzaSyCLUBXHPmb5uCNcjAgr4T-PVMII2IoHmD8'
-        
-        return self.populateImage (image, url, './route_map.png')
+    def downloadImage (self, url, filename):
+        try:
+            with urllib.request.urlopen(url, timeout=15) as response, open(filename, 'wb') as out_file:
+                data = response.read()
+                out_file.write(data)
+                
+        except (urllib.HTTPError, urllib.URLError) as error:
+            logging.error('Image data did not download because %s\nURL: %s', error, url)
+            return False
+        except timeout:
+            logging.error('Image data did not download because the socket timed out\nURL: %s', url)
+            return False
+        else:
+            return True
     
-    def populateMapDestination(self, image, airfield_lat, airfield_lng, firecall_lat, firecall_lon):
-        
-        url = 'https://maps.googleapis.com/maps/api/staticmap'
-        url += '?center=%s,%s' % (firecall_lat, firecall_lon)
-        url += '&size=640x640'
-        url += '&zoom=16'
-        url += '&maptype=satellite'
-        url += '&markers=color:red|label:F|%s,%s' % (firecall_lat, firecall_lon)
-        url += '&key=AIzaSyCLUBXHPmb5uCNcjAgr4T-PVMII2IoHmD8'
-        
-        return self.populateImage (image, url, './destination_map.png')
-   
-   
-    def FindClosestAirfields(self, TextBuffer, latitude, longitude, sql):
+    
+    def populateMapRoute(self, image, job):
 
+        filename = ("./maps/%s_route.png" % job['Fnumber'])
+        
+        if (job.get('route_map_downloaded', False)):
+            GObject.idle_add(image.set_from_file, filename, priority=GObject.PRIORITY_DEFAULT)
+        else:
+
+            url = 'https://maps.googleapis.com/maps/api/staticmap'
+            url += '?size=640x640'
+            url += '&maptype=terrain'
+            url += '&markers=color:blue|label:H|%s,%s' % (job['airfield']['lat'], job['airfield']['lng'])
+            url += '&markers=color:red|label:F|%s,%s' % (job['latitude'], job['longitude'])
+            url += '&path=color:0xff0000ff|weight:5|%s,%s|%s,%s' % (job['airfield']['lat'], job['airfield']['lng'], job['latitude'], job['longitude'])
+            url += '&key=AIzaSyCLUBXHPmb5uCNcjAgr4T-PVMII2IoHmD8'
+        
+            if (self.downloadImage (url, filename)):
+                GObject.idle_add(image.set_from_file, filename, priority=GObject.PRIORITY_DEFAULT)
+                job['route_map_downloaded'] = True
+            
+    def populateMapDestination(self, image, job):
+        
+        filename = ("./maps/%s_destination.png" % job['Fnumber'])
+        
+        if (job.get('destination_map_downloaded', False)):
+            GObject.idle_add(image.set_from_file, filename, priority=GObject.PRIORITY_DEFAULT)
+        else:
+
+            url = 'https://maps.googleapis.com/maps/api/staticmap'
+            url += '?center=%s,%s' % (job['latitude'], job['longitude'])
+            url += '&size=640x640'
+            url += '&zoom=16'
+            url += '&maptype=satellite'
+            url += '&markers=color:red|label:F|%s,%s' % (job['latitude'], job['longitude'])
+            url += '&key=AIzaSyCLUBXHPmb5uCNcjAgr4T-PVMII2IoHmD8'
+        
+            if (self.downloadImage (url, filename)):
+                GObject.idle_add(image.set_from_file, filename, priority=GObject.PRIORITY_DEFAULT)
+                job['destination_map_downloaded'] = True
+   
+   
+    def FindClosestAirfields(self, latitude, longitude, sql):
+
+        logging.debug ("  sql        : %s" % sql)
         try:
             b_return, airfields, count = database.select (sql)
+            logging.debug ("  b_return  : %s" % b_return)
+            logging.debug ("  airfields : %s" % airfields)
+            logging.debug ("  count     : %s" % count)
+
             if (b_return):
-                #logging.debug ("airfield: %s" % airfields)
-                #logging.debug ("b_return: %s" % b_return)
-                #logging.debug ("row     : %s" % airfields)
-                #logging.debug ("count   : %s" % count)
-
-                sorted_list = calcs.find_closest_airbases (latitude, longitude, airfields)
-                buffer = "** CLOSEST PDD SITES **\n%s: %.0f Nm\n%s: %.0f Nm" % (sorted_list[0]['name'], math.ceil(float(sorted_list[0]['distance'])), sorted_list[1]['name'], math.ceil(float(sorted_list[1]['distance'])))
-                GObject.idle_add(TextBuffer.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
-
-                b_return = True
-
-            else:
-                b_return = False
+                
+                return True, calcs.find_closest_airbases (latitude, longitude, airfields)
         except:
             logging.error ("Error when finding closest airfield")
-            b_return = False
+        
+        return False, None
 
-        return b_return    
-   
-    def updateNearestBomberReloadingAirfields(self, tbClosestAirbase, latitude, longitude):
-        b_return = self.FindClosestAirfields (tbClosestAirbase, latitude, longitude, "SELECT name, lat, lng  FROM `airfield_bomber_reloading` ORDER BY `name`;")
-        if not b_return:
-            logging.error ("Could not find closest Bomber Reloading Airfields")
+    def updateNearestBomberReloadingAirfields(self, tbClosestAirbase, job):
+
+        # if we haven't calculated it before, do it now.
+        if (not job.get('nearest_bombers_calculated', False)):
+            
+            b_return, airfields = self.FindClosestAirfields (job['latitude'], job['longitude'], "SELECT name, lat, lng  FROM `airfield_bomber_reloading` ORDER BY `name`;")
+            if (b_return):
+                job['nearest_bombers_sorted_list'] = airfields
+                job['nearest_bombers_calculated'] = True
+            else:
+                job['nearest_bombers_calculated'] = False
+        else:
+            job['nearest_bombers_calculated'] = False
+            
+        # now we know its been calculated, show it
+        if (job.get('nearest_bombers_calculated', False)):
+            buffer = "** CLOSEST BOMBER RELOADING AIRBASES **\n%s: %.0f Nm\n%s: %.0f Nm" % (job['nearest_bombers_sorted_list'][0]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][0]['distance'])), job['nearest_bombers_sorted_list'][1]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][1]['distance'])))
+            GObject.idle_add(tbClosestAirbase.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
+            job['nearest_bombers_calculated'] = True
+        else:
+            logging.error ("Could not find closest bomber reloading airbases")
     
-    def updateNearestPDDAirfields(self, tbClosestPDD, latitude, longitude):
-        b_return = self.FindClosestAirfields (tbClosestPDD, latitude, longitude, "SELECT name, lat, lng FROM `airfields` ORDER BY `name`;")
-        if not b_return:
-            logging.error ("Could not find closest PDD sites")
+    def updateNearestPDDAirfields(self, tbClosestPDD, job):
+
+        # if we haven't calculated it before, do it now.
+        if (not job.get('nearest_pdd_calculated', False)):
+            
+            b_return, airfields = self.FindClosestAirfields (job['latitude'], job['longitude'], "SELECT name, lat, lng FROM `airfields` ORDER BY `name`;")
+            if (b_return):
+                job['nearest_pdd_sorted_list'] = airfields
+                job['nearest_pdd_calculated'] = True
+            else:
+                job['nearest_pdd_calculated'] = False
+        else:
+            job['nearest_pdd_calculated'] = False
+        
+        # now we know its been calculated, show it
+        if (job.get('nearest_pdd_calculated', False)):
+            buffer = "** CLOSEST NOMINATED OPERATING AIRBASES **\n%s: %.0f Nm\n%s: %.0f Nm" % (job['nearest_pdd_sorted_list'][0]['name'], math.ceil(float(job['nearest_pdd_sorted_list'][0]['distance'])), job['nearest_pdd_sorted_list'][1]['name'], math.ceil(float(job['nearest_pdd_sorted_list'][1]['distance'])))
+            GObject.idle_add(tbClosestPDD.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
+            job['nearest_pdd_calculated'] = True
+        else:
+            logging.error ("Could not find closest nominated operating airbases")
 
 
-    def updateAWS(self, tbWeather, aws_short_name, b_dfwb=False, fwb=None):
+    def updateAWS(self, tbWeather, job):
         
         start = timer()
         self.update_text_buffer(self.tbWeather, 'Downloading weather data...', clear_buffer_first=True)
         
+        aws_short_name = job['airfield']['short_name']
+        
         # what is the AWS for this airfield
         b_return, airfields_aws_dict, count = database.select ("SELECT * FROM `airfield_aws` WHERE short_name = '%s';" % aws_short_name)
-        logging.debug ("%.5fs:%s" %(timer()-start, "Database transaction complete"))
+        #logging.debug ("%.5fs:%s" %(timer()-start, "Database transaction complete"))
         if (b_return):
             if (count > 0):
-                if (b_dfwb is False or fwb is None):
+                if (job.get('soup', None) is None):
                     b_dfwb, fwb = weather.download_fire_weather_bulletin()
+                    #logging.debug ("%.5fs:%s" %(timer()-start, "FWB download complete"))
+
+                    job['soup'] = BeautifulSoup(fwb, 'html.parser')
+                    #logging.debug ("%.5fs:%s" %(timer()-start, "html.parser complete"))
                 
-                if (b_dfwb):
-                        logging.debug ("%.5fs:%s" %(timer()-start, "FWB download complete"))
+                if (job.get('soup', None) is not None):
 #                    try:
-                        soup = None
-                        soup = BeautifulSoup(fwb, 'html.parser')
-                        logging.debug ("%.5fs:%s" %(timer()-start, "html.parser complete"))
                         
                         self.update_text_buffer(self.tbWeather, '*** WEATHER ***', "tag_Bold", clear_buffer_first=True)
 
                         for airfield in airfields_aws_dict:
                             
-                            b_success, aws_time, ffdi, gfdi = weather.parse_wx_from_fwb (soup, airfield['aws'])
+                            b_success, aws_time, ffdi, gfdi = weather.parse_wx_from_fwb (job['soup'], airfield['aws'])
                             if (b_success):
 
                                 message = "\n\n%s(%s): " % (airfield['name'], airfield['fdi_trigger'])
@@ -256,15 +325,15 @@ class InterFace(Gtk.Window):
                                 message = "\nFFDI is %d, GFDI is %d." % (ffdi, gfdi)
                                 self.update_text_buffer(self.tbWeather, message)
                                 
-                                logging.debug ("%.5fs:Found weather for %s AWS" %(timer()-start, airfield['aws']))
+                                #logging.debug ("%.5fs:Found weather for %s AWS" %(timer()-start, airfield['aws']))
 
                             else:
                                 logger.error ('Could not parse weather data')
                             
-                        logging.debug ("%.5fs:%s" %(timer()-start, "Parsing of FWB complete"))
+                        #logging.debug ("%.5fs:%s" %(timer()-start, "Parsing of FWB complete"))
                         message = "\n\nCorrect as at %s" % aws_time
                         self.update_text_buffer(self.tbWeather, message)
-                        logging.debug ("%.5fs:%s" %(timer()-start, "Screen update complete"))
+                        #logging.debug ("%.5fs:%s" %(timer()-start, "Screen update complete"))
  #                   except:
  #                       logging.error (sys.exc_info()[0])
                 else:
@@ -280,11 +349,11 @@ class InterFace(Gtk.Window):
         __ser = self.InitSerialPort()
         
         __pdd_test_list = []
-        __pdd_test_list.append(b'\r\nM 001817568 @@ALERT F123456789 INVL2 G&SC1 SMALL GRASS FIRE EMMA LANE INVERLOCH SVC 6962 D7 (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337\r\n')
-        __pdd_test_list.append(b'\r\nM 001814336 @@ALERT F180300594 JUNO3 G&SC1 SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA SVNW 8285 F9 (673248) LAT/LON:-36.7938187, 144.3928462 DISP502 AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN ]\r\n')
-        __pdd_test_list.append(b'\r\nM 001876600 @@ALERT F180300904 TOOL2 G&SC1 GRASS FIRE SPREADING CNR COIMADAI-DIGGERS REST RD/HOLDEN RD TOOLERN VALE M 332 F5 (921328) LAT/LON:-37.6281814, 144.6449890 DISP61 AIRBAC CMTON CTOOL HEL345\r\n')
-        __pdd_test_list.append(b'\r\nM 001816088 @@ALERT F180300913 MTEL1 G&SC1 UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD M 106 C3 (354711) LAT/LON:-38.1926135, 145.1209718 DISP27 AIRMMB CFTONS CMTEL FBD302 HEL338\r\n')
-        __pdd_test_list.append(b'\r\nM 001816184 @@ALERT F180301004 KYAB4 G&SC1 TREE FIRE BEHIND CALLERS ADDRESS 12 CROW CR KYABRAM /MELLIS ST SVNE 8362 E5 (243803) LAT/LON:-36.3059159, 145.0437140 DISP520 AIRSHP CKYAB CMGUM CTGAL HEL331\r\n')
+        __pdd_test_list.append(b'\r\nM 001817568 @@ALERT F123456789 INVL2 G&SC1 SMALL GRASS FIRE EMMA LANE INVERLOCH SVC 6962 D7 (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337 RSSI: 80\r\n')
+        __pdd_test_list.append(b'\r\nM 001814336 @@ALERT F180300594 JUNO3 G&SC1 SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA SVNW 8285 F9 (673248) LAT/LON:-36.7938187, 144.3928462 DISP502 AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN] RSSI: 81\r\n')
+        __pdd_test_list.append(b'\r\nM 001876600 @@ALERT F180300904 TOOL2 G&SC1 GRASS FIRE SPREADING CNR COIMADAI-DIGGERS REST RD/HOLDEN RD TOOLERN VALE M 332 F5 (921328) LAT/LON:-37.6281814, 144.6449890 DISP61 AIRBAC CMTON CTOOL HEL345 RSSI: 82\r\n')
+        __pdd_test_list.append(b'\r\nM 001816088 @@ALERT F180300913 MTEL1 G&SC1 UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD M 106 C3 (354711) LAT/LON:-38.1926135, 145.1209718 DISP27 AIRMMB CFTONS CMTEL FBD302 HEL338 RSSI: 83\r\n')
+        __pdd_test_list.append(b'\r\nM 001816184 @@ALERT F180301004 KYAB4 G&SC1 TREE FIRE BEHIND CALLERS ADDRESS 12 CROW CR KYABRAM /MELLIS ST SVNE 8362 E5 (243803) LAT/LON:-36.3059159, 145.0437140 DISP520 AIRSHP CKYAB CMGUM CTGAL HEL331 RSSI: 84\r\n')
         
         __pdd_test_broken_list = []
         __pdd_test_broken_list.append(b'\r\nM 00181768 @@ALERT F123456789 INVL2 G&SC1 SMALL GRASS FIRE EMMA LANE INVERLOCH SVC 6962 D7 (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337\r\n')
@@ -320,60 +389,69 @@ class InterFace(Gtk.Window):
     def update_screen(self, job=None):
 
         if job is not None:
+            start = timer()
+            
             # let the pilots know that the screen is updating
             logging.debug ("Updating screen")
             GObject.idle_add(self.tbWeather.set_text, "Downloading weather from BOM...", priority=GObject.PRIORITY_DEFAULT)
             GObject.idle_add(self.tbFlightPath.set_text, "Calculating flight details...", priority=GObject.PRIORITY_DEFAULT)
-            GObject.idle_add(self.tbClosestAirbase.set_text, "Finding nearest reloading bases...", priority=GObject.PRIORITY_DEFAULT)
-            GObject.idle_add(self.tbClosestPDD.set_text, "Finding nearest PDD bases...", priority=GObject.PRIORITY_DEFAULT)
+            GObject.idle_add(self.tbClosestAirbase.set_text, "Finding closest bomber reloading airbases...", priority=GObject.PRIORITY_DEFAULT)
+            GObject.idle_add(self.tbClosestPDD.set_text, "Finding closest nominated operating airbases...", priority=GObject.PRIORITY_DEFAULT)
             GObject.idle_add(self.imageMapRoute.clear, priority=GObject.PRIORITY_DEFAULT)
             GObject.idle_add(self.imageMapDestination.clear, priority=GObject.PRIORITY_DEFAULT)
+            logging.debug ("%.5fs:%s" %(timer()-start, "Updating screen"))
             
             # show the message in the textbox
             logging.debug ("Update message textbox")
             widgets['tbPagerMessage'].set_text('')
             iter = widgets['tbPagerMessage'].get_iter_at_offset(0)
             GObject.idle_add(widgets['tbPagerMessage'].insert_with_tags_by_name, iter, job['message'], "tag_Large", priority=GObject.PRIORITY_DEFAULT)
+            logging.debug ("%.5fs:%s" %(timer()-start, "Update message textbox"))
 
             
             # update the timer
             logging.debug ("Update time of page")
             self.TimeOfPage = job['TimeOfPage']
+            logging.debug ("%.5fs:%s" %(timer()-start, "Update timer"))
             
             # update the clock
             logging.debug ("Update clock")
             buffer = str(job['TimeOfPage'].strftime("%H:%M:%S"))
-            GObject.idle_add(self.tbTimeOfPage.set_text, buffer, len(buffer), priority=GObject.PRIORITY_DEFAULT)            
+            GObject.idle_add(self.tbTimeOfPage.set_text, buffer, len(buffer), priority=GObject.PRIORITY_DEFAULT)
+            logging.debug ("%.5fs:%s" %(timer()-start, "Update clock"))
             
             # populate the flight info text box
             logging.debug ("Update flight info textbox")
             GObject.idle_add(self.tbFlightPath.set_text, job['buffer_flight_info'], priority=GObject.PRIORITY_DEFAULT)
+            logging.debug ("%.5fs:%s" %(timer()-start, "Update flight info textbox"))
             
             # update closest airfields
             logging.debug ("Update closest airfields")
             if (job['parse_lat_long']):
-                self.updateNearestBomberReloadingAirfields(self.tbClosestAirbase, job['latitude'], job['longitude'])
-                self.updateNearestPDDAirfields(self.tbClosestPDD, job['latitude'], job['longitude'])
+                self.updateNearestBomberReloadingAirfields(self.tbClosestAirbase, job)
+                self.updateNearestPDDAirfields(self.tbClosestPDD, job)
             else:
-                GObject.idle_add(self.tbClosestAirbase.set_text, 'Error finding nearest reloading base.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long', priority=GObject.PRIORITY_DEFAULT)
-                GObject.idle_add(self.tbClosestPDD.set_text, 'Error finding nearest PDD base.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long', priority=GObject.PRIORITY_DEFAULT)
+                GObject.idle_add(self.tbClosestAirbase.set_text, 'Error finding nearest bomber reloading airbase.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long', priority=GObject.PRIORITY_DEFAULT)
+                GObject.idle_add(self.tbClosestPDD.set_text, 'Error finding nearest nominated operating airbase.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long', priority=GObject.PRIORITY_DEFAULT)
+            logging.debug ("%.5fs:%s" %(timer()-start, "Update closest airfields"))
                 
             # update weather information
             logging.debug ("Update weather information")
             if (job['parse_alert']):
-                self.updateAWS(self.tbWeather, job['airfield']['short_name'], job['b_dfwb'], job['fwb'])
+                self.updateAWS(self.tbWeather, job)
                 #self.updateAWS(self.tbWeather, job['airfield']['short_name'])
             else:
                 GObject.idle_add(self.tbWeather.set_text, 'Error with weather.\n\nPossible causes;\n-Not an ALERT page', priority=GObject.PRIORITY_DEFAULT)
+            logging.debug ("%.5fs:%s" %(timer()-start, "Update weather information"))
 
             # update image
             logging.debug ("Update maps")
             if (job['parse_lat_long']):
-                self.populateMapRoute(self.imageMapRoute, job['airfield']['lat'], job['airfield']['lng'], job['latitude'], job['longitude'])
-                self.populateMapDestination(self.imageMapDestination, job['airfield']['lat'], job['airfield']['lng'], job['latitude'], job['longitude'])
+                self.populateMapRoute(self.imageMapRoute, job)
+                self.populateMapDestination(self.imageMapDestination, job)
             else:
                 pass
-            
+            logging.debug ("%.5fs:%s" %(timer()-start, "Update maps"))
     
     def process_serial(self):
         # replace this with your thread to update the text
