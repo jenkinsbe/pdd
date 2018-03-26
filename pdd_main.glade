@@ -2,22 +2,16 @@
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
   <object class="GtkTextBuffer" id="tbClosestAirbase">
-    <property name="text" translatable="yes">** CLOSEST AIR BASE **</property>
+    <property name="text" translatable="yes">** CLOSEST BOMBER RELOADING AIRBASES **</property>
   </object>
   <object class="GtkTextBuffer" id="tbClosestPDD">
-    <property name="text" translatable="yes">** CLOSEST PDD SITE **</property>
+    <property name="text" translatable="yes">** CLOSEST NOMINATED OPERATING AIRBASES **</property>
   </object>
   <object class="GtkTextBuffer" id="tbFlightPath">
     <property name="text" translatable="yes">** FLIGHT PATH **</property>
   </object>
   <object class="GtkTextBuffer" id="tbPagerMessage">
     <property name="text" translatable="yes">** PAGER MESSAGE **</property>
-  </object>
-  <object class="GtkEntryBuffer" id="tbTimeOfPage">
-    <property name="text" translatable="yes">** TIME OF PAGE **</property>
-  </object>
-  <object class="GtkEntryBuffer" id="tbTimeSincePage">
-    <property name="text" translatable="yes">** TIMER **</property>
   </object>
   <object class="GtkTextBuffer" id="tbWeather">
     <property name="text" translatable="yes">** WEATHER **</property>
@@ -47,7 +41,7 @@
             <property name="margin_bottom">5</property>
             <child>
               <object class="GtkButton" id="btnPreviousJob">
-                <property name="label" translatable="yes">Previous</property>
+                <property name="label" translatable="yes">Previous call</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -76,7 +70,7 @@
             </child>
             <child>
               <object class="GtkButton" id="btnNextJob">
-                <property name="label" translatable="yes">Next</property>
+                <property name="label" translatable="yes">Next call</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -84,22 +78,6 @@
               </object>
               <packing>
                 <property name="left_attach">1</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="teTimeSincePage">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="halign">end</property>
-                <property name="buffer">tbTimeSincePage</property>
-                <property name="invisible_char">●</property>
-                <property name="placeholder_text">Time since page</property>
-              </object>
-              <packing>
-                <property name="left_attach">3</property>
                 <property name="top_attach">0</property>
                 <property name="width">1</property>
                 <property name="height">1</property>
@@ -121,15 +99,105 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="teTimeOfPage">
+              <object class="GtkGrid" id="grid4">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="halign">end</property>
-                <property name="buffer">tbTimeOfPage</property>
-                <property name="invisible_char">●</property>
-                <property name="text" translatable="yes">** TIMER **</property>
-                <property name="invisible_char_set">True</property>
-                <property name="placeholder_text">Time since page</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkEntry" id="teTimeOfPage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="halign">end</property>
+                    <property name="buffer">tbTimeOfPage</property>
+                    <property name="invisible_char">●</property>
+                    <property name="invisible_char_set">True</property>
+                    <property name="placeholder_text">Time of page</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="teTimeSincePage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="halign">end</property>
+                    <property name="buffer">tbTimeSincePage</property>
+                    <property name="invisible_char">●</property>
+                    <property name="invisible_char_set">True</property>
+                    <property name="placeholder_text">Time since page</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label1">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Time of page</property>
+                    <property name="justify">right</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Time since page</property>
+                    <property name="justify">right</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">6</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox" id="box2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <placeholder/>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox" id="box3">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <placeholder/>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">5</property>
@@ -315,4 +383,6 @@
       </object>
     </child>
   </object>
+  <object class="GtkEntryBuffer" id="tbTimeOfPage"/>
+  <object class="GtkEntryBuffer" id="tbTimeSincePage"/>
 </interface>
