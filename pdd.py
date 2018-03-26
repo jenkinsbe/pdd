@@ -495,7 +495,8 @@ class InterFace(Gtk.Window):
 
                                 if (len(message) > 11):                  # at least the capcode and priority
                                     
-                                    logging.debug("Raw             :" + message)
+                                    # print raw pager message to log
+                                    logging.debug(message)
                                     
                                     capcode = message[0:9]
                                     message = message[9:].lstrip()                                
