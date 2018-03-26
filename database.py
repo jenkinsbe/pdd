@@ -16,7 +16,7 @@ def db_connect():
     
 def select (sql):
     
-    logger.debug (sql)
+    #logger.debug (sql)
     
     db_lock.acquire()
     b_return = False
