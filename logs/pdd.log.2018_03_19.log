@@ -1,6 +1,0 @@
-2018-03-19 08:43:00 root         DEBUG    ** Executing def __init__(self):
-2018-03-19 08:43:00 database     DEBUG    SELECT * FROM `airfields` WHERE 1
-2018-03-19 08:43:01 root         INFO     Serial port initialised
-2018-03-19 10:13:05 root         DEBUG    ** Executing def __init__(self):
-2018-03-19 10:13:05 database     DEBUG    SELECT * FROM `airfields` WHERE 1
-2018-03-19 10:13:05 root         INFO     Serial port initialised
