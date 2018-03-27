@@ -21,7 +21,6 @@ def get_distance_and_bearing(lat1, lon1, lat2, lon2):
     
     return distance, bearing
     
-
 def get_distance(lat1, lon1, lat2, lon2):
 
     lat1 = float(lat1)
@@ -60,8 +59,10 @@ def hms_string(seconds_elapsed):
 
 def find_closest_airbases(firecall_lat, firecall_lng, unsorted_list):
   
+    #logging.debug (type(unsorted_list))
+    #logging.debug (unsorted_list)
     for x in range(0, len(unsorted_list)):
-        
+
         if unsorted_list[x]['name'] is not None:
             unsorted_list[x]['distance'] = get_distance (firecall_lat, firecall_lng, float(unsorted_list[x]['lat']), float(unsorted_list[x]['lng']))
         else:
@@ -69,9 +70,10 @@ def find_closest_airbases(firecall_lat, firecall_lng, unsorted_list):
     
     #logger.debug (unsorted_list)
     
-    sorted_list = [(dict_["distance"], dict_) for dict_ in unsorted_list]
-    sorted_list.sort()
-    result = [dict_ for (key, dict_) in sorted_list]
+    result = sorted(unsorted_list, key=lambda k: k['distance']) 
+    #sorted_list = [(dict_["distance"], dict_) for dict_ in unsorted_list]
+    #sorted_list.sort()
+    #result = [dict_ for (key, dict_) in sorted_list]
 
     #logger.debug (result)
     return result

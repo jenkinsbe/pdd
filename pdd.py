@@ -75,6 +75,12 @@ class InterFace(Gtk.Window):
         print ("Quiting")
         Gtk.main_quit()
     
+    def print_jobs(self):
+        logging.debug ("Total jobs in list: %d" % (len(jobs)))
+        logging.debug ("Current job index : %d" % (self.jobs_index))
+        for x in range(0, len(jobs)):
+            logging.debug ("%d: %s" % (x, jobs[x]['message']))
+    
     def btnNextJob(self, object, data=None):
         print ("Next job")
 
@@ -88,7 +94,8 @@ class InterFace(Gtk.Window):
 
             #logging.debug ("jobs_index : %d" % self.jobs_index)
             self.update_screen(jobs[self.jobs_index])
-
+        self.print_jobs()
+        
     def btnPreviousJob(self, object, data=None):
         print ("Previous job")
 
@@ -102,6 +109,7 @@ class InterFace(Gtk.Window):
 
             #logging.debug ("jobs_index : %d" % self.jobs_index)
             self.update_screen(jobs[self.jobs_index])
+        self.print_jobs()
         
     def airfield_changed(self, object, data=None):
         print ("Airfield changed")
@@ -134,7 +142,6 @@ class InterFace(Gtk.Window):
         start, end = text_buffer.get_bounds()
         text_buffer.delete (start, end)
         #GObject.idle_add(text_buffer.delete, start, end, priority=GObject.PRIORITY_DEFAULT)
-
 
     def populateAirfieldComboBox(self, combo):
         combo.append_text("All airfields")
@@ -180,8 +187,7 @@ class InterFace(Gtk.Window):
             return False
         else:
             return True
-    
-    
+       
     def populateMapRoute(self, image, job):
 
         filename = ("./maps/%s_route.png" % job['Fnumber'])
@@ -225,15 +231,9 @@ class InterFace(Gtk.Window):
    
     def FindClosestAirfields(self, latitude, longitude, sql):
 
-        logging.debug ("  sql        : %s" % sql)
         try:
             b_return, airfields, count = database.select (sql)
-            logging.debug ("  b_return  : %s" % b_return)
-            logging.debug ("  airfields : %s" % airfields)
-            logging.debug ("  count     : %s" % count)
-
             if (b_return):
-                
                 return True, calcs.find_closest_airbases (latitude, longitude, airfields)
         except:
             logging.error ("Error when finding closest airfield")
@@ -251,12 +251,10 @@ class InterFace(Gtk.Window):
                 job['nearest_bombers_calculated'] = True
             else:
                 job['nearest_bombers_calculated'] = False
-        else:
-            job['nearest_bombers_calculated'] = False
-            
+
         # now we know its been calculated, show it
         if (job.get('nearest_bombers_calculated', False)):
-            buffer = "** CLOSEST BOMBER RELOADING AIRBASES **\n%s: %.0f Nm\n%s: %.0f Nm" % (job['nearest_bombers_sorted_list'][0]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][0]['distance'])), job['nearest_bombers_sorted_list'][1]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][1]['distance'])))
+            buffer = "** CLOSEST BOMBER RELOADING AIRBASES **\n\n%s: %.0f Nm\n%s: %.0f Nm" % (job['nearest_bombers_sorted_list'][0]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][0]['distance'])), job['nearest_bombers_sorted_list'][1]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][1]['distance'])))
             GObject.idle_add(tbClosestAirbase.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
             job['nearest_bombers_calculated'] = True
         else:
@@ -273,12 +271,10 @@ class InterFace(Gtk.Window):
                 job['nearest_pdd_calculated'] = True
             else:
                 job['nearest_pdd_calculated'] = False
-        else:
-            job['nearest_pdd_calculated'] = False
         
         # now we know its been calculated, show it
         if (job.get('nearest_pdd_calculated', False)):
-            buffer = "** CLOSEST NOMINATED OPERATING AIRBASES **\n%s: %.0f Nm\n%s: %.0f Nm" % (job['nearest_pdd_sorted_list'][0]['name'], math.ceil(float(job['nearest_pdd_sorted_list'][0]['distance'])), job['nearest_pdd_sorted_list'][1]['name'], math.ceil(float(job['nearest_pdd_sorted_list'][1]['distance'])))
+            buffer = "** CLOSEST NOMINATED OPERATING AIRBASES **\n\n%s: %.0f Nm\n%s: %.0f Nm" % (job['nearest_pdd_sorted_list'][0]['name'], math.ceil(float(job['nearest_pdd_sorted_list'][0]['distance'])), job['nearest_pdd_sorted_list'][1]['name'], math.ceil(float(job['nearest_pdd_sorted_list'][1]['distance'])))
             GObject.idle_add(tbClosestPDD.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
             job['nearest_pdd_calculated'] = True
         else:
@@ -697,7 +693,7 @@ class InterFace(Gtk.Window):
                                         # populate the flight info text box
                                         if (job['parse_lat_long'] and job['parse_dispatch_channel']):
                                             job['distance'], job['bearing'] = calcs.get_distance_and_bearing (job['airfield']['lat'], job['airfield']['lng'], job['latitude'], job['longitude'])
-                                            job['buffer_flight_info'] = ("** FLIGHT DATA**\nDistance : %s\nBearing : %s\nDispatch: %s" % (str(job['distance']), str(job['bearing']), job['DispatchChannel']))
+                                            job['buffer_flight_info'] = ("** FLIGHT DATA**\n\nDistance : %s\nBearing : %s\nDispatch: %s" % (str(job['distance']), str(job['bearing']), job['DispatchChannel']))
                                         else:
                                             job['buffer_flight_info'] = 'Error extracting flight details.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long\n-Problem with dispatch channel'
                                         
@@ -718,6 +714,7 @@ class InterFace(Gtk.Window):
                                         
                                         # add it to the list
                                         jobs.append(job)
+                                        self.jobs_index = len(jobs)-1
                                         
                                         
                                         self.update_screen(job)
