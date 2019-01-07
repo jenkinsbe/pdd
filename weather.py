@@ -61,13 +61,15 @@ def parse_wx_from_fwb(soup, aws):
             tags = soup.find_all('td')
             regex = re.compile("[^0-9]")
 
-            
+            logging.debug ("%d tags exist" % len(tags))
             for x in range (0, len(tags)):
                 tag = tags[x].string
                 tag = funcs.CleanString(tag)
                 
+                #logging.debug ("TAG: %s" % tag)
+                
                 if tag is not None:
-                    if tag in aws:
+                    if (tag == aws):
                         logger.debug ('%s at %d' % (aws, x))
                         
                         ffdi = regex.sub ("", str(tags[x+11]))
@@ -84,4 +86,10 @@ def parse_wx_from_fwb(soup, aws):
     else:
         logger.debug ('No soup object available for parsing')
 
-    return b_return, aws_time, int(ffdi), int(gfdi)
+    # validate the ffdi and gfdi values
+    try:
+        ffdi = [int(s) for s in ffdi.split() if s.isdigit()][0]
+        gfdi = [int(s) for s in gfdi.split() if s.isdigit()][0]
+        return b_return, aws_time, int(ffdi), int(gfdi)
+    except:
+        return False, None, -1, -1

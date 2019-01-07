@@ -1,4 +1,6 @@
 def CleanString (str):
-    str = str.replace ("  ", " ")
-    str = str.lstrip()
+    if str is not None:
+        str = str.replace ("  ", " ")
+        str = str.lstrip()
+        str = str.rstrip()
     return str

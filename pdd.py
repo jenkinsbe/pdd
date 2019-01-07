@@ -176,14 +176,18 @@ class InterFace(Gtk.Window):
     def downloadImage (self, url, filename):
         try:
             with urllib.request.urlopen(url, timeout=15) as response, open(filename, 'wb') as out_file:
-                data = response.read()
+                data = response.read() #.decode('utf-8')
                 out_file.write(data)
                 
-        except (urllib.HTTPError, urllib.URLError) as error:
+#        except (urllib.HTTPError, urllib.URLError) as error:
+        except (error.HTTPError, error.URLError) as error:
             logging.error('Image data did not download because %s\nURL: %s', error, url)
             return False
         except timeout:
             logging.error('Image data did not download because the socket timed out\nURL: %s', url)
+            return False
+        except Exception as e:
+            logging.error(type(e).__name__ + ": " + str(e))
             return False
         else:
             return True
@@ -294,7 +298,11 @@ class InterFace(Gtk.Window):
         if (b_return):
             if (count > 0):
                 if (job.get('soup', None) is None):
-                    b_dfwb, fwb = weather.download_fire_weather_bulletin()
+                    if (job['b_dfwb'] == False):
+                        b_dfwb, fwb = weather.download_fire_weather_bulletin()
+                    else:
+                        b_dfwb = job['b_dfwb']
+                        fwb = job['fwb']
                     #logging.debug ("%.5fs:%s" %(timer()-start, "FWB download complete"))
 
                     job['soup'] = BeautifulSoup(fwb, 'html.parser')
@@ -318,6 +326,9 @@ class InterFace(Gtk.Window):
                                 else:
                                     self.update_text_buffer(self.tbWeather, "NO GO", "tag_NoGo")
                                     
+                                message = "\nAWS: %s." % (airfield['aws'])
+                                self.update_text_buffer(self.tbWeather, message)
+
                                 message = "\nFFDI is %d, GFDI is %d." % (ffdi, gfdi)
                                 self.update_text_buffer(self.tbWeather, message)
                                 
@@ -701,6 +712,7 @@ class InterFace(Gtk.Window):
                                         # update weather information
                                         if (job['parse_alert']):
                                             job['b_dfwb'], job['fwb'] = weather.download_fire_weather_bulletin()
+                                        #job['b_dfwb']=False
 
                                         # update image
                                         #if (job['parse_lat_long']):
