@@ -261,7 +261,7 @@ class InterFace(Gtk.Window):
 
             self.update_text_buffer(self.tbClosestAirbase, '*** CLOSEST BOMBER RELOADING AIRBASES ***', "tag_Bold", clear_buffer_first=True)
 
-            buffer = "\n%s: %.0f Nm\n%s: %.0f Nm" % (job['nearest_bombers_sorted_list'][0]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][0]['distance'])), job['nearest_bombers_sorted_list'][1]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][1]['distance'])))
+            buffer = "\n%s: %.0f Nm\n%s: %.0f Nm\n%s: %.0f Nm" % (job['nearest_bombers_sorted_list'][0]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][0]['distance'])), job['nearest_bombers_sorted_list'][1]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][1]['distance'])), job['nearest_bombers_sorted_list'][2]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][2]['distance'])))
             self.update_text_buffer(self.tbClosestAirbase, buffer)
 
             job['nearest_bombers_calculated'] = True
