@@ -258,8 +258,12 @@ class InterFace(Gtk.Window):
 
         # now we know its been calculated, show it
         if (job.get('nearest_bombers_calculated', False)):
-            buffer = "** CLOSEST BOMBER RELOADING AIRBASES **\n\n%s: %.0f Nm\n%s: %.0f Nm" % (job['nearest_bombers_sorted_list'][0]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][0]['distance'])), job['nearest_bombers_sorted_list'][1]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][1]['distance'])))
-            GObject.idle_add(tbClosestAirbase.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
+
+            self.update_text_buffer(self.tbClosestAirbase, '*** CLOSEST BOMBER RELOADING AIRBASES ***', "tag_Bold", clear_buffer_first=True)
+
+            buffer = "\n%s: %.0f Nm\n%s: %.0f Nm" % (job['nearest_bombers_sorted_list'][0]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][0]['distance'])), job['nearest_bombers_sorted_list'][1]['name'], math.ceil(float(job['nearest_bombers_sorted_list'][1]['distance'])))
+            self.update_text_buffer(self.tbClosestAirbase, buffer)
+
             job['nearest_bombers_calculated'] = True
         else:
             logging.error ("Could not find closest bomber reloading airbases")
@@ -278,8 +282,12 @@ class InterFace(Gtk.Window):
         
         # now we know its been calculated, show it
         if (job.get('nearest_pdd_calculated', False)):
-            buffer = "** CLOSEST NOMINATED OPERATING AIRBASES **\n\n%s: %.0f Nm\n%s: %.0f Nm" % (job['nearest_pdd_sorted_list'][0]['name'], math.ceil(float(job['nearest_pdd_sorted_list'][0]['distance'])), job['nearest_pdd_sorted_list'][1]['name'], math.ceil(float(job['nearest_pdd_sorted_list'][1]['distance'])))
-            GObject.idle_add(tbClosestPDD.set_text, buffer, priority=GObject.PRIORITY_DEFAULT)
+
+            self.update_text_buffer(self.tbClosestPDD, '*** CLOSEST NOMINATED OPERATING AIRBASES ***', "tag_Bold", clear_buffer_first=True)
+            
+            buffer = "\n%s: %.0f Nm\n%s: %.0f Nm\n%s: %.0f Nm" % (job['nearest_pdd_sorted_list'][0]['name'], math.ceil(float(job['nearest_pdd_sorted_list'][0]['distance'])), job['nearest_pdd_sorted_list'][1]['name'], math.ceil(float(job['nearest_pdd_sorted_list'][1]['distance'])), job['nearest_pdd_sorted_list'][2]['name'], math.ceil(float(job['nearest_pdd_sorted_list'][2]['distance'])))
+            self.update_text_buffer(self.tbClosestPDD, buffer)
+
             job['nearest_pdd_calculated'] = True
         else:
             logging.error ("Could not find closest nominated operating airbases")
@@ -318,7 +326,7 @@ class InterFace(Gtk.Window):
                             b_success, aws_time, ffdi, gfdi = weather.parse_wx_from_fwb (job['soup'], airfield['aws'])
                             if (b_success):
 
-                                message = "\n\n%s(%s): " % (airfield['name'], airfield['fdi_trigger'])
+                                message = "\n%s(%s) FFDI is %d, GFDI is %d: " % (airfield['aws'], airfield['fdi_trigger'], ffdi, gfdi)
                                 self.update_text_buffer(self.tbWeather, message)
                             
                                 if (int(max(gfdi, ffdi)) > int(airfield['fdi_trigger'])):
@@ -326,11 +334,11 @@ class InterFace(Gtk.Window):
                                 else:
                                     self.update_text_buffer(self.tbWeather, "NO GO", "tag_NoGo")
                                     
-                                message = "\nAWS: %s." % (airfield['aws'])
-                                self.update_text_buffer(self.tbWeather, message)
+                                #message = "\nAWS: %s." % (airfield['aws'])
+                                #self.update_text_buffer(self.tbWeather, message)
 
-                                message = "\nFFDI is %d, GFDI is %d." % (ffdi, gfdi)
-                                self.update_text_buffer(self.tbWeather, message)
+                                #message = "\nFFDI is %d, GFDI is %d." % (ffdi, gfdi)
+                                #self.update_text_buffer(self.tbWeather, message)
                                 
                                 #logging.debug ("%.5fs:Found weather for %s AWS" %(timer()-start, airfield['aws']))
 
@@ -356,7 +364,7 @@ class InterFace(Gtk.Window):
         __ser = self.InitSerialPort()
         
         __pdd_test_list = []
-        __pdd_test_list.append(b'\r\nM 001817568 @@ALERT F123456789 INVL2 G&SC1 SMALL GRASS FIRE EMMA LANE INVERLOCH SVC 6962 D7 (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRLTV BDG374 CINVL CWOGI HEL337 RSSI: 80\r\n')
+        __pdd_test_list.append(b'\r\nM 001814328 @@ALERT F123456789 INVL2 G&SC1 SMALL GRASS FIRE EMMA LANE INVERLOCH SVC 6962 D7 (123456) LAT/LON:-38.6313124, 145.6566964 DISP509 AIRCAS BDG374 CINVL CWOGI HEL337 RSSI: 80\r\n')
         __pdd_test_list.append(b'\r\nM 001814336 @@ALERT F180300594 JUNO3 G&SC1 SMOKE SIGHTING FROM FIRETOWER CNR BENNETTS RD/MELALEUCA AV LONGLEA SVNW 8285 F9 (673248) LAT/LON:-36.7938187, 144.3928462 DISP502 AIRBEN CAXEC CBENDS CJUNO FBD305 HEL335 [AIRBEN] RSSI: 81\r\n')
         __pdd_test_list.append(b'\r\nM 001876600 @@ALERT F180300904 TOOL2 G&SC1 GRASS FIRE SPREADING CNR COIMADAI-DIGGERS REST RD/HOLDEN RD TOOLERN VALE M 332 F5 (921328) LAT/LON:-37.6281814, 144.6449890 DISP61 AIRBAC CMTON CTOOL HEL345 RSSI: 82\r\n')
         __pdd_test_list.append(b'\r\nM 001816088 @@ALERT F180300913 MTEL1 G&SC1 UNDEFINED FIRE IN BACKYARD 125 BELLBIRD RD MOUNT ELIZA /FREELANDS DR //HUMPHRIES RD M 106 C3 (354711) LAT/LON:-38.1926135, 145.1209718 DISP27 AIRMMB CFTONS CMTEL FBD302 HEL338 RSSI: 83\r\n')
@@ -429,7 +437,9 @@ class InterFace(Gtk.Window):
             
             # populate the flight info text box
             logging.debug ("Update flight info textbox")
-            GObject.idle_add(self.tbFlightPath.set_text, job['buffer_flight_info'], priority=GObject.PRIORITY_DEFAULT)
+            self.update_text_buffer(self.tbFlightPath, '*** FLIGHT DATA ***', "tag_Bold", clear_buffer_first=True)
+            self.update_text_buffer(self.tbFlightPath, job['buffer_flight_info'])
+            #GObject.idle_add(self.tbFlightPath.set_text, job['buffer_flight_info'], priority=GObject.PRIORITY_DEFAULT)
             logging.debug ("%.5fs:%s" %(timer()-start, "Update flight info textbox"))
             
             # update closest airfields
@@ -704,7 +714,7 @@ class InterFace(Gtk.Window):
                                         # populate the flight info text box
                                         if (job['parse_lat_long'] and job['parse_dispatch_channel']):
                                             job['distance'], job['bearing'] = calcs.get_distance_and_bearing (job['airfield']['lat'], job['airfield']['lng'], job['latitude'], job['longitude'])
-                                            job['buffer_flight_info'] = ("** FLIGHT DATA**\n\nDistance : %s\nBearing : %s\nDispatch: %s" % (str(job['distance']), str(job['bearing']), job['DispatchChannel']))
+                                            job['buffer_flight_info'] = ("\nDistance : %s\nBearing : %s\nDispatch: %s" % (str(job['distance']), str(job['bearing']), job['DispatchChannel']))
                                         else:
                                             job['buffer_flight_info'] = 'Error extracting flight details.\n\nPossible causes;\n-Not an ALERT page\n-Problem with Lat/Long\n-Problem with dispatch channel'
                                         
@@ -768,6 +778,10 @@ class InterFace(Gtk.Window):
         self.tbWeather.create_tag("tag_Bold", weight=Pango.Weight.BOLD)
         self.tbWeather.create_tag("tag_NoGo", foreground="red")
         self.tbWeather.create_tag("tag_Go", foreground="green")
+
+        self.tbFlightPath.create_tag("tag_Bold", weight=Pango.Weight.BOLD)
+        self.tbClosestAirbase.create_tag("tag_Bold", weight=Pango.Weight.BOLD)
+        self.tbClosestPDD.create_tag("tag_Bold", weight=Pango.Weight.BOLD)
         
         widgets['tbPagerMessage'] = self.builder.get_object("tbPagerMessage")
         widgets['tbPagerMessage'].create_tag("tag_Large", weight=Pango.Weight.BOLD, size=30 * Pango.SCALE)
