@@ -329,7 +329,7 @@ class InterFace(Gtk.Window):
                                 message = "\n%s(%s) FFDI is %d, GFDI is %d: " % (airfield['aws'], airfield['fdi_trigger'], ffdi, gfdi)
                                 self.update_text_buffer(self.tbWeather, message)
                             
-                                if (int(max(gfdi, ffdi)) > int(airfield['fdi_trigger'])):
+                                if (int(max(gfdi, ffdi)) >= int(airfield['fdi_trigger'])):
                                     self.update_text_buffer(self.tbWeather, "GO", "tag_Go")
                                 else:
                                     self.update_text_buffer(self.tbWeather, "NO GO", "tag_NoGo")
